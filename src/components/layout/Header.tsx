@@ -1,7 +1,38 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
+  const [activeSection, setActiveSection] = useState<string>("");
+  const sections = [
+    { clave: "hero", valor: "Inicio" },
+    { clave: "techstack", valor: "Herramientas" },
+    { clave: "videos", valor: "Videos" },
+    { clave: "about", valor: "Sobre Nosotros" },
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          } else if (activeSection === entry.target.id) {
+            setActiveSection(""); // Reset if the section is no longer focused
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id.clave);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [activeSection]);
+
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -11,71 +42,43 @@ export const Header = () => {
 
   return (
     <motion.header
-      className="py-2 sticky top-0 bg-black bg-opacity-50 z-10 shadow-sm"
+      className="fixed top-0 w-full flex justify-center text-white rounded-lg z-10"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="w-full px-1 py-2 lg:px-6">
-        <div className="flex flex-row items-center">
-          <div className="flex w-4/12 items-center space-x-4 lg:space-x-8">
-            <div className="hidden items-center space-x-0.5 lg:flex">
-              <nav className="space-x-6">
-                {/* Cambiar a Link y mantener el efecto smooth scrolling */}
-                <Link
-                  to="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleScroll("hero");
-                  }}
-                  className="text-[#CA5937] hover:text-[#FFAE42] transition-colors"
-                >
-                  Inicio
-                </Link>
-                <Link
-                  to="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleScroll("techstack");
-                  }}
-                  className="text-[#CA5937] hover:text-[#FFAE42] transition-colors"
-                >
-                  Herramientas
-                </Link>
-                <Link
-                  to="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleScroll("videos");
-                  }}
-                  className="text-[#CA5937] hover:text-[#FFAE42] transition-colors"
-                >
-                  Videos
-                </Link>
-                <Link
-                  to="/"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleScroll("about");
-                  }}
-                  className="text-[#CA5937] hover:text-[#FFAE42] transition-colors"
-                >
-                  Sobre Nosotros
-                </Link>
-              </nav>
-            </div>
-          </div>
-
-          <div className="flex w-4/12 justify-center">
-            <Link
-              to="/"
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#CA5937] via-[#FFAE42] to-[#FF00FF] transition-colors hover:text-[#FFAE42]"
-            >
-              YvagaCore
-            </Link>
-          </div>
+      <nav className="flex w-full backdrop-blur-sm justify-center h-full py-4">
+        <div className="flex items-center justify-center w-1/5">
+          <Link to="/" className="text-white font-sans hover:text-[#3b505a]">
+            YvagaCore
+          </Link>
         </div>
-      </div>
+        <div className="flex items-center justify-center w-4/5 space-x-12">
+          {sections.map((section) => (
+            <Link
+              key={section.clave}
+              to="/"
+              onClick={(e) => {
+                e.preventDefault();
+                handleScroll(section.clave);
+              }}
+              className={`relative transition-colors hover:text-[#3b505a] ${
+                activeSection === section.clave
+                  ? "text-[#3b505a]"
+                  : "text-white"
+              }`}
+            >
+              {activeSection === section.clave && (
+                <span
+                  className="absolute -top-5 left-0 right-0 h-4 bg-[#3b505a] rounded-b-md"
+                  style={{ transform: "translateY(-50%)" }}
+                />
+              )}
+              {section.valor}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </motion.header>
   );
 };

@@ -4,24 +4,37 @@ import React, { useRef, useEffect } from "react";
 
 export const Videos = () => {
   const videoRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<YT.Player | null>(null);
 
   useEffect(() => {
+    // Cargar la API de YouTube
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+
+    // Función que se llamará cuando la API esté lista
+    window.onYouTubeIframeAPIReady = () => {
+      playerRef.current = new YT.Player(videoRef.current!, {
+        events: {
+          onReady: onPlayerReady,
+        },
+      });
+    };
+
+    const onPlayerReady = (event: YT.PlayerEvent) => {
+      event.target.mute();
+      event.target.setPlaybackRate(2);
+      event.target.playVideo();
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const video = videoRef.current;
-          if (video) {
-            if (entry.isIntersecting) {
-              video.contentWindow?.postMessage(
-                '{"event":"command","func":"playVideo","args":""}',
-                "*"
-              );
-            } else {
-              video.contentWindow?.postMessage(
-                '{"event":"command","func":"pauseVideo","args":""}',
-                "*"
-              );
-            }
+          if (entry.isIntersecting) {
+            playerRef.current?.playVideo();
+          } else {
+            playerRef.current?.pauseVideo();
           }
         });
       },
@@ -36,6 +49,8 @@ export const Videos = () => {
       if (videoRef.current) {
         observer.unobserve(videoRef.current);
       }
+      // Limpiar la función global
+      delete window.onYouTubeIframeAPIReady;
     };
   }, []);
 
@@ -59,15 +74,14 @@ export const Videos = () => {
           <div className="lg:w-1/2">
             <div className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 p-1 rounded-lg">
               <div className="bg-black rounded-lg aspect-video">
-                {/* YouTube Video Embed */}
                 <iframe
                   ref={videoRef}
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/Enbbq646Se4?enablejsapi=1"
+                  src="https://www.youtube.com/embed/Enbbq646Se4?enablejsapi=1&controls=0&disablekb=1&fs=0&modestbranding=1&rel=0&autoplay=1&mute=1&playsinline=1"
                   title="Video de despliegue de React"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
