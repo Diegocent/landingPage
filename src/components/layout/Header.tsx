@@ -18,7 +18,7 @@ export const Header = () => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
           } else if (activeSection === entry.target.id) {
-            setActiveSection(""); // Reset if the section is no longer focused
+            setActiveSection("");
           }
         });
       },
@@ -42,18 +42,32 @@ export const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 w-full flex justify-center text-white rounded-lg z-10"
+      className="fixed z-10 flex justify-center w-full top-4"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <nav className="flex w-full backdrop-blur-sm justify-center h-full py-4">
-        <div className="flex items-center justify-center w-1/5">
-          <Link to="/" className="text-white font-sans hover:text-[#3b505a]">
-            YvagaCore
-          </Link>
-        </div>
-        <div className="flex items-center justify-center w-4/5 space-x-12">
+      <nav
+        className="flex items-center justify-between w-full max-w-screen-lg px-4 py-2 mx-auto text-white bg-gray-800 rounded-lg bg-opacity-40 bg-opacity-30 md:px-8 md:py-3"
+        style={{ borderRadius: "12px" }}
+      >
+        {/* Logo */}
+        <motion.h2
+          className="text-lg font-bold text-white font-[Promethean]"
+          initial={{ opacity: 0, scale: 0.8, y: -10 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          whileHover={{
+            textShadow: "0px 0px 8px rgba(255, 255, 255, 0.7)",
+            scale: 1.1,
+            transition: { duration: 0.3 },
+          }}
+        >
+          YvagaCore
+        </motion.h2>
+
+        {/* Menu */}
+        <div className="hidden space-x-6 md:flex md:items-center md:space-x-8 lg:space-x-12">
           {sections.map((section) => (
             <Link
               key={section.clave}
@@ -70,13 +84,36 @@ export const Header = () => {
             >
               {activeSection === section.clave && (
                 <span
-                  className="absolute -top-5 left-0 right-0 h-4 bg-[#3b505a] rounded-b-md"
+                  className="absolute -top-3 left-0 right-0 h-1 bg-[#3b505a] rounded-b-md"
                   style={{ transform: "translateY(-50%)" }}
                 />
               )}
               {section.valor}
             </Link>
           ))}
+        </div>
+
+        {/* Mobile Menu Icon */}
+        <div className="md:hidden">
+          <button
+            className="text-white focus:outline-none"
+            onClick={() => alert("Open mobile menu!")}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
         </div>
       </nav>
     </motion.header>

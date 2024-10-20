@@ -72,7 +72,7 @@ export const Hero = () => {
         >
           {/* H2 Animación */}
           <motion.h2
-            className="max-w-4xl mb-6 text-4xl font-bold md:text-5xl lg:text-6xl text-[#3b505a]"
+            className="max-w-4xl mb-6 text-4xl font-bold md:text-5xl lg:text-5xl text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]"
             variants={fadeInUp}
           >
             Transformamos ideas en soluciones digitales efectivas

@@ -9,6 +9,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Promethean";
+  src: url("../public/fonts/prometheantitle.ttf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }

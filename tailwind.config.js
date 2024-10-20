@@ -8,7 +8,13 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Giane Gothic Sans", "Inter", "system-ui", "sans-serif"],
+        sans: [
+          "Giane Gothic Sans",
+          "Inter",
+          "system-ui",
+          "sans-serif",
+          "Promethean",
+        ],
       },
       borderRadius: {
         lg: "var(--radius)",
