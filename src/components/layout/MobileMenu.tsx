@@ -64,30 +64,18 @@ export const MobileMenu = ({
                     handleScroll(section.clave);
                     setIsOpen(false); // Cerrar el menú al hacer clic
                   }}
-                  className={`block text-lg transition-colors hover:text-white ${
+                  className={`block text-lg hover:text-white ${
                     activeSection === section.clave
-                      ? "text-[#3b505a]"
+                      ? "text-[#3B505A]"
                       : "text-white"
-                  }`}
+                  }`} // Mantén el color blanco
                   whileTap={{
-                    x: -10, // Desplazamiento a la izquierda
-                    scale: 0.95, // Efecto de escala
+                    y: -5, // Elevar ligeramente el texto al hacer clic
+                    scale: 0.95, // Efecto de escala al hacer clic
                     transition: { duration: 0.2 },
                   }}
                 >
-                  <span className="relative">
-                    {section.valor}
-                    {activeSection === section.clave && (
-                      <motion.span
-                        layoutId="underline"
-                        className="absolute top-0 right-0 w-1 h-full bg-[#3b505a] rounded-lg"
-                        style={{ transformOrigin: "center" }}
-                        initial={{ scaleY: 0 }} // Inicialmente sin altura
-                        animate={{ scaleY: 1 }} // Aparece desde el centro
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </span>
+                  <span className="relative">{section.valor}</span>
                 </motion.a>
               </motion.li>
             ))}

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
-  // Definimos la animación que comienza en el centro
   const circleVariants = {
     initial: { x: 0, y: 0, scale: 0 },
     animate: (position) => ({
@@ -14,7 +13,6 @@ export const Hero = () => {
     }),
   };
 
-  // Variantes para el texto y los elementos en cascada
   const fadeInUp = {
     initial: { opacity: 0, y: -50 },
     animate: {
@@ -25,69 +23,65 @@ export const Hero = () => {
   };
 
   return (
-    <main className="relative flex items-center justify-start w-full h-screen overflow-hidden">
-      {/* Círculo 1 */}
+    <main className="relative flex items-center justify-center w-full h-screen overflow-hidden">
+      {/* Círculos de fondo */}
       <motion.div
         className="absolute bottom-14 left-10 w-40 h-40 bg-[#3B505A] rounded-full z-0"
-        custom={{ x: -100, y: 90 }} // Movimiento hacia izquierda-abajo
+        custom={{ x: -100, y: 90 }}
         initial="initial"
         animate="animate"
         variants={circleVariants}
       ></motion.div>
 
-      {/* Círculo 2 */}
       <motion.div
         className="absolute top-1/4 right-20 w-32 h-32 bg-[#3B505A] rounded-full z-0"
-        custom={{ x: 120, y: -150 }} // Movimiento hacia derecha-arriba
+        custom={{ x: 120, y: -150 }}
         initial="initial"
         animate="animate"
         variants={circleVariants}
       ></motion.div>
 
-      {/* Círculo 3 */}
       <motion.div
         className="absolute bottom-44 left-2/4 w-12 h-12 bg-[#3B505A] rounded-full z-0"
-        custom={{ x: 0, y: 100 }} // Movimiento hacia abajo
+        custom={{ x: 0, y: 100 }}
         initial="initial"
         animate="animate"
         variants={circleVariants}
       ></motion.div>
 
-      {/* Círculo 4 */}
       <motion.div
         className="absolute z-0 w-40 h-40 bg-[#3B505A] rounded-full -bottom-10 -right-10"
-        custom={{ x: 50, y: -10 }} // Movimiento hacia derecha-abajo
+        custom={{ x: 50, y: -10 }}
         initial="initial"
         animate="animate"
         variants={circleVariants}
       ></motion.div>
 
-      {/* Contenido */}
-      <div className="flex flex-col items-center justify-between w-full px-4 max-w-none md:flex-row">
+      {/* Contenido adaptado para pantallas pequeñas y grandes */}
+      <div className="flex flex-col items-center justify-center w-full h-full px-4 m-4 space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:space-x-6">
+        {/* Texto */}
         <motion.div
-          className="mb-10 text-left md:w-1/2 md:mb-0"
+          className="text-center sm:text-left"
           initial="initial"
           animate="animate"
-          transition={{ staggerChildren: 0.3 }} // Animación en cascada
+          transition={{ staggerChildren: 0.3 }}
         >
-          {/* H2 Animación */}
           <motion.h2
-            className="max-w-4xl mb-6 text-4xl font-bold md:text-5xl lg:text-5xl text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]"
+            className="mb-6 text-3xl font-bold md:text-5xl lg:text-5xl text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]"
             variants={fadeInUp}
           >
             Transformamos ideas en soluciones digitales efectivas
           </motion.h2>
 
-          {/* P Animación */}
           <motion.p
             className="max-w-2xl mb-8 text-xl text-justify text-gray-400"
             variants={fadeInUp}
           >
             Desarrollamos aplicaciones móviles y webs. Creamos soluciones
-            personalizadas para potenciar y simplificar la gestión de tu empresa
+            personalizadas para potenciar y simplificar la gestión de tu
+            empresa.
           </motion.p>
 
-          {/* Button Animación */}
           <motion.div variants={fadeInUp}>
             <Button className="flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-full text-lg font-semibold z-10 hover:border-[#3B505A] hover:shadow-[0px_0px_5px_2px_rgba(59,80,90,0.5)] border-[#3B505A]">
               Hablemos de tu proyecto <ChevronRight className="w-5 h-5 ml-2" />
@@ -95,18 +89,22 @@ export const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Logo Animación */}
+        {/* Logo */}
         <motion.div
-          className="z-10 flex items-center justify-center md:w-1/2"
+          className="flex items-center justify-center"
           style={{ color: "black" }}
           initial={{ opacity: 0, y: -50 }}
           animate={{
             opacity: 1,
             y: 0,
             transition: { duration: 0.8, ease: "easeOut", delay: 0.9 },
-          }} // Logo tiene un retraso mayor
+          }}
         >
-          <img src="/logo.svg" alt="Logo" className="max-w-full w-96 h-96 " />
+          <img
+            src="/logo.svg"
+            alt="Logo"
+            className="w-32 h-32 max-w-full md:w-64 md:h-64 lg:w-80 lg:h-80"
+          />
         </motion.div>
       </div>
     </main>
