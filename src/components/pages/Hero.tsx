@@ -67,10 +67,16 @@ export const Hero = () => {
           transition={{ staggerChildren: 0.3 }}
         >
           <motion.h2
-            className="mb-6 text-3xl font-bold md:text-5xl lg:text-5xl text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]"
+            className="mb-6 text-3xl font-bold text-gray-400 md:text-5xl lg:text-5xl bg-clip-text"
             variants={fadeInUp}
           >
-            Transformamos ideas en soluciones digitales efectivas
+            <span className="text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]">
+              Especialistas
+            </span>{" "}
+            en dar vida a{" "}
+            <span className="text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]">
+              tus ideas digitales
+            </span>
           </motion.h2>
 
           <motion.p
