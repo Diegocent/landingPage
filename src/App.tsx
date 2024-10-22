@@ -63,15 +63,18 @@ function App() {
             <Videos />
           </section>
 
-          <section id="about">
-            <AboutUsSection />
-          </section>
           <section id="techstack" className="w-full py-12">
             <TechStack />
           </section>
-          <section>
+
+          <section id="proyectos">
             <Projects />
           </section>
+
+          <section id="about">
+            <AboutUsSection />
+          </section>
+
           <Footer />
         </div>
       </div>
