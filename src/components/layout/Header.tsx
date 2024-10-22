@@ -7,8 +7,8 @@ export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const sections = [
     { clave: "hero", valor: "Inicio" },
-    { clave: "techstack", valor: "Herramientas" },
     { clave: "videos", valor: "Videos" },
+    { clave: "techstack", valor: "Herramientas" },
     { clave: "about", valor: "Sobre Nosotros" },
   ];
 

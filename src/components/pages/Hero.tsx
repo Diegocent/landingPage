@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { DialogUser } from "./DialogUser";
 
 export const Hero = () => {
   const circleVariants = {
@@ -89,9 +90,12 @@ export const Hero = () => {
           </motion.p>
 
           <motion.div variants={fadeInUp}>
-            <Button className="flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-full text-lg font-semibold z-10 hover:border-[#3B505A] hover:shadow-[0px_0px_5px_2px_rgba(59,80,90,0.5)] border-[#3B505A]">
-              Hablemos de tu proyecto <ChevronRight className="w-5 h-5 ml-2" />
-            </Button>
+            <DialogUser>
+              <Button className="flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-full text-lg font-semibold z-10 hover:border-[#3B505A] hover:shadow-[0px_0px_5px_2px_rgba(59,80,90,0.5)] border-[#3B505A]">
+                Hablemos de tu proyecto{" "}
+                <ChevronRight className="w-5 h-5 ml-2" />
+              </Button>
+            </DialogUser>
           </motion.div>
         </motion.div>
 
