@@ -63,7 +63,7 @@ function App() {
             <Videos />
           </section>
 
-          <section id="techstack" className="w-full py-12">
+          <section id="techstack">
             <TechStack />
           </section>
 

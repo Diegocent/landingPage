@@ -47,13 +47,13 @@ const projects: Project[] = [
 ];
 const Projects: React.FC = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-800">
-      <div className="container mx-auto px-4">
+    <section className="py-24 bg-gradient-to-t from-[#202b31] via-[#202b3135] to-[#202b31] ">
+      <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-12 text-center"
         >
           <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#3B505A] to-[#707d83]">
             Nuestros Proyectos
@@ -67,7 +67,7 @@ const Projects: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {projects.map((project) => (
             <ProjectCard key={project.id} {...project} />

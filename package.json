@@ -21,7 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "face-api.js": "^0.22.2",
-    "framer-motion": "^11.11.7",
+    "framer-motion": "^11.11.9",
     "lucide-react": "^0.447.0",
     "next-themes": "^0.3.0",
     "react": "^18.3.1",

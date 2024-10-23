@@ -10,8 +10,8 @@ export default function TechStack() {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 20 }, // Oculto al inicio
+    visible: { opacity: 1, y: 0 }, // Aparece cuando está visible
     transition: { duration: 0.5, ease: "easeOut" },
   };
 
@@ -46,14 +46,15 @@ export default function TechStack() {
   }, [controls, width]);
 
   return (
-    <>
+    <section className="py-16 bg-transparent">
       <motion.div
-        className="relative max-w-4xl mx-auto text-center mb-16 mt-[6%]"
-        initial="initial"
-        animate="animate"
+        className="relative max-w-4xl mx-auto mb-16 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }} // Activa la animación cuando se ve el 20% del elemento
         variants={fadeInUp}
       >
-        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-[#CA5937]">
+        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-[#638696]">
           Herramientas utilizadas
         </h2>
         <p className="text-xl text-gray-400">
@@ -61,7 +62,16 @@ export default function TechStack() {
           estas herramientas
         </p>
       </motion.div>
-      <div className="container mx-auto overflow-hidden" ref={containerRef}>
+
+      {/* Contenedor del carrusel */}
+      <motion.div
+        className="container mx-auto overflow-hidden"
+        ref={containerRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }} // Animación cuando entre en la vista del usuario
+        variants={fadeInUp}
+      >
         <motion.div
           ref={carouselRef}
           className="flex"
@@ -72,16 +82,16 @@ export default function TechStack() {
             <motion.div
               key={`${tech.name}-${index}`}
               className="w-[100px] p-2 flex-shrink-0"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }} // Escala al pasar el mouse
             >
-              <Card className="bg-gray-800 border-gray-700 h-full">
+              <Card className="h-full bg-gray-800 border-gray-700">
                 <CardContent className="flex flex-col items-center justify-center h-full p-4">
                   <img
                     src={tech.path}
                     alt={`${tech.name} logo`}
-                    className="w-12 h-12 object-contain mb-2"
+                    className="object-contain w-12 h-12 mb-2"
                   />
-                  <span className="text-sm font-medium text-gray-200 text-center">
+                  <span className="text-sm font-medium text-center text-gray-200">
                     {tech.name}
                   </span>
                 </CardContent>
@@ -89,7 +99,7 @@ export default function TechStack() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
-    </>
+      </motion.div>
+    </section>
   );
 }
