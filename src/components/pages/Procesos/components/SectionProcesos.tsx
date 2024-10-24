@@ -118,7 +118,7 @@ export const SectionProcesos = ({
               </motion.div>
               {/* Título y Subtítulo */}
               <motion.div
-                className="mb-10 lg:w-1/2 lg:mb-0"
+                className="mb-10 lg:w-1/2 lg:mb-0 lg:ml-8"
                 variants={sectionVariants}
               >
                 <div className="flex items-center mb-4">
@@ -133,25 +133,26 @@ export const SectionProcesos = ({
           )}
         </div>
 
-        {/* Feature Boxes */}
-        <motion.div className="grid grid-cols-1 gap-8 mt-20 md:grid-cols-2 lg:grid-cols-4">
-          {[0, 1, 2, 3].map((i) => (
-            <motion.div
-              key={i}
-              custom={i}
-              variants={featureBoxVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ amount: 0.2 }}
-            >
-              <FeatureBox
-                icon={<Zap className="w-6 h-6 text-[#638696]" />}
-                title="Tecnología Moderna"
-                description="YvagaCore está construido con React v18 y TypeScript. Usa cualquier combinación entre Next.js, Remix, Firebase y Supabase."
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        {direccion === "izquierda" && (
+          <motion.div className="grid grid-cols-1 gap-8 mt-20 md:grid-cols-2 lg:grid-cols-4">
+            {[0, 1, 2, 3].map((i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={featureBoxVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ amount: 0.2 }}
+              >
+                <FeatureBox
+                  icon={<Zap className="w-6 h-6 text-[#638696]" />}
+                  title="Tecnología Moderna"
+                  description="YvagaCore está construido con React v18 y TypeScript. Usa cualquier combinación entre Next.js, Remix, Firebase y Supabase."
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
       </motion.div>
     </motion.section>
   );
