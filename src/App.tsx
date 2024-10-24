@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import TechStack from "./elements/TechStack";
-import { Videos } from "./components/pages/Videos";
+import { Videos } from "./components/pages/Procesos/Procesos";
 import { Hero } from "./components/pages/Hero";
 import AboutUsSection from "./components/pages/About";
 import { motion, useScroll, useTransform } from "framer-motion";
