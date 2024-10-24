@@ -118,7 +118,7 @@ export const SectionProcesos = ({
               </motion.div>
               {/* Título y Subtítulo */}
               <motion.div
-                className="mb-10 lg:w-1/2 lg:mb-0"
+                className="mb-10 lg:w-1/2 lg:mb-0 lg:ml-8"
                 variants={sectionVariants}
               >
                 <div className="flex items-center mb-4">
