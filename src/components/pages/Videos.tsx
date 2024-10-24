@@ -58,10 +58,9 @@ export const Videos = () => {
               <span className="text-[#638696]">Empieza en minutos</span>
             </div>
             <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-              Listo para Producción.{" "}
+              Servicios que ofrecemos{" "}
               <span className="text-gray-500">
-                El SaaS Starter incluye todas las herramientas y recursos
-                esenciales que necesitas para lanzar tu proyecto.
+                Resumen que podemos brindarte.
               </span>
             </h2>
           </motion.div>
@@ -109,6 +108,81 @@ export const Videos = () => {
           ))}
         </motion.div>
       </motion.div>
+      <div className="flex flex-col items-center p-20 mt-10 lg:flex-row">
+        {/* Título y Subtítulo */}
+        <motion.div className="mb-10 lg:w-1/2 lg:mb-0">
+          <div className="flex items-center mb-4">
+            <Zap className="mr-2 text-[#638696]" />
+            <span className="text-[#638696]">Empieza en minutos</span>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            Plataformas Virtual{" "}
+            <span className="text-gray-500">
+              Resumen que podemos brindarte.
+            </span>
+          </h2>
+        </motion.div>
+      </div>
+      <div className="flex flex-col items-center p-12 lg:flex-row">
+        {/* Título y Subtítulo */}
+        <motion.div className="mb-10 lg:w-1/2 lg:mb-0">
+          <div className="flex items-center mb-4">
+            <Zap className="mr-2 text-[#638696]" />
+            <span className="text-[#638696]">Empieza en minutos</span>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            Proctoring y Control de Entornos{" "}
+            <span className="text-gray-500">
+              Resumen que podemos brindarte.
+            </span>
+          </h2>
+        </motion.div>
+      </div>
+      <div className="flex flex-col items-center p-12 lg:flex-row">
+        {/* Título y Subtítulo */}
+        <motion.div className="mb-10 lg:w-1/2 lg:mb-0">
+          <div className="flex items-center mb-4">
+            <Zap className="mr-2 text-[#638696]" />
+            <span className="text-[#638696]">Empieza en minutos</span>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            Sistemas{" "}
+            <span className="text-gray-500">
+              Resumen que podemos brindarte.
+            </span>
+          </h2>
+        </motion.div>
+      </div>
+      <div className="flex flex-col items-center p-12 lg:flex-row">
+        {/* Título y Subtítulo */}
+        <motion.div className="mb-10 lg:w-1/2 lg:mb-0">
+          <div className="flex items-center mb-4">
+            <Zap className="mr-2 text-[#638696]" />
+            <span className="text-[#638696]">Empieza en minutos</span>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            Paginas Webs{" "}
+            <span className="text-gray-500">
+              Resumen que podemos brindarte.
+            </span>
+          </h2>
+        </motion.div>
+      </div>
+      <div className="flex flex-col items-center p-12 lg:flex-row">
+        {/* Título y Subtítulo */}
+        <motion.div className="mb-10 lg:w-1/2 lg:mb-0">
+          <div className="flex items-center mb-4">
+            <Zap className="mr-2 text-[#638696]" />
+            <span className="text-[#638696]">Empieza en minutos</span>
+          </div>
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            Apps{" "}
+            <span className="text-gray-500">
+              Resumen que podemos brindarte.
+            </span>
+          </h2>
+        </motion.div>
+      </div>
     </motion.section>
   );
 };
