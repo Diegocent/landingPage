@@ -8,6 +8,7 @@ import AboutUsSection from "./components/pages/About";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import Projects from "./components/pages/Projects/Projects";
+import Conection from "./elements/Conection";
 
 function App() {
   const targetRef = useRef(null);
@@ -69,6 +70,10 @@ function App() {
 
           <section id="proyectos">
             <Projects />
+          </section>
+
+          <section>
+            <Conection />
           </section>
 
           <section id="about">

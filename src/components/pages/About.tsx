@@ -1,8 +1,7 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Lightbulb, Shield, Users, Target } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -20,18 +19,109 @@ const staggerChildren = {
 };
 
 export default function AboutUsSection() {
-  return (
-    <section className="py-24 overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800">
-      <div className="container mx-auto px-4 relative">
-        <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" />
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-        <motion.div
-          className="relative max-w-3xl mx-auto text-center mb-5"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-        >
-          <h2 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#3B505A] to-[#707d83]">
+  const cardsData = [
+    {
+      title: "YvagaCore",
+      icon: <Lightbulb className="w-6 h-6 text-white" />,
+      content:
+        '"Yvaga" proviene del guaraní y significa "cielo" o "paraíso", mientras que "Core" representa el núcleo o corazón. En YvagaCore, somos el núcleo de innovación hacia el futuro, ayudando a las empresas a alcanzar su paraíso tecnológico con soluciones robustas y avanzadas.',
+    },
+    {
+      title: "Nuestra Misión",
+      icon: <Target className="w-6 h-6 text-white" />,
+      content:
+        "Somos una microempresa de software dedicada a proporcionar soluciones innovadoras que mejoran la eficiencia operativa de nuestros clientes. Nos especializamos en crear herramientas tecnológicas a medida para resolver los desafíos de las empresas y fomentar su crecimiento.",
+    },
+    {
+      title: "Nuestro Compromiso",
+      icon: <Shield className="w-6 h-6 text-white" />,
+      content: (
+        <ul className="space-y-2 text-gray-300">
+          {[
+            "Soluciones personalizadas",
+            "Innovación constante",
+            "Calidad y escalabilidad",
+            "Enfoque en el crecimiento del cliente",
+          ].map((item, index) => (
+            <li key={index} className="flex items-center">
+              <ArrowRight className="w-5 h-5 mr-2 text-blue-400" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+    {
+      title: "Nuestro Equipo",
+      icon: <Users className="w-6 h-6 text-white" />,
+      content: (
+        <div className="flex items-start space-x-0">
+          {[
+            {
+              linkedin: "https://www.linkedin.com/in/tobias-jara-65956a21a/",
+              profileImage:
+                "https://media.licdn.com/dms/image/v2/D4D03AQEbwnnmDa4QTw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1707326645744?e=1735171200&v=beta&t=vMuK949s7L22m4K7Vaxd7KsWQTZKOGTIs_nCZkFzpQs",
+            },
+            {
+              linkedin: "https://www.linkedin.com/in/diego-villalba-93579418b/",
+              profileImage:
+                "https://media.licdn.com/dms/image/v2/C4E03AQH2KGwEKNeBYA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1565014889876?e=1735171200&v=beta&t=10yQ9J4czqqcUgdz17-5dFyb4IKU2aI82JP06-yU0Io",
+            },
+            {
+              linkedin:
+                "https://www.linkedin.com/in/alejandro-prieto-990b8628b/",
+              profileImage:
+                "https://media.licdn.com/dms/image/v2/D4D03AQEyDxSi9aNxBg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727814495905?e=1735171200&v=beta&t=b1qbImqklI_zlyioipDZdnT9QoVonZncP1cRUT34fM0",
+            },
+            {
+              linkedin: "https://www.linkedin.com/in/samuel-lin-279119255/",
+              profileImage: "https://via.placeholder.com/150",
+            },
+            {
+              linkedin: "https://linkedin.com/in/dev2",
+              profileImage: "https://via.placeholder.com/150",
+            },
+            {
+              linkedin: "https://linkedin.com/in/dev2",
+              profileImage: "https://via.placeholder.com/150",
+            },
+          ].map((dev, index) => (
+            <div key={index} className="flex items-center">
+              <a
+                href={dev.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 overflow-hidden transition-transform duration-200 border-2 border-gray-400 rounded-full hover:scale-105"
+              >
+                <img
+                  src={dev.profileImage}
+                  alt={`${dev.profileImage} profile`}
+                  className="object-cover w-full h-full"
+                />
+              </a>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-24 overflow-hidden min-h-[500px] sm:h-[900px] md:h-[800px] lg:h-[700px] bg-gradient-to-t from-[#202b3135] via-[#202b31] to-[#202b313d]"
+    >
+      <motion.div
+        className="container px-4 mx-auto"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={staggerChildren}
+      >
+        <motion.div className="mb-16 text-center" variants={fadeInUp}>
+          <h2 className="text-4xl font-bold mb-4 text-[#638696]">
             Sobre Nosotros
           </h2>
           <p className="text-xl text-gray-300">
@@ -39,72 +129,33 @@ export default function AboutUsSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="relative grid md:grid-cols-2 gap-8 mb-16"
-          variants={staggerChildren}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div
-            className="bg-gradient-to-br from-[#3B505A] to-[#2C3E50] p-8 rounded-2xl shadow-lg border border-gray-700"
-            variants={fadeInUp}
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <h3 className="text-2xl font-bold mb-4 text-white">
-              Nuestra Misión
-            </h3>
-            <p className="text-gray-300 mb-4">
-              Somos una microempresa de software dedicada a proporcionar
-              soluciones informáticas innovadoras que abordan problemas
-              específicos y mejoran la eficiencia operativa de nuestros
-              clientes.
-            </p>
-            <p className="text-gray-300">
-              Nos especializamos en crear herramientas tecnológicas a medida que
-              no solo resuelven los desafíos actuales de las empresas, sino que
-              también fomentan su crecimiento a largo plazo a través de la
-              optimización y digitalización de sus procesos.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="bg-gradient-to-br from-[#3B505A] to-[#2C3E50] p-8 rounded-2xl shadow-lg border border-gray-700"
-            variants={fadeInUp}
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <h3 className="text-2xl font-bold mb-4 text-white">
-              Nuestro Compromiso
-            </h3>
-            <p className="text-gray-300 mb-4">
-              Nuestro compromiso es adaptarnos a las necesidades de cada
-              cliente, brindando productos escalables y de alta calidad que
-              permiten a las empresas evolucionar en un entorno tecnológico en
-              constante cambio.
-            </p>
-            <ul className="space-y-3 text-gray-300">
-              {[
-                "Soluciones personalizadas",
-                "Innovación constante",
-                "Calidad y escalabilidad",
-                "Enfoque en el crecimiento del cliente",
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  className="flex items-center"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {cardsData.map((card, index) => (
+            <motion.div
+              key={index}
+              className="group"
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Card className="bg-gradient-to-r from-[#212D35] to-[#25353E] border-none shadow-xl overflow-hidden">
+                <motion.div
+                  className="flex items-center justify-between p-4 group-hover:bg-transparent"
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                 >
-                  <ArrowRight className="h-5 w-5 mr-2 text-blue-400" />
-                  {item}
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
-      </div>
+                  <CardTitle className="text-2xl font-bold text-white">
+                    {card.title}
+                  </CardTitle>
+                  {card.icon}
+                </motion.div>
+                <CardContent className="transition-all duration-300 opacity-0 max-h-0 group-hover:max-h-96 group-hover:opacity-100">
+                  <p className="text-gray-300">{card.content}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
