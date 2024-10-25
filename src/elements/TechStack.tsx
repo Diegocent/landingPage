@@ -46,7 +46,7 @@ export default function TechStack() {
   }, [controls, width]);
 
   return (
-    <section className="py-16 bg-transparent">
+    <section className="py-16 bg-transparent  overflow-hidden">
       <motion.div
         className="relative max-w-4xl mx-auto mb-16 text-center"
         initial="hidden"
@@ -65,7 +65,7 @@ export default function TechStack() {
 
       {/* Contenedor del carrusel */}
       <motion.div
-        className="container mx-auto overflow-hidden"
+        className="container mx-auto"
         ref={containerRef}
         initial="hidden"
         whileInView="visible"
