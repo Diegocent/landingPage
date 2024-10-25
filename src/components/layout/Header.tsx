@@ -14,28 +14,26 @@ export const Header = () => {
   ];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          } else if (activeSection === entry.target.id) {
-            setActiveSection("");
+    const handleScroll = () => {
+      sections.forEach((section) => {
+        const element = document.getElementById(section.clave);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const isVisible = rect.top >= 0 && rect.top <= window.innerHeight / 2;
+          if (isVisible) {
+            setActiveSection(section.clave);
           }
-        });
-      },
-      { threshold: 0.6 }
-    );
+        }
+      });
+    };
 
-    sections.forEach((id) => {
-      const element = document.getElementById(id.clave);
-      if (element) observer.observe(element);
-    });
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [sections]);
 
-    return () => observer.disconnect();
-  }, [activeSection]);
-
-  const handleScroll = (id: string) => {
+  const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -76,7 +74,7 @@ export const Header = () => {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
-                handleScroll(section.clave);
+                handleScrollTo(section.clave);
               }}
               className={`relative transition-colors hover:text-[#3b505a] ${
                 activeSection === section.clave
@@ -99,7 +97,7 @@ export const Header = () => {
         <MobileMenu
           sections={sections}
           activeSection={activeSection}
-          handleScroll={handleScroll}
+          handleScroll={handleScrollTo}
         />
       </nav>
     </motion.header>
