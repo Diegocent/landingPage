@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Lightbulb, Shield, Users, Target } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
+import { Card, CardTitle, CardContent } from "../ui/card";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
