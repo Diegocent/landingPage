@@ -2,6 +2,7 @@ import { FeatureBox } from "@/elements/FeatureBox";
 import { Zap } from "lucide-react";
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import { motion } from "framer-motion";
+import ImagenesContent from "./ImagenesContent";
 
 interface Props {
   title: string;
@@ -10,6 +11,7 @@ interface Props {
   urlImagen: string;
   nombreVideo: string;
   direccion?: string;
+  esSoloImagenes?: boolean;
 }
 
 export const SectionProcesos = ({
@@ -19,7 +21,10 @@ export const SectionProcesos = ({
   urlImagen,
   nombreVideo,
   direccion,
+  esSoloImagenes,
 }: Props) => {
+  const imagenes = esSoloImagenes && urlImagen ? urlImagen.split(";") : [];
+
   const sectionVariants = {
     hidden: { opacity: 0, y: 70 },
     visible: {
@@ -75,47 +80,43 @@ export const SectionProcesos = ({
                   {title} <span className="text-gray-500">{subtitle}</span>
                 </h2>
               </motion.div>
-              {/* Video */}
+
+              {/* Imagen o Video */}
               <motion.div className="lg:w-1/2" variants={sectionVariants2}>
                 <div className="p-1 rounded-lg">
-                  <HeroVideoDialog
-                    className="block dark:hidden"
-                    animationStyle="from-center"
-                    videoSrc={urlVideo}
-                    thumbnailSrc={urlImagen}
-                    thumbnailAlt={nombreVideo}
-                  />
-                  <HeroVideoDialog
-                    className="hidden dark:block"
-                    animationStyle="from-center"
-                    videoSrc={urlVideo}
-                    thumbnailSrc={urlImagen}
-                    thumbnailAlt={nombreVideo}
-                  />
+                  {!esSoloImagenes ? (
+                    <HeroVideoDialog
+                      className="block dark:hidden"
+                      animationStyle="from-center"
+                      videoSrc={urlVideo}
+                      thumbnailSrc={urlImagen}
+                      thumbnailAlt={nombreVideo}
+                    />
+                  ) : (
+                    <ImagenesContent />
+                  )}
                 </div>
               </motion.div>
             </>
           ) : (
             <>
-              {/* Video */}
+              {/* Imagen o Video */}
               <motion.div className="lg:w-1/2" variants={sectionVariants2}>
                 <div className="p-1 rounded-lg">
-                  <HeroVideoDialog
-                    className="block dark:hidden"
-                    animationStyle="from-center"
-                    videoSrc={urlVideo}
-                    thumbnailSrc={urlImagen}
-                    thumbnailAlt={nombreVideo}
-                  />
-                  <HeroVideoDialog
-                    className="hidden dark:block"
-                    animationStyle="from-center"
-                    videoSrc={urlVideo}
-                    thumbnailSrc={urlImagen}
-                    thumbnailAlt={nombreVideo}
-                  />
+                  {!esSoloImagenes ? (
+                    <HeroVideoDialog
+                      className="block dark:hidden"
+                      animationStyle="from-center"
+                      videoSrc={urlVideo}
+                      thumbnailSrc={urlImagen}
+                      thumbnailAlt={nombreVideo}
+                    />
+                  ) : (
+                    <ImagenesContent />
+                  )}
                 </div>
               </motion.div>
+
               {/* Título y Subtítulo */}
               <motion.div
                 className="mb-10 lg:w-1/2 lg:mb-0 lg:ml-8"
@@ -133,7 +134,8 @@ export const SectionProcesos = ({
           )}
         </div>
 
-        {direccion === "izquierda" && (
+        {/* Feature Boxes */}
+        {direccion == "izquierda" && (
           <motion.div className="grid grid-cols-1 gap-8 mt-20 md:grid-cols-2 lg:grid-cols-4">
             {[0, 1, 2, 3].map((i) => (
               <motion.div

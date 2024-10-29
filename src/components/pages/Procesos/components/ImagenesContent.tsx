@@ -23,13 +23,13 @@ export default function ImagenesContent() {
   return (
     <Card className="w-4/5 mx-auto bg-transparent border-none shadow-none">
       <CardContent className="p-0 bg-transparent">
-        <div className="flex gap-4 relative w-full h-72 overflow-hidden bg-black rounded-lg">
+        <div className="flex gap-4 relative w-full h-72 overflow-hidden bg-transparent rounded-lg">
           <AnimatePresence>
             <motion.img
               key={currentIndex}
               src={`/procesos/${images[currentIndex]}.png`}
               alt={`Proceso ${currentIndex + 1}`}
-              className="w-1/2 h-full object-contain"
+              className="w-1/2 h-full object-contain "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -39,7 +39,7 @@ export default function ImagenesContent() {
               key={secondIndex}
               src={`/procesos/${images[secondIndex]}.png`}
               alt={`Proceso ${secondIndex + 1}`}
-              className="w-1/2 h-full object-contain"
+              className="w-1/2 h-full object-contain -ml-10"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
