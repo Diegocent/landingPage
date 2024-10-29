@@ -30,6 +30,7 @@
     "react-icon-cloud": "^4.1.4",
     "react-router-dom": "^6.26.2",
     "react-tsparticles": "^2.12.2",
+    "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "tsparticles": "^3.5.0",

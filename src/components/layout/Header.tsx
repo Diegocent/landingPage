@@ -10,7 +10,7 @@ export const Header = () => {
     { clave: "videos", valor: "Procesos" },
     { clave: "techstack", valor: "Tecnologias" },
     { clave: "proyectos", valor: "Proyectos" },
-    { clave: "about", valor: "Sobre Nosotros" },
+    { clave: "about", valor: "Nosotros" },
   ];
 
   useEffect(() => {

@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
-  DialogFooter,
   DialogHeader,
   DialogTrigger,
   DialogTitle,
@@ -57,7 +56,9 @@ const slugs = [
   "figma",
 ];
 
-export function DialogUser({ children }) {
+import { ReactNode } from "react";
+
+export function DialogUser({ children }: { children: ReactNode }) {
   const [submitCount, setSubmitCount] = useState(0);
   const maxSubmissions = 3; // Limitar a 3 envíos
 
@@ -72,7 +73,7 @@ export function DialogUser({ children }) {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: { email: string }) => {
     if (submitCount < maxSubmissions) {
       setSubmitCount(submitCount + 1);
       console.log("Correo enviado:", data.email);
