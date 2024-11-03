@@ -54,7 +54,7 @@ export default function TechStack() {
         viewport={{ once: false, amount: 0.2 }} // Activa la animación cuando se ve el 20% del elemento
         variants={fadeInUp}
       >
-        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-[#638696]">
+        <h2 className="text-4xl font-bold mb-4 bg-clip-text text-[#097f93]">
           Herramientas utilizadas
         </h2>
         <p className="text-xl text-gray-400">

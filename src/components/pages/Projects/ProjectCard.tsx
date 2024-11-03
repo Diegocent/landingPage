@@ -1,17 +1,24 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
+import React from "react";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+
 interface Project {
-    id: number
-    title: string
-    image: string
-    link: string
-  }
+  id: number;
+  title: string;
+  image: string;
+  link: string;
+}
 
 const ProjectCard: React.FC<Project> = ({ title, image, link }) => {
-    return (
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block"
+    >
       <motion.div
-        className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg"
+        className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg cursor-pointer"
         whileHover={{ scale: 1.05, zIndex: 1 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
@@ -23,19 +30,17 @@ const ProjectCard: React.FC<Project> = ({ title, image, link }) => {
           transition={{ type: "spring", stiffness: 300 }}
         />
         <div className="p-3">
-          <h3 className="text-sm font-semibold text-white mb-1 truncate">{title}</h3>
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-xs text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            Ver demo
+          <h3 className="text-sm font-semibold text-white mb-1 truncate">
+            {title}
+          </h3>
+          <div className="flex items-center text-xs text-[#097f93] hover:text-blue-300 transition-colors">
+            <span>Ver demo</span>
             <ExternalLink className="ml-1 h-3 w-3" />
-          </a>
+          </div>
         </div>
       </motion.div>
-    )
-  }
+    </a>
+  );
+};
 
 export default ProjectCard;

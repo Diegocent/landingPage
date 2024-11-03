@@ -28,21 +28,15 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Proyecto 4",
-    image: "/placeholder.svg?height=200&width=300",
-    link: "https://proyecto4.com",
+    title: "Repositorio de scripts",
+    image: "/proyectos/repositorio_scripts.png?height=200&width=300",
+    link: "https://script-repository.netlify.app",
   },
   {
     id: 5,
     title: "Proyecto 5",
-    image: "/placeholder.svg?height=200&width=300",
-    link: "https://proyecto5.com",
-  },
-  {
-    id: 6,
-    title: "Proyecto 6",
-    image: "/placeholder.svg?height=200&width=300",
-    link: "https://proyecto6.com",
+    image: "/proyectos/e_commerce.png?height=200&width=300",
+    link: "https://ecommerce-4-jltw.vercel.app/",
   },
 ];
 const Projects: React.FC = () => {
@@ -55,7 +49,7 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#3B505A] to-[#707d83]">
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#097f93] to-[#707d83]">
             Nuestros Proyectos
           </h2>
           <p className="text-xl text-gray-300">

@@ -23,8 +23,6 @@ export const SectionProcesos = ({
   direccion,
   esSoloImagenes,
 }: Props) => {
-  const imagenes = esSoloImagenes && urlImagen ? urlImagen.split(";") : [];
-
   const sectionVariants = {
     hidden: { opacity: 0, y: 70 },
     visible: {
@@ -124,7 +122,7 @@ export const SectionProcesos = ({
               >
                 <div className="flex items-center mb-4">
                   <Zap className="mr-2 text-[#638696]" />
-                  <span className="text-[#638696]">Empieza en minutos</span>
+                  <span className="text-[#097f93]">Empieza en minutos</span>
                 </div>
                 <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                   {title} <span className="text-gray-500">{subtitle}</span>

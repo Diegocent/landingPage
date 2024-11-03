@@ -6,7 +6,7 @@ export const Procesos = () => {
       <SectionProcesos
         title="Servicios que ofrecemos"
         subtitle="Resumen que podemos brindarte"
-        urlVideo="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+        urlVideo="https://www.youtube.com/embed/la2sSBrI4zo"
         urlImagen="https://startup-template-sage.vercel.app/hero-light.png"
         nombreVideo="Hero Video"
         direccion="izquierda"
@@ -14,7 +14,7 @@ export const Procesos = () => {
       <SectionProcesos
         title="Plataformas Virtual"
         subtitle="Resumen que podemos brindarte"
-        urlVideo="https://www.youtube.com/embed/6Q1b_2RWq6Q"
+        urlVideo="https://www.youtube.com/embed/OfRJpfb5Wdg"
         urlImagen="https://utfs.io/f/Nbwlwl0eTrfuKm9oxGs5mcROlEbCMUo8AYpVuPFLra20T3HS"
         nombreVideo="Hero Video"
         direccion="derecha"
@@ -22,7 +22,7 @@ export const Procesos = () => {
       <SectionProcesos
         title="Proctoring y Control de Entornos"
         subtitle="Resumen que podemos brindarte"
-        urlVideo="https://www.youtube.com/embed/GqyBWF_omcM"
+        urlVideo="https://www.youtube.com/embed/XE1nt_pokxs"
         urlImagen="https://utfs.io/f/Nbwlwl0eTrfuKm9oxGs5mcROlEbCMUo8AYpVuPFLra20T3HS"
         nombreVideo="Hero Video"
         direccion="izquierda"
@@ -38,8 +38,8 @@ export const Procesos = () => {
       <SectionProcesos
         title="Apps"
         subtitle="Resumen que podemos brindarte"
-        urlVideo="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-        urlImagen="https://drive.google.com/file/d/16Ps5VC6YXKYnkcvqhX3A30Sr7NY9QNrN/view?usp=drive_link;https://drive.google.com/file/d/13AO8Q0P_e8wAwg4sjqOOVX7nfKob0sf0/view?usp=drive_link;https://drive.google.com/file/d/11Q_6P8E9dbEp7tOEsXekUNZxz5RHOt-M/view?usp=drive_link"
+        urlVideo=""
+        urlImagen=""
         nombreVideo="Hero Video"
         direccion="izquierda"
         esSoloImagenes={true}
