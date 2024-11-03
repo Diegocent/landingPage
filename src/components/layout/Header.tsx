@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MobileMenu } from "./MobileMenu";
 
 export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("");
-  const sections = [
-    { clave: "hero", valor: "Inicio" },
-    { clave: "videos", valor: "Procesos" },
-    { clave: "techstack", valor: "Tecnologias" },
-    { clave: "proyectos", valor: "Proyectos" },
-    { clave: "about", valor: "Nosotros" },
-  ];
+  const sections = useMemo(
+    () => [
+      { clave: "hero", valor: "Inicio" },
+      { clave: "videos", valor: "Procesos" },
+      { clave: "techstack", valor: "Tecnologias" },
+      { clave: "proyectos", valor: "Proyectos" },
+      { clave: "about", valor: "Nosotros" },
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +22,7 @@ export const Header = () => {
         const element = document.getElementById(section.clave);
         if (element) {
           const rect = element.getBoundingClientRect();
-          const isVisible = rect.top >= 0 && rect.top <= window.innerHeight / 2;
+          const isVisible = rect.top >= 0 && rect.top <= window.innerHeight / 3;
           if (isVisible) {
             setActiveSection(section.clave);
           }
@@ -76,15 +79,15 @@ export const Header = () => {
                 e.preventDefault();
                 handleScrollTo(section.clave);
               }}
-              className={`relative transition-colors hover:text-[#3b505a] ${
+              className={`relative transition-colors hover:text-[#097f93] ${
                 activeSection === section.clave
-                  ? "text-[#3b505a]"
+                  ? "text-[#097f93]"
                   : "text-white"
               }`}
             >
               {activeSection === section.clave && (
                 <span
-                  className="absolute -top-3 left-0 right-0 h-1 bg-[#3b505a] rounded-b-md"
+                  className="absolute -top-3 left-0 right-0 h-1 bg-[#097f93] rounded-b-md"
                   style={{ transform: "translateY(-50%)" }}
                 />
               )}

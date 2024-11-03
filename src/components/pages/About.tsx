@@ -77,16 +77,15 @@ export default function AboutUsSection() {
                 "https://media.licdn.com/dms/image/v2/D4D03AQEyDxSi9aNxBg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1727814495905?e=1735171200&v=beta&t=b1qbImqklI_zlyioipDZdnT9QoVonZncP1cRUT34fM0",
             },
             {
-              linkedin: "https://www.linkedin.com/in/samuel-lin-279119255/",
-              profileImage: "https://via.placeholder.com/150",
+              linkedin:
+                "https://www.linkedin.com/in/b%C3%A1rbara-galeano-a433a6251?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B9JAzYGPsTbOZZtq%2F7kethw%3D%3D",
+              profileImage:
+                "https://utfs.io/f/Nbwlwl0eTrfubwADsiYw1UaTqoXO328DxyfuMrVA0tKzGERS",
             },
             {
-              linkedin: "https://linkedin.com/in/dev2",
-              profileImage: "https://via.placeholder.com/150",
-            },
-            {
-              linkedin: "https://linkedin.com/in/dev2",
-              profileImage: "https://via.placeholder.com/150",
+              linkedin: "https://www.linkedin.com/in/christian-parzajuk/",
+              profileImage:
+                "https://utfs.io/f/Nbwlwl0eTrfufFCShffLDQN32OCnIoKEbxkyq4PvrZLfjTse",
             },
           ].map((dev, index) => (
             <div key={index} className="flex items-center">
@@ -121,7 +120,7 @@ export default function AboutUsSection() {
         variants={staggerChildren}
       >
         <motion.div className="mb-16 text-center" variants={fadeInUp}>
-          <h2 className="text-4xl font-bold mb-4 text-[#638696]">
+          <h2 className="text-4xl font-bold mb-4 text-[#097f93]">
             Sobre Nosotros
           </h2>
           <p className="text-xl text-gray-300">
@@ -137,9 +136,9 @@ export default function AboutUsSection() {
               variants={fadeInUp}
               whileHover={{ scale: 1.05 }}
             >
-              <Card className="bg-gradient-to-r from-[#212D35] to-[#25353E] border-none shadow-xl overflow-hidden">
+              <Card className="bg-gradient-to-r from-[#212D35] to-[#25353E] border-none shadow-xl overflow-hidden min-h-[120px] flex flex-col justify-between">
                 <motion.div
-                  className="flex items-center justify-between p-4 group-hover:bg-transparent"
+                  className="flex justify-between p-4 group-hover:bg-transparent"
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >

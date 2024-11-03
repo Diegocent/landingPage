@@ -4,9 +4,14 @@ import { motion } from "framer-motion";
 import { DialogUser } from "./DialogUser";
 
 export const Hero = () => {
+  interface Position {
+    x: number;
+    y: number;
+  }
+
   const circleVariants = {
     initial: { x: 0, y: 0, scale: 0 },
-    animate: (position) => ({
+    animate: (position: Position) => ({
       x: position.x,
       y: position.y,
       scale: 1,
@@ -71,11 +76,11 @@ export const Hero = () => {
             className="mb-6 text-3xl font-bold text-gray-400 md:text-5xl lg:text-5xl bg-clip-text"
             variants={fadeInUp}
           >
-            <span className="text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]">
+            <span className="text-[#097f93] bg-clip-text bg-gradient-to-r from-[#097f93] to-[#7daac0]">
               Especialistas
             </span>{" "}
             en dar vida a{" "}
-            <span className="text-[#3b505a] bg-clip-text bg-gradient-to-r from-[#3b505a] to-[#7daac0]">
+            <span className="text-[#097f93] bg-clip-text bg-gradient-to-r from-[#097f93] to-[#7daac0]">
               tus ideas digitales
             </span>
           </motion.h2>
@@ -91,7 +96,7 @@ export const Hero = () => {
 
           <motion.div variants={fadeInUp}>
             <DialogUser>
-              <Button className="flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-full text-lg font-semibold z-10 hover:border-[#3B505A] hover:shadow-[0px_0px_5px_2px_rgba(59,80,90,0.5)] border-[#3B505A]">
+              <Button className="flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-full text-lg font-semibold z-10 hover:border-[#3B505A] hover:shadow-[0px_0px_5px_2px_rgba(59,80,90,0.5)] border-[#3B505A] focus:outline-none focus:border-none">
                 Hablemos de tu proyecto{" "}
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Button>
