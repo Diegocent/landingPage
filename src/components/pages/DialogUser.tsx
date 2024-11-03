@@ -90,7 +90,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
     },
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     if (submitCount < maxSubmissions) {
       setSubmitCount(submitCount + 1);
       // console.log("Datos enviados:", data);

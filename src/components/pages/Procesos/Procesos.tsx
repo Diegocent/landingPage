@@ -1,10 +1,8 @@
 import {
   Building,
-  Code,
   CreditCard,
   EyeOff,
   Lock,
-  Monitor,
   MonitorSmartphone,
   ScanFace,
   Settings,
@@ -13,7 +11,6 @@ import {
   TrendingUp,
   User,
   Users,
-  Zap,
 } from "lucide-react";
 import { SectionProcesos } from "./components/SectionProcesos";
 

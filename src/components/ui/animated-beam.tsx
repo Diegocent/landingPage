@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 "use client";
 
 import { RefObject, useEffect, useId, useState } from "react";
@@ -94,7 +95,8 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     // Initialize ResizeObserver
     const resizeObserver = new ResizeObserver((entries) => {
       // For all entries, recalculate the path
-      for (let entry of entries) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      for (let _entry of entries) {
         updatePath();
       }
     });

@@ -4,21 +4,6 @@ import { motion } from "framer-motion";
 import { DialogUser } from "./DialogUser";
 
 export const Hero = () => {
-  interface Position {
-    x: number;
-    y: number;
-  }
-
-  const circleVariants = {
-    initial: { x: 0, y: 0, scale: 0 },
-    animate: (position: Position) => ({
-      x: position.x,
-      y: position.y,
-      scale: 1,
-      transition: { duration: 1, ease: "easeInOut" },
-    }),
-  };
-
   const fadeInUp = {
     initial: { opacity: 0, y: -50 },
     animate: {
