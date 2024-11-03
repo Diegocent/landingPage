@@ -34,7 +34,7 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Proyecto 5",
+    title: "Minimal Ecommerce",
     image: "/proyectos/e_commerce.png?height=200&width=300",
     link: "https://ecommerce-4-jltw.vercel.app/",
   },

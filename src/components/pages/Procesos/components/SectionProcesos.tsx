@@ -4,6 +4,12 @@ import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import { motion } from "framer-motion";
 import ImagenesContent from "./ImagenesContent";
 
+interface Feature {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
 interface Props {
   title: string;
   subtitle: string;
@@ -12,6 +18,7 @@ interface Props {
   nombreVideo: string;
   direccion?: string;
   esSoloImagenes?: boolean;
+  features?: Feature[];
 }
 
 export const SectionProcesos = ({
@@ -22,6 +29,7 @@ export const SectionProcesos = ({
   nombreVideo,
   direccion,
   esSoloImagenes,
+  features = [],
 }: Props) => {
   const sectionVariants = {
     hidden: { opacity: 0, y: 70 },
@@ -71,8 +79,8 @@ export const SectionProcesos = ({
                 variants={sectionVariants}
               >
                 <div className="flex items-center mb-4">
-                  <Zap className="mr-2 text-[#638696]" />
-                  <span className="text-[#638696]">Empieza en minutos</span>
+                  <Zap className="mr-2 text-[#097f93]" />
+                  <span className="text-[#097f93]">Empieza en minutos</span>
                 </div>
                 <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                   {title} <span className="text-gray-500">{subtitle}</span>
@@ -121,7 +129,7 @@ export const SectionProcesos = ({
                 variants={sectionVariants}
               >
                 <div className="flex items-center mb-4">
-                  <Zap className="mr-2 text-[#638696]" />
+                  <Zap className="mr-2 text-[#097f93]" />
                   <span className="text-[#097f93]">Empieza en minutos</span>
                 </div>
                 <h2 className="mb-6 text-3xl font-bold md:text-4xl">
@@ -135,7 +143,7 @@ export const SectionProcesos = ({
         {/* Feature Boxes */}
         {direccion == "izquierda" && (
           <motion.div className="grid grid-cols-1 gap-8 mt-20 md:grid-cols-2 lg:grid-cols-4">
-            {[0, 1, 2, 3].map((i) => (
+            {features.map((feature, i) => (
               <motion.div
                 key={i}
                 custom={i}
@@ -145,9 +153,9 @@ export const SectionProcesos = ({
                 viewport={{ amount: 0.2 }}
               >
                 <FeatureBox
-                  icon={<Zap className="w-6 h-6 text-[#638696]" />}
-                  title="Tecnología Moderna"
-                  description="YvagaCore está construido con React v18 y TypeScript. Usa cualquier combinación entre Next.js, Remix, Firebase y Supabase."
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
                 />
               </motion.div>
             ))}

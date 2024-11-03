@@ -36,7 +36,7 @@ function App() {
       <div className="min-h-screen w-full bg-[#1a1a1a] text-white flex flex-col">
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute bg-gradient-to-t from-[#3b505a10] via-[#233036] to-[#095073] -right-48 rounded-br-[59px] rounded-bl-[100px]"
+            className="absolute bg-gradient-to-t from-[#3b505a10] via-[#233036] to-[#095073] -right-48 rounded-br-[59px] rounded-bl-[100px] neon-container"
             style={{
               width: "830px",
               height: "870px",
@@ -44,7 +44,17 @@ function App() {
               transform: "rotate(26.32deg)",
               zIndex: 0,
             }}
-          />
+          >
+            <motion.div
+              className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-[#097f93] to-transparent opacity-80 blur-md"
+              initial={{ y: "-100%" }} // Comienza más arriba
+              animate={{ y: "30%" }} // Termina más abajo para evitar un corte brusco
+              transition={{
+                duration: 5, // Aumenta la duración para un movimiento más suave
+                ease: "easeInOut", // Cambia a easeInOut para un efecto de desaceleración y aceleración
+              }}
+            />
+          </div>
         </div>
         <div className="relative z-10">
           <Header />
