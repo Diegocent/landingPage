@@ -9,7 +9,7 @@ interface Props {
 
 export const FeatureBox = ({ icon, title, description }: Props) => {
   return (
-    <Card className="bg-[#3B505A] border-none">
+    <Card className="bg-[#3B505A] border-none min-h-60">
       <CardContent className="p-6">
         <div className="flex items-center mb-4 text-[#097f93]">
           {icon}

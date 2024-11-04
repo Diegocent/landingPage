@@ -87,6 +87,17 @@ export default function AboutUsSection() {
               profileImage:
                 "https://utfs.io/f/Nbwlwl0eTrfufFCShffLDQN32OCnIoKEbxkyq4PvrZLfjTse",
             },
+            {
+              linkedin:
+                "https://www.linkedin.com/in/micaelamaldonado?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+              profileImage:
+                "https://utfs.io/f/Nbwlwl0eTrfuOpzxWLyZGrR1q5SZcQ7e0EwTACjz6d32yLJn",
+            },
+            {
+              linkedin: "https://www.linkedin.com/in/sam281055/",
+              profileImage:
+                "https://utfs.io/f/Nbwlwl0eTrfuAZNhND7LcJwQZrPuFDNATIof5H9tdKVkmlSg",
+            },
           ].map((dev, index) => (
             <div key={index} className="flex items-center">
               <a
