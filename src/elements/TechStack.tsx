@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import tecnologias from "@/constanst/tecnologias";
@@ -46,7 +46,7 @@ export default function TechStack() {
   }, [controls, width]);
 
   return (
-    <section className="py-16 bg-transparent  overflow-hidden">
+    <section className="py-16 overflow-hidden bg-transparent">
       <motion.div
         className="relative max-w-4xl mx-auto mb-16 text-center"
         initial="hidden"

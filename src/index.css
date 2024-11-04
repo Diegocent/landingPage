@@ -145,3 +145,32 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes neonGlowPulse {
+  0%,
+  100% {
+    fill: #097f93; /* Color constante */
+    filter: drop-shadow(0 0 5px #097f93) drop-shadow(0 0 15px #097f93);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #097f93) drop-shadow(0 0 30px #097f93); /* Aumenta el brillo en el punto medio */
+  }
+}
+
+.svg-neon-glow {
+  animation: neonGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes neonBackgroundPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px #097f93) drop-shadow(0 0 15px #097f93);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #097f93) drop-shadow(0 0 30px #097f93);
+  }
+}
+
+.neon-gradient {
+  animation: neonBackgroundPulse 4s ease-in-out infinite;
+}

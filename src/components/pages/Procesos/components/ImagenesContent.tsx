@@ -1,51 +1,34 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 
-const images = ["app1", "app2", "app3", "app4"];
-
 export default function ImagenesContent() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1); // Comenzar desde 1 para que app1 sea la primera imagen
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 2) % images.length);
-    }, 5000); // Cambia las imágenes cada 5 segundos
-
-    return () => clearInterval(timer);
-  }, []);
-
-  // Calcular los índices de las dos imágenes a mostrar
-  const secondIndex = (currentIndex + 1) % images.length;
+  const handleImageClick = () => {
+    // Cambia al siguiente índice y reinicia si está en el último
+    setCurrentIndex((prevIndex) => (prevIndex % 4) + 1); // Cambia entre 1 y 5
+  };
 
   return (
     <Card className="w-4/5 mx-auto bg-transparent border-none shadow-none">
       <CardContent className="p-0 bg-transparent">
-        <div className="flex gap-4 relative w-full h-72 overflow-hidden bg-transparent rounded-lg">
-          <AnimatePresence>
-            <motion.img
-              key={currentIndex}
-              src={`/procesos/${images[currentIndex]}.png`}
-              alt={`Proceso ${currentIndex + 1}`}
-              className="w-1/2 h-full object-contain "
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.1 }}
-            />
-            <motion.img
-              key={secondIndex}
-              src={`/procesos/${images[secondIndex]}.png`}
-              alt={`Proceso ${secondIndex + 1}`}
-              className="w-1/2 h-full object-contain -ml-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.01 }}
-            />
-          </AnimatePresence>
+        <div className="flex justify-center">
+          <div className="relative overflow-hidden" onClick={handleImageClick}>
+            <AnimatePresence>
+              <motion.img
+                key={currentIndex}
+                src={`/procesos/app${currentIndex}.png`} // Captura de la app
+                alt={`Proceso ${currentIndex}`}
+                className="object-contain w-full h-[600px] min-h-[600px]" // Establece una altura mínima
+                initial={{ opacity: 0, scale: 0.8 }} // Comienza con desvanecimiento y un poco más pequeño
+                animate={{ opacity: 1, scale: 1 }} // Se desvanece y crece a su tamaño original
+                transition={{ duration: 0.5, ease: "easeInOut" }} // Suave transición
+              />
+            </AnimatePresence>
+          </div>
         </div>
       </CardContent>
     </Card>
