@@ -11,6 +11,7 @@ import "./i18n";
 import { LanguageProvider } from "./context/LanguageContext";
 import Demos from "./components/pages/Demos/Demos";
 import DestacarProtoring from "./elements/DestacarProtoring";
+import FloatingButton from "./FloatingButton";
 
 function App() {
   const targetRef = useRef(null);
@@ -37,6 +38,8 @@ function App() {
     <Router>
       <div className="min-h-screen w-full bg-[#1a1a1a] text-white flex flex-col">
         <div className="absolute inset-0 overflow-hidden">
+          <FloatingButton />
+
           <div
             className="absolute bg-gradient-to-t from-[#3b505a10] via-[#233036] to-[#095073] -right-48 rounded-br-[59px] rounded-bl-[100px] neon-container"
             style={{

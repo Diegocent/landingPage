@@ -75,7 +75,7 @@ export const Hero = () => {
           </motion.h2>
 
           <motion.p
-            className="max-w-2xl mb-8 text-xl text-justify text-gray-300"
+            className="max-w-2xl mb-8 text-xl text-gray-300"
             variants={fadeInUp}
           >
             {translations.description}
