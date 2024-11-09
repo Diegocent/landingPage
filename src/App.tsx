@@ -7,10 +7,10 @@ import { Hero } from "./components/pages/Hero";
 import AboutUsSection from "./components/pages/About";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
-import Projects from "./components/pages/Projects/Projects";
-import Conection from "./elements/Conection";
 import "./i18n";
 import { LanguageProvider } from "./context/LanguageContext";
+import Demos from "./components/pages/Demos/Demos";
+import DestacarProtoring from "./elements/DestacarProtoring";
 
 function App() {
   const targetRef = useRef(null);
@@ -81,12 +81,12 @@ function App() {
               <TechStack />
             </section>
 
-            <section id="proyectos">
-              <Projects />
+            <section>
+              <DestacarProtoring />
             </section>
 
-            <section>
-              <Conection />
+            <section id="proyectos">
+              <Demos />
             </section>
 
             <section id="about">

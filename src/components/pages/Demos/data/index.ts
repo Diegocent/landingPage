@@ -1,0 +1,78 @@
+export const projects = [
+  {
+    id: 1,
+    title: "Rental Car",
+    des: "This is a customizable template designed for vehicle rental businesses. Whether you're renting cars, SUVs, or vans, this template offers a professional and user-friendly layout to showcase your fleet and services.",
+    img: "/proyectos/rental_car.png?height=200&width=300",
+    iconLists: [
+      "/logos_svg/nextjs.svg",
+      "/logos_svg/stripe.svg",
+      "/logos_svg/typescript-official-svgrepo-com.svg",
+      "/logos_svg/postgresql-logo-svgrepo-com.svg",
+    ],
+    link: "https://my-cars-ten.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Jahata",
+    des: "This is a customizable template designed specifically for travel agencies. Whether you're offering vacation packages, tours, or flight bookings, this template provides a professional and user-friendly layout to showcase your services and destinations.",
+    img: "/proyectos/jahata.png?height=200&width=300",
+    iconLists: [
+      "/logos_svg/react.svg",
+      "/logos_svg/sass.svg",
+      "/logos_svg/firebase-svgrepo-com.svg",
+    ],
+    link: "https://jahataprojectpy.web.app/",
+  },
+  {
+    id: 3,
+    title: "Gestor de inventario",
+    des: "This is a customizable template designed specifically for businesses looking to manage their inventory effectively. Whether you are running a retail store, warehouse, or distribution center, this template provides an organized and easy-to-use layout to track and manage stock levels.",
+    img: "/proyectos/manage.png?height=200&width=300",
+    iconLists: [
+      "/logos_svg/nextjs.svg",
+      "/logos_svg/typescript-official-svgrepo-com.svg",
+      "/logos_svg/postgresql-logo-svgrepo-com.svg",
+      "logos_svg/node-js-svgrepo-com.svg",
+    ],
+    link: "https://inventory-management-dashboard-orcin.vercel.app/",
+  },
+  {
+    id: 4,
+    title: "Repositorio de scripts",
+    des: "This is a sleek, customizable template designed for developers to store, organize, and access their code snippets, scripts, and notes in one place. Perfect for individual programmers or teams who need quick access to their most-used code segments.",
+    img: "/proyectos/repositorio_scripts.png?height=200&width=300",
+    iconLists: [
+      "/logos_svg/nextjs.svg",
+      "/logos_svg/typescript-official-svgrepo-com.svg",
+      "/logos_svg/mongodb-svgrepo-com.svg",
+    ],
+    link: "https://script-repository.netlify.app",
+  },
+  {
+    id: 5,
+    title: "Minimal Ecommerce",
+    des: "This is a clean and modern ecommerce template designed to showcase products with a minimalist design. Perfect for businesses that want to focus on the essentials and provide a smooth shopping experience for their customers.",
+    img: "/proyectos/e_commerce.png?height=200&width=300",
+    iconLists: [
+      "/logos_svg/react.svg",
+      "/logos_svg/typescript-official-svgrepo-com.svg",
+      "/logos_svg/mongodb-svgrepo-com.svg",
+      "/logos_svg/express-svgrepo-com.svg",
+    ],
+    link: "https://ecommerce-4-jltw.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "Hotel Ecommerce",
+    des: "This is a user-friendly hotel reservation template designed to simplify the booking process for both guests and hotel owners. Ideal for small to medium-sized hotels, resorts, or bed & breakfasts.",
+    img: "/proyectos/hotel_ecommerce.png?height=200&width=300",
+    iconLists: [
+      "/logos_svg/nextjs.svg",
+      "/logos_svg/postgresql-logo-svgrepo-com.svg",
+      "/logos_svg/tailwind-css-svgrepo-com.svg",
+      "/logos_svg/light-prisma-svgrepo-com.svg",
+    ],
+    link: "https://stay-savvy-omega.vercel.app/",
+  },
+];

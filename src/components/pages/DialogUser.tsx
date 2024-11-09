@@ -5,7 +5,7 @@ import {
   Dialog,
   DialogContent,
   DialogTrigger,
-  DialogClose
+  DialogClose,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import IconCloud from "../ui/icon-cloud";
@@ -14,23 +14,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
-// Validación con Zod
-const schema = z.object({
-  type: z.enum(["Persona", "Empresa"]).default("Persona"),
-  email: z
-    .string()
-    .email({ message: "Por favor ingresa un correo válido" })
-    .min(1, { message: "El campo email es obligatorio" }),
-  name: z.string().min(2, { message: "El nombre es obligatorio" }),
-  lastName: z.string().min(2, { message: "El apellido es obligatorio" }),
-  phone: z.string().min(7, { message: "El teléfono es obligatorio" }),
-  description: z
-    .string()
-    .min(10, { message: "La descripción debe tener al menos 10 caracteres" })
-    .max(200, { message: "Máximo 200 caracteres" }),
-  companyName: z.string().optional(),
-});
+import esTranslations from "@/locales/es.json";
+import enTranslations from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Slugs para animación de IconCloud
 const slugs = [
@@ -70,6 +56,26 @@ export function DialogUser({ children }: { children: ReactNode }) {
   const [submitCount, setSubmitCount] = useState(0);
   const maxSubmissions = 3;
   const [contactType, setContactType] = useState("Persona");
+  const { language } = useLanguage();
+  const translations =
+    language === "es" ? esTranslations.dialog : enTranslations.dialog;
+
+  // Validación con Zod
+  const schema = z.object({
+    type: z.enum(["Persona", "Empresa"]).default("Persona"),
+    email: z
+      .string()
+      .email({ message: `${translations.error.email}` })
+      .min(1, { message: `${translations.error.minEmail}` }),
+    name: z.string().min(2, { message: `${translations.error.name}` }),
+    lastName: z.string().min(2, { message: `${translations.error.lastName}` }),
+    phone: z.string().min(7, { message: `${translations.error.phone}` }),
+    description: z
+      .string()
+      .min(10, { message: `${translations.error.minDescription}` })
+      .max(200, { message: `${translations.error.maxDescription}` }),
+    companyName: z.string().optional(),
+  });
 
   const {
     register,
@@ -103,14 +109,14 @@ export function DialogUser({ children }: { children: ReactNode }) {
       <DialogContent
         className="sm:max-w-[500px] bg-gray-800 text-white py-2 rounded-[30px] shadow-lg"
         style={{
-          borderRadius: "30px", 
-          border: "3px solid rgb(156 240 255 / 42%)", 
+          borderRadius: "30px",
+          border: "3px solid rgb(156 240 255 / 42%)",
         }}
       >
         <div className="relative flex flex-col items-center justify-center px-4 pb-6 space-y-4">
           <DialogClose
             asChild
-            className="absolute top-3 right-3 p-2 rounded-full text-gray-300"
+            className="absolute p-2 text-gray-300 rounded-full top-3 right-3"
             style={{
               color: "rgb(156,240,255)",
               backgroundColor: "transparent",
@@ -125,31 +131,31 @@ export function DialogUser({ children }: { children: ReactNode }) {
           <div className="w-full h-[300px] max-w-sm px-3 overflow-y-auto">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col items-center w-full space-y-3 bg-gray-800 p-3 rounded-md"
+              className="flex flex-col items-center w-full p-3 space-y-3 bg-gray-800 rounded-md"
             >
               <div className="w-full max-w-xs">
                 <Label htmlFor="type" className="text-left">
-                  Tipo de Contacto
+                  {translations.type}
                 </Label>
                 <select
                   id="type"
                   {...register("type")}
                   onChange={(e) => setContactType(e.target.value)}
-                  className="w-full p-2 mt-1 border rounded bg-white text-black"
+                  className="w-full p-2 mt-1 text-black bg-white border rounded"
                 >
-                  <option value="Persona">Persona</option>
-                  <option value="Empresa">Empresa/Entidad</option>
+                  <option value="Persona">{translations.Individual}</option>
+                  <option value="Empresa">{translations.Enterprise}</option>
                 </select>
               </div>
 
               <div className="w-full max-w-xs">
                 <Label htmlFor="name" className="text-left">
-                  Nombre
+                  {translations.name}
                 </Label>
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Nombre"
+                  placeholder={translations.placeHolderName}
                   {...register("name")}
                   className="mt-1"
                 />
@@ -161,12 +167,12 @@ export function DialogUser({ children }: { children: ReactNode }) {
               </div>
               <div className="w-full max-w-xs">
                 <Label htmlFor="lastName" className="text-left">
-                  Apellido
+                  {translations.lastname}
                 </Label>
                 <Input
                   id="lastName"
                   type="text"
-                  placeholder="Apellido"
+                  placeholder={translations.placeHolderLastname}
                   {...register("lastName")}
                   className="mt-1"
                 />
@@ -179,7 +185,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
 
               <div className="w-full max-w-xs">
                 <Label htmlFor="phone" className="text-left">
-                  Teléfono
+                  {translations.phone}
                 </Label>
                 <PhoneInput
                   country={"py"}
@@ -209,12 +215,12 @@ export function DialogUser({ children }: { children: ReactNode }) {
 
               <div className="w-full max-w-xs">
                 <Label htmlFor="email" className="text-left">
-                  Correo Electrónico
+                  {translations.mail}
                 </Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="Email"
+                  placeholder={translations.placeHolderMail}
                   {...register("email")}
                   className="mt-1"
                 />
@@ -227,12 +233,12 @@ export function DialogUser({ children }: { children: ReactNode }) {
 
               <div className="w-full max-w-xs">
                 <Label htmlFor="description" className="text-left">
-                  Descripción del Proyecto
+                  {translations.description}
                 </Label>
                 <Input
                   id="description"
                   type="text"
-                  placeholder="Describe brevemente tu proyecto o idea"
+                  placeholder={translations.placeHolderDescription}
                   {...register("description")}
                   className="mt-1"
                 />
@@ -246,7 +252,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
               {contactType === "Empresa" && (
                 <div className="w-full max-w-xs">
                   <Label htmlFor="companyName" className="text-left">
-                    Nombre de la Empresa
+                    {translations.nameEnterprise}
                   </Label>
                   <Input
                     id="companyName"
@@ -267,12 +273,12 @@ export function DialogUser({ children }: { children: ReactNode }) {
                   color: "black", // Color del texto en el botón
                 }}
               >
-                Contáctanos
+                {translations.buttonText}
               </Button>
 
               {submitCount >= maxSubmissions && (
                 <p className="mt-2 text-sm text-red-500">
-                  Has alcanzado el límite de envíos.
+                  {translations.warningCount}
                 </p>
               )}
             </form>

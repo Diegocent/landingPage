@@ -2,6 +2,9 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Lightbulb, Shield, Users, Target } from "lucide-react";
 import { Card, CardTitle, CardContent } from "../ui/card";
+import esTranslations from "@/locales/es.json";
+import enTranslations from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -21,31 +24,27 @@ const staggerChildren = {
 export default function AboutUsSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { language } = useLanguage();
+  const translations =
+    language === "es" ? esTranslations.about : enTranslations.about;
 
   const cardsData = [
     {
-      title: "YvagaCore",
+      title: `${translations.cardData.cardYvaga.title}`,
       icon: <Lightbulb className="w-6 h-6 text-white" />,
-      content:
-        '"Yvaga" proviene del guaraní y significa "cielo" o "paraíso", mientras que "Core" representa el núcleo o corazón. En YvagaCore, somos el núcleo de innovación hacia el futuro, ayudando a las empresas a alcanzar su paraíso tecnológico con soluciones robustas y avanzadas.',
+      content: `${translations.cardData.cardYvaga.content}`,
     },
     {
-      title: "Nuestra Misión",
+      title: `${translations.cardData.cardMision.title}`,
       icon: <Target className="w-6 h-6 text-white" />,
-      content:
-        "Somos una microempresa de software dedicada a proporcionar soluciones innovadoras que mejoran la eficiencia operativa de nuestros clientes. Nos especializamos en crear herramientas tecnológicas a medida para resolver los desafíos de las empresas y fomentar su crecimiento.",
+      content: `${translations.cardData.cardMision.content}`,
     },
     {
-      title: "Nuestro Compromiso",
+      title: `${translations.cardData.cardComp.title}`,
       icon: <Shield className="w-6 h-6 text-white" />,
       content: (
         <ul className="space-y-2 text-gray-300">
-          {[
-            "Soluciones personalizadas",
-            "Innovación constante",
-            "Calidad y escalabilidad",
-            "Enfoque en el crecimiento del cliente",
-          ].map((item, index) => (
+          {translations.cardData.cardComp.content.map((item, index) => (
             <li key={index} className="flex items-center">
               <ArrowRight className="w-5 h-5 mr-2 text-blue-400" />
               {item}
@@ -55,7 +54,7 @@ export default function AboutUsSection() {
       ),
     },
     {
-      title: "Nuestro Equipo",
+      title: `${translations.cardData.cardTeam.title}`,
       icon: <Users className="w-6 h-6 text-white" />,
       content: (
         <div className="flex items-start space-x-0">
@@ -132,11 +131,9 @@ export default function AboutUsSection() {
       >
         <motion.div className="mb-16 text-center" variants={fadeInUp}>
           <h2 className="text-4xl font-bold mb-4 text-[rgb(123,210,225)]">
-            Sobre Nosotros
+            {translations.title}
           </h2>
-          <p className="text-xl text-gray-300">
-            Innovación y eficiencia para impulsar tu negocio
-          </p>
+          <p className="text-xl text-gray-300">{translations.description}</p>
         </motion.div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">

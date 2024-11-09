@@ -85,5 +85,72 @@
   "stack": {
     "title": "Tools Used",
     "subtitle": "With our team, you have the opportunity to work with any of these tools"
+  },
+
+  "proctoring": {
+    "title": "Leaders in Proctoring and Digital Security",
+    "description1": "We are the first company in Paraguay",
+    "description2": "specialized in proctoring and digital security. Protect your online assessments with our cutting-edge technology. With us, every exam is completely secure, reliable, and 100% authentic.",
+    "descriptionHeader": "Protect your data and ensure high-quality results with the most advanced technology on the market.",
+    "buttonText": "Request a Demo"
+  },
+
+  "exp": {
+    "title": "Digital Experiences",
+    "subtitle": "Experience some of our creations"
+  },
+
+  "about": {
+    "title": "About Us",
+    "description": "Innovation and efficiency to drive your business",
+    "cardData": {
+      "cardYvaga": {
+        "title": "YvagaCore",
+        "content": "Yvaga comes from the Guaraní language and means sky or paradise, while Core represents the core or heart. At YvagaCore, we are the core of innovation towards the future, helping businesses reach their technological paradise with robust and advanced solutions."
+      },
+      "cardMision": {
+        "title": "Our Mission",
+        "content": "We are a small software company dedicated to providing innovative solutions that improve the operational efficiency of our clients. We specialize in creating tailored technological tools to solve business challenges and foster growth."
+      },
+      "cardComp": {
+        "title": "Our Commitment",
+        "content": [
+          "Tailored solutions",
+          "Constant innovation",
+          "Quality and scalability",
+          "Focus on client growth"
+        ]
+      },
+      "cardTeam": {
+        "title": "Our Team"
+      }
+    }
+  },
+
+  "dialog": {
+    "type": "Contact Type",
+    "Enterprise": "Company/Entity",
+    "Individual": "Individual",
+    "name": "First Name",
+    "placeHolderName": "First Name",
+    "lastname": "Last Name",
+    "placeHolderLastname": "Last Name",
+    "phone": "Phone",
+    "mail": "Email",
+    "placeHolderMail": "Email",
+    "description": "Project Description",
+    "placeHolderDescription": "Briefly describe your project or idea",
+    "nameEnterprise": "Company Name",
+    "buttonText": "Contact Us",
+    "warningCount": "You have reached the submission limit.",
+    "error": {
+      "email": "Please enter a valid email address",
+      "minEmail": "Email field is required",
+      "name": "First name is required",
+      "lastName": "Last name is required",
+      "phone": "Phone number is required",
+      "minDescription": "Description must be at least 10 characters long",
+      "maxDescription": "Maximum 200 characters"
+    }
   }
 }

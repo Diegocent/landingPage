@@ -2,14 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
-interface Project {
+interface Demo {
   id: number;
   title: string;
   image: string;
   link: string;
 }
 
-const ProjectCard: React.FC<Project> = ({ title, image, link }) => {
+const DemoCard: React.FC<Demo> = ({ title, image, link }) => {
   return (
     <a
       href={link}
@@ -43,4 +43,4 @@ const ProjectCard: React.FC<Project> = ({ title, image, link }) => {
   );
 };
 
-export default ProjectCard;
+export default DemoCard;
