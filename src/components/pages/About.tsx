@@ -131,7 +131,7 @@ export default function AboutUsSection() {
         variants={staggerChildren}
       >
         <motion.div className="mb-16 text-center" variants={fadeInUp}>
-          <h2 className="text-4xl font-bold mb-4 text-[#097f93]">
+          <h2 className="text-4xl font-bold mb-4 text-[rgb(123,210,225)]">
             Sobre Nosotros
           </h2>
           <p className="text-xl text-gray-300">

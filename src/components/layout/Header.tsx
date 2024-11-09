@@ -79,15 +79,15 @@ export const Header = () => {
                 e.preventDefault();
                 handleScrollTo(section.clave);
               }}
-              className={`relative transition-colors hover:text-[#097f93] ${
+              className={`relative transition-colors hover:text-[rgb(123,210,225)] ${
                 activeSection === section.clave
-                  ? "text-[#097f93]"
+                  ? "text-[rgb(123,210,225)]"
                   : "text-white"
               }`}
             >
               {activeSection === section.clave && (
                 <span
-                  className="absolute -top-3 left-0 right-0 h-1 bg-[#097f93] rounded-b-md"
+                  className="absolute -top-3 left-0 right-0 h-1 bg-[rgb(123,210,225)] rounded-b-md"
                   style={{ transform: "translateY(-50%)" }}
                 />
               )}
