@@ -79,8 +79,8 @@ export const SectionProcesos = ({
                 variants={sectionVariants}
               >
                 <div className="flex items-center mb-4">
-                  <Zap className="mr-2 text-[#097f93]" />
-                  <span className="text-[#097f93]">Empieza en minutos</span>
+                  <Zap className="mr-2 text-[rgb(123,210,225)]" />
+                  <span className="text-[rgb(123,210,225)]">Empieza en minutos</span>
                 </div>
                 <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                   {title} <span className="text-gray-500">{subtitle}</span>
@@ -129,8 +129,8 @@ export const SectionProcesos = ({
                 variants={sectionVariants}
               >
                 <div className="flex items-center mb-4">
-                  <Zap className="mr-2 text-[#097f93]" />
-                  <span className="text-[#097f93]">Empieza en minutos</span>
+                  <Zap className="mr-2 text-[rgb(123,210,225)]" />
+                  <span className="text-[rgb(123,210,225)]">Empieza en minutos</span>
                 </div>
                 <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                   {title} <span className="text-gray-500">{subtitle}</span>

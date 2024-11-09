@@ -49,11 +49,11 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#097f93] to-[#707d83]">
-            Nuestros Proyectos
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[rgb(123,210,225)] to-[rgb(123,210,225)]">
+            Experiencias Digitales
           </h2>
           <p className="text-xl text-gray-300">
-            Explora algunas de nuestras soluciones en acción
+            Experimenta nuestras creaciones en uso
           </p>
         </motion.div>
 

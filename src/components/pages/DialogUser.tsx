@@ -257,7 +257,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
                 disabled={submitCount >= maxSubmissions}
                 className="w-full max-w-sm"
               >
-                Suscribirse
+                Contáctanos
               </Button>
 
               {/* Mensaje de límite de envíos */}
