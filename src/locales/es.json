@@ -1,0 +1,90 @@
+{
+  "hero": {
+    "title": "Especialistas en dar vida a tus ideas digitales",
+    "description": "Desarrollamos aplicaciones móviles y webs. Creamos soluciones personalizadas para potenciar y simplificar la gestión de tu empresa.",
+    "buttonText": "Hablemos de tu proyecto"
+  },
+  "sections": [
+    { "clave": "hero", "valor": "Inicio" },
+    { "clave": "videos", "valor": "Procesos" },
+    { "clave": "techstack", "valor": "Tecnologías" },
+    { "clave": "proyectos", "valor": "Proyectos" },
+    { "clave": "about", "valor": "Nosotros" }
+  ],
+
+  "process": {
+    "services": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Soluciones diseñadas para cada necesidad",
+      "card1": {
+        "title": "Acompañamiento Total",
+        "description": "Te guiamos en cada fase de tu proyecto, desde la idea inicial hasta la producción final, asegurando un desarrollo exitoso y adaptado a tus necesidades."
+      },
+      "card2": {
+        "title": "Soluciones Flexibles",
+        "description": "Entendemos que cada empresa enfrenta desafíos únicos, por eso ofrecemos soluciones adaptadas a las problemáticas específicas, logrando así resultados óptimos en cada caso."
+      },
+      "card3": {
+        "title": "Aplicaciones Multiplataforma",
+        "description": "Desarrollamos aplicaciones tanto web como móviles, asegurando que estén disponibles para los usuarios donde y cuando los necesiten, en todos los dispositivos y situaciones."
+      },
+      "card4": {
+        "title": "Innovación Constante",
+        "description": "Nos mantenemos a la vanguardia de las últimas tecnologías, ofreciendo soluciones modernas y eficientes que aseguran que siempre estarás un paso adelante en el mercado."
+      }
+    },
+    "education": {
+      "title": "Transformando la Educación Digital",
+      "subtitle": "Impulsamos el Aprendizaje con Innovación, Personalización y Soporte Integral en Plataformas LMS"
+    },
+    "security": {
+      "title": "Seguridad en Evaluaciones Digitales",
+      "subtitle": "Garantizando Integridad y Confianza en el Proceso de Evaluación",
+      "card1": {
+        "title": "FaceID Seguro",
+        "description": "La verificación de identidad se realiza de manera precisa y confiable, asegurando que solo los usuarios autorizados accedan a cada examen en línea."
+      },
+      "card2": {
+        "title": "Detección de Movimiento",
+        "description": "Contamos con un sistema de monitoreo en tiempo real que identifica y registra cualquier actividad sospechosa o irregular durante la evaluación realizada, asegurando así la transparencia del proceso de examen."
+      },
+      "card3": {
+        "title": "Control de Ayudas",
+        "description": "Nuestra tecnología avanzada permite detectar cualquier asistencia no autorizada que podría comprometer la integridad del examen, garantizando así que cada evaluación se lleve a cabo de manera justa y equitativa."
+      },
+      "card4": {
+        "title": "Protección Integral",
+        "description": "Garantizamos la integridad académica mediante un sistema de proctoring confiable, adaptable y eficaz que asegura un proceso de evaluación seguro."
+      }
+    },
+    "management": {
+      "title": "Sistemas de Gestión Personalizados",
+      "subtitle": "Optimiza procesos, maximiza resultados y adapta tu negocio a las demandas del mercado actual."
+    },
+    "customApps": {
+      "title": "Desarrollo de Apps a Medida para Empresas Modernas",
+      "subtitle": "Aplicaciones móviles flexibles y escalables.",
+      "card1": {
+        "title": "Tecnología Avanzada",
+        "description": "Construimos con Flutter y React Native, logrando aplicaciones rápidas, potentes y multiplataforma."
+      },
+      "card2": {
+        "title": "Adaptación",
+        "description": "Ofrecemos soluciones versátiles para e-commerce, inmobiliarias, tecnología y diversas industrias, adaptándonos a las necesidades específicas de cada sector y optimizando el rendimiento de las aplicaciones."
+      },
+      "card3": {
+        "title": "Facturación y Pagos",
+        "description": "Contamos con pasarelas de pago avanzadas y sistemas de facturación seguros, diseñados para integrarse de manera fluida, garantizando así una experiencia de usuario optimizada y confiable en cada transacción."
+      },
+      "card4": {
+        "title": "Experiencia Intuitiva",
+        "description": "Diseños adaptativos y amigables, pensados para el confort y satisfacción de tus clientes."
+      }
+    }
+  },
+
+  "stack": {
+    "title": "Herramientas utilizadas",
+    "subtitle": "Con nuestro equipo tienes la posibilidad de trabajar con cualquiera de estas herramientas"
+  }
+}

@@ -1,20 +1,18 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { MobileMenu } from "./MobileMenu";
+import esTranslations from "@/locales/es.json";
+import enTranslations from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("");
-  const sections = useMemo(
-    () => [
-      { clave: "hero", valor: "Inicio" },
-      { clave: "videos", valor: "Procesos" },
-      { clave: "techstack", valor: "Tecnologias" },
-      { clave: "proyectos", valor: "Proyectos" },
-      { clave: "about", valor: "Nosotros" },
-    ],
-    []
-  );
+  const { language, setLanguage } = useLanguage();
+
+  // Cargar las traducciones según el idioma seleccionado
+  const sections =
+    language === "es" ? esTranslations.sections : enTranslations.sections;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,6 +92,26 @@ export const Header = () => {
               {section.valor}
             </Link>
           ))}
+        </div>
+
+        {/* Language Selector */}
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={() => setLanguage("en")}
+            className={`px-2 py-1 text-xs font-semibold ${
+              language === "en" ? "text-[rgb(123,210,225)]" : "text-white"
+            }`}
+          >
+            EN
+          </button>
+          <button
+            onClick={() => setLanguage("es")}
+            className={`px-2 py-1 text-xs font-semibold ${
+              language === "es" ? "text-[rgb(123,210,225)]" : "text-white"
+            }`}
+          >
+            ES
+          </button>
         </div>
 
         {/* Mobile Menu Icon */}

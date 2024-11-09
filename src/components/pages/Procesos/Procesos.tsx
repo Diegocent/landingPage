@@ -13,13 +13,21 @@ import {
   Users,
 } from "lucide-react";
 import { SectionProcesos } from "./components/SectionProcesos";
+import esTranslations from "@/locales/es.json";
+import enTranslations from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 export const Procesos = () => {
+  const { language } = useLanguage();
+  const translations =
+    language === "es" ? esTranslations.process : enTranslations.process;
+
   return (
     <>
       <SectionProcesos
-        title="Nuestros Servicios"
-        subtitle="Soluciones diseñadas para cada necesidad"
+        //language === "es" ? esTranslations.hero : enTranslations.hero;
+        title={translations.services.title}
+        subtitle={translations.services.subtitle}
         urlVideo="https://www.youtube.com/embed/la2sSBrI4zo"
         urlImagen="procesos/servicios.png"
         nombreVideo="Hero Video"
@@ -27,41 +35,37 @@ export const Procesos = () => {
         features={[
           {
             icon: <Users />,
-            title: "Acompañamiento Total",
-            description:
-              "Te guiamos en cada fase de tu proyecto, desde la idea inicial hasta la producción final, asegurando un desarrollo exitoso y adaptado a tus necesidades.",
+            title: `${translations.services.card1.title}`,
+            description: `${translations.services.card1.description}`,
           },
           {
             icon: <Settings />,
-            title: "Soluciones Flexibles",
-            description:
-              "Entendemos que cada empresa enfrenta desafíos únicos, por eso ofrecemos soluciones adaptadas a las problemáticas específicas, logrando así resultados óptimos en cada caso.",
+            title: `${translations.services.card2.title}`,
+            description: `${translations.services.card2.description}`,
           },
           {
             icon: <MonitorSmartphone />,
-            title: "Aplicaciones Multiplataforma",
-            description:
-              "Desarrollamos aplicaciones tanto web como móviles, asegurando que estén disponibles para los usuarios donde y cuando los necesiten, en todos los dispositivos y situaciones.",
+            title: `${translations.services.card3.title}`,
+            description: `${translations.services.card3.description}`,
           },
           {
             icon: <TrendingUp />,
-            title: "Innovación Constante",
-            description:
-              "Nos mantenemos a la vanguardia de las últimas tecnologías, ofreciendo soluciones modernas y eficientes que aseguran que siempre estarás un paso adelante en el mercado.",
+            title: `${translations.services.card4.title}`,
+            description: `${translations.services.card4.description}`,
           },
         ]}
       />
       <SectionProcesos
-        title="Transformando la Educación Digital"
-        subtitle="Impulsamos el Aprendizaje con Innovación, Personalización y Soporte Integral en Plataformas LMS"
+        title={translations.education.title}
+        subtitle={translations.education.subtitle}
         urlVideo="https://www.youtube.com/embed/OfRJpfb5Wdg"
         urlImagen="procesos/educa.png"
         nombreVideo="Hero Video"
         direccion="derecha"
       />
       <SectionProcesos
-        title="Seguridad en Evaluaciones Digitales"
-        subtitle="Garantizando Integridad y Confianza en el Proceso de Evaluación"
+        title={translations.security.title}
+        subtitle={translations.security.subtitle}
         urlVideo="https://www.youtube.com/embed/XE1nt_pokxs"
         urlImagen="procesos/protoring.png"
         nombreVideo="Hero Video"
@@ -69,41 +73,37 @@ export const Procesos = () => {
         features={[
           {
             icon: <ScanFace />,
-            title: "FaceID Seguro",
-            description:
-              "La verificación de identidad se realiza de manera precisa y confiable, asegurando que solo los usuarios autorizados accedan a cada examen en línea.",
+            title: `${translations.security.card1.title}`,
+            description: `${translations.security.card1.description}`,
           },
           {
             icon: <EyeOff />,
-            title: "Detección de Movimiento",
-            description:
-              "Contamos con un sistema de monitoreo en tiempo real que identifica y registra cualquier actividad sospechosa o irregular durante la evaluación realizada, asegurando así la transparencia del proceso de examen.",
+            title: `${translations.security.card2.title}`,
+            description: `${translations.security.card2.description}`,
           },
           {
             icon: <ShieldCheck />,
-            title: "Control de Ayudas",
-            description:
-              "Nuestra tecnología avanzada permite detectar cualquier asistencia no autorizada que podría comprometer la integridad del examen, garantizando así que cada evaluación se lleve a cabo de manera justa y equitativa.",
+            title: `${translations.security.card3.title}`,
+            description: `${translations.security.card3.description}`,
           },
           {
             icon: <Lock />,
-            title: "Protección Integral",
-            description:
-              "Garantizamos la integridad académica mediante un sistema de proctoring confiable, adaptable y eficaz que asegura un proceso de evaluación seguro.",
+            title: `${translations.security.card4.title}`,
+            description: `${translations.security.card4.description}`,
           },
         ]}
       />
       <SectionProcesos
-        title="Sistemas de Gestión Personalizados"
-        subtitle="Optimiza procesos, maximiza resultados y adapta tu negocio a las demandas del mercado actual."
+        title={translations.management.title}
+        subtitle={translations.management.subtitle}
         urlVideo="https://www.youtube.com/embed/6Q1b_2RWq6Q"
         urlImagen="https://utfs.io/f/Nbwlwl0eTrfuX90QO1GCMJ27oKt5y9NivGzZ4mDHu1YnRjpb"
         nombreVideo="Hero Video"
         direccion="derecha"
       />
       <SectionProcesos
-        title="Desarrollo de Apps a Medida para Empresas Modernas"
-        subtitle="Aplicaciones móviles flexibles y escalables."
+        title={translations.customApps.title}
+        subtitle={translations.customApps.subtitle}
         urlVideo=""
         urlImagen=""
         nombreVideo="Hero Video"
@@ -112,27 +112,23 @@ export const Procesos = () => {
         features={[
           {
             icon: <Smartphone />,
-            title: "Tecnología Avanzada",
-            description:
-              "Construimos con Flutter y React Native, logrando aplicaciones rápidas, potentes y multiplataforma.",
+            title: `${translations.customApps.card1.title}`,
+            description: `${translations.customApps.card1.description}`,
           },
           {
             icon: <Building />,
-            title: "Adaptación",
-            description:
-              "Ofrecemos soluciones versátiles para e-commerce, inmobiliarias, tecnología y diversas industrias, adaptándonos a las necesidades específicas de cada sector y optimizando el rendimiento de las aplicaciones.",
+            title: `${translations.customApps.card2.title}`,
+            description: `${translations.customApps.card2.description}`,
           },
           {
             icon: <CreditCard />,
-            title: "Facturación y Pagos",
-            description:
-              "Contamos con pasarelas de pago avanzadas y sistemas de facturación seguros, diseñados para integrarse de manera fluida, garantizando así una experiencia de usuario optimizada y confiable en cada transacción.",
+            title: `${translations.customApps.card3.title}`,
+            description: `${translations.customApps.card3.description}`,
           },
           {
             icon: <User />,
-            title: "Experiencia Intuitiva",
-            description:
-              "Diseños adaptativos y amigables, pensados para el confort y satisfacción de tus clientes.",
+            title: `${translations.customApps.card4.title}`,
+            description: `${translations.customApps.card4.description}`,
           },
         ]}
       />
