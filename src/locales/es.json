@@ -86,5 +86,72 @@
   "stack": {
     "title": "Herramientas utilizadas",
     "subtitle": "Con nuestro equipo tienes la posibilidad de trabajar con cualquiera de estas herramientas"
+  },
+
+  "protoring": {
+    "title": "Líderes en Proctoring y Seguridad Digital",
+    "description1": "Somos la primera empresa en Paraguay",
+    "description2": "especializada en proctoring y seguridad digital. Protege tus evaluaciones en línea con nuestra tecnología de vanguardia. Con nosotros, cada examen es totalmente seguro, confiable y 100% auténtico.",
+    "descriptionHeader": "Protege tus datos y asegura resultados de calidad con la tecnología más avanzada del mercado.",
+    "buttonText": "Solicitar una Demo"
+  },
+
+  "exp": {
+    "title": "Experiencias Digitales",
+    "subtitle": "Experimeta algunas de nuestras creaciones"
+  },
+
+  "about": {
+    "title": "Sobre Nosotros",
+    "description": "Innovación y eficiencia para impulsar tu negocio",
+    "cardData": {
+      "cardYvaga": {
+        "title": "YvagaCore",
+        "content": "Yvaga proviene del guaraní y significa cielo o paraíso, mientras que Core representa el núcleo o corazón. En YvagaCore, somos el núcleo de innovación hacia el futuro, ayudando a las empresas a alcanzar su paraíso tecnológico con soluciones robustas y avanzadas."
+      },
+      "cardMision": {
+        "title": "Nuestra Misión",
+        "content": "Somos una microempresa de software dedicada a proporcionar soluciones innovadoras que mejoran la eficiencia operativa de nuestros clientes. Nos especializamos en crear herramientas tecnológicas a medida para resolver los desafíos de las empresas y fomentar su crecimiento."
+      },
+      "cardComp": {
+        "title": "Nuestro Compromiso",
+        "content": [
+          "Soluciones personalizadas",
+          "Innovación constante",
+          "Calidad y escalabilidad",
+          "Enfoque en el crecimiento del cliente"
+        ]
+      },
+      "cardTeam": {
+        "title": "Nuestro Equipo"
+      }
+    }
+  },
+
+  "dialog": {
+    "type": "Tipo de Contacto",
+    "Enterprise": "Empresa/Entidad",
+    "Individual": "Persona Física",
+    "name": "Nombre",
+    "placeHolderName": "Nombre",
+    "lastname": "Apellido",
+    "placeHolderLastname": "Apellido",
+    "phone": "Teléfono",
+    "mail": "Correo Electrónico",
+    "placeHolderMail": "Email",
+    "description": "Descripción del Proyecto",
+    "placeHolderDescription": "Describe brevemente tu proyecto o idea",
+    "nameEnterprise": "Nombre de la Empresa",
+    "buttonText": "Contáctanos",
+    "warningCount": "Has alcanzado el límite de envíos.",
+    "error": {
+      "email": "Por favor ingresa un correo válido",
+      "minEmail": "El campo email es obligatorio",
+      "name": "El nombre es obligatorio",
+      "lastName": "El apellido es obligatorio",
+      "phone": "El teléfono es obligatorio",
+      "minDescription": "La descripción debe tener al menos 10 caracteres",
+      "maxDescription": "Máximo 200 caracteres"
+    }
   }
 }
