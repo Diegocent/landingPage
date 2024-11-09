@@ -2,8 +2,15 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import tecnologias from "@/constanst/tecnologias";
+import esTranslations from "@/locales/es.json";
+import enTranslations from "@/locales/en.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function TechStack() {
+  const { language } = useLanguage();
+  const translations =
+    language === "es" ? esTranslations.stack : enTranslations.stack;
+
   const controls = useAnimation();
   const [width, setWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -55,12 +62,9 @@ export default function TechStack() {
         variants={fadeInUp}
       >
         <h2 className="text-4xl font-bold mb-4 bg-clip-text text-[rgb(123,210,225)]">
-          Herramientas utilizadas
+          {translations.title}
         </h2>
-        <p className="text-xl text-gray-300">
-          Con nuestro equipo tienes la posibilidad de trabajar con cualquiera de
-          estas herramientas
-        </p>
+        <p className="text-xl text-gray-300">{translations.subtitle}</p>
       </motion.div>
 
       {/* Contenedor del carrusel */}

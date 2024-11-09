@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "title": "Specialists in bringing your digital ideas to life",
+    "description": "We develop mobile and web applications. We create customized solutions to enhance and simplify your business management.",
+    "buttonText": "Let's talk about your project"
+  },
+  "sections": [
+    { "clave": "hero", "valor": "Home" },
+    { "clave": "videos", "valor": "Processes" },
+    { "clave": "techstack", "valor": "Technologies" },
+    { "clave": "proyectos", "valor": "Projects" },
+    { "clave": "about", "valor": "About Us" }
+  ],
+
+  "process": {
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Solutions tailored for every need",
+      "card1": {
+        "title": "Comprehensive Support",
+        "description": "We guide you through every phase of your project, from the initial idea to final production, ensuring a successful development adapted to your needs."
+      },
+      "card2": {
+        "title": "Flexible Solutions",
+        "description": "We understand that every company faces unique challenges, so we offer solutions tailored to specific problems, achieving optimal results in each case."
+      },
+      "card3": {
+        "title": "Multiplatform Applications",
+        "description": "We develop both web and mobile applications, ensuring availability for users wherever and whenever they need them, across all devices and situations."
+      },
+      "card4": {
+        "title": "Continuous Innovation",
+        "description": "We stay at the forefront of the latest technologies, offering modern and efficient solutions that keep you one step ahead in the market."
+      }
+    },
+    "education": {
+      "title": "Transforming Digital Education",
+      "subtitle": "Driving Learning with Innovation, Personalization, and Comprehensive LMS Support"
+    },
+    "security": {
+      "title": "Security in Digital Assessments",
+      "subtitle": "Ensuring Integrity and Trust in the Evaluation Process",
+      "card1": {
+        "title": "Secure FaceID",
+        "description": "Identity verification is performed accurately and reliably, ensuring that only authorized users access each online exam."
+      },
+      "card2": {
+        "title": "Movement Detection",
+        "description": "We have a real-time monitoring system that identifies and records any suspicious or irregular activity during the evaluation, ensuring transparency in the exam process."
+      },
+      "card3": {
+        "title": "Assistance Control",
+        "description": "Our advanced technology can detect any unauthorized assistance that could compromise the integrity of the exam, ensuring each evaluation is conducted fairly and equitably."
+      },
+      "card4": {
+        "title": "Comprehensive Protection",
+        "description": "We ensure academic integrity with a reliable, adaptable, and effective proctoring system that secures the evaluation process."
+      }
+    },
+    "management": {
+      "title": "Customized Management Systems",
+      "subtitle": "Optimize processes, maximize results, and adapt your business to current market demands."
+    },
+    "customApps": {
+      "title": "Custom App Development for Modern Enterprises",
+      "subtitle": "Flexible and scalable mobile applications.",
+      "card1": {
+        "title": "Advanced Technology",
+        "description": "We build with Flutter and React Native, achieving fast, powerful, and cross-platform applications."
+      },
+      "card2": {
+        "title": "Adaptability",
+        "description": "We offer versatile solutions for e-commerce, real estate, technology, and various industries, adapting to each sector's specific needs and optimizing application performance."
+      },
+      "card3": {
+        "title": "Billing and Payments",
+        "description": "We provide advanced payment gateways and secure billing systems designed for smooth integration, ensuring an optimized and reliable user experience in every transaction."
+      },
+      "card4": {
+        "title": "Intuitive Experience",
+        "description": "Adaptive and user-friendly designs, crafted for the comfort and satisfaction of your clients."
+      }
+    }
+  },
+  "stack": {
+    "title": "Tools Used",
+    "subtitle": "With our team, you have the opportunity to work with any of these tools"
+  }
+}

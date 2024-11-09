@@ -9,6 +9,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import Projects from "./components/pages/Projects/Projects";
 import Conection from "./elements/Conection";
+import "./i18n";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
   const targetRef = useRef(null);
@@ -56,42 +58,44 @@ function App() {
             />
           </div>
         </div>
-        <div className="relative z-10">
-          <Header />
-          <motion.div
-            ref={targetRef}
-            style={{ opacity, scale }}
-            className="fixed inset-0 pointer-events-none"
-          >
-            <div className="absolute inset-0 bg-[url('/path-to-your-background-image.jpg')] bg-cover bg-center" />
-          </motion.div>
+        <LanguageProvider>
+          <div className="relative z-10">
+            <Header />
+            <motion.div
+              ref={targetRef}
+              style={{ opacity, scale }}
+              className="fixed inset-0 pointer-events-none"
+            >
+              <div className="absolute inset-0 bg-[url('/path-to-your-background-image.jpg')] bg-cover bg-center" />
+            </motion.div>
 
-          <section id="hero">
-            <Hero />
-          </section>
+            <section id="hero">
+              <Hero />
+            </section>
 
-          <section id="videos">
-            <Procesos />
-          </section>
+            <section id="videos">
+              <Procesos />
+            </section>
 
-          <section id="techstack">
-            <TechStack />
-          </section>
+            <section id="techstack">
+              <TechStack />
+            </section>
 
-          <section id="proyectos">
-            <Projects />
-          </section>
+            <section id="proyectos">
+              <Projects />
+            </section>
 
-          <section>
-            <Conection />
-          </section>
+            <section>
+              <Conection />
+            </section>
 
-          <section id="about">
-            <AboutUsSection />
-          </section>
+            <section id="about">
+              <AboutUsSection />
+            </section>
 
-          <Footer />
-        </div>
+            <Footer />
+          </div>
+        </LanguageProvider>
       </div>
     </Router>
   );
