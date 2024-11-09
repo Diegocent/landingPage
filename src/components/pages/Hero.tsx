@@ -78,9 +78,7 @@ export const Hero = () => {
             className="max-w-2xl mb-8 text-xl text-justify text-gray-300"
             variants={fadeInUp}
           >
-            Desarrollamos aplicaciones móviles y webs. Creamos soluciones
-            personalizadas para potenciar y simplificar la gestión de tu
-            empresa.
+            {translations.description}
           </motion.p>
 
           <motion.div variants={fadeInUp}>
