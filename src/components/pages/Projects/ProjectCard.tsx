@@ -33,7 +33,7 @@ const ProjectCard: React.FC<Project> = ({ title, image, link }) => {
           <h3 className="text-sm font-semibold text-white mb-1 truncate">
             {title}
           </h3>
-          <div className="flex items-center text-xs text-[#097f93] hover:text-blue-300 transition-colors">
+          <div className="flex items-center text-xs text-[rgb(123,210,225)] hover:text-blue-300 transition-colors">
             <span>Ver demo</span>
             <ExternalLink className="ml-1 h-3 w-3" />
           </div>
