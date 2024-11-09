@@ -63,14 +63,13 @@ export const Hero = () => {
           transition={{ staggerChildren: 0.3 }}
         >
           <motion.h2
-            className="mb-6 text-3xl font-bold text-gray-400 md:text-5xl lg:text-5xl bg-clip-text"
+            className="mb-6 text-3xl font-bold text-gray-300 md:text-5xl lg:text-5xl bg-clip-text"
             variants={fadeInUp}
           >
             <span className="text-[rgb(123,210,225)] bg-clip-text bg-gradient-to-r from-[rgb(156,240,255)] to-[rgb(123,210,225)]">
               {translations.title}
             </span>
-            {/* en dar vida a{" "}
-            <span className="text-[rgb(123,210,225)] bg-clip-text bg-gradient-to-r from-[rgb(156,240,255)] to-[rgb(123,210,225)]">
+            {/* <span className="text-[rgb(123,210,225)] bg-clip-text bg-gradient-to-r from-[rgb(156,240,255)] to-[rgb(123,210,225)]">
               tus ideas digitales
             </span> */}
           </motion.h2>
@@ -79,7 +78,9 @@ export const Hero = () => {
             className="max-w-2xl mb-8 text-xl text-justify text-gray-300"
             variants={fadeInUp}
           >
-            {translations.description}
+            Desarrollamos aplicaciones móviles y webs. Creamos soluciones
+            personalizadas para potenciar y simplificar la gestión de tu
+            empresa.
           </motion.p>
 
           <motion.div variants={fadeInUp}>

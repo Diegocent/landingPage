@@ -4,17 +4,16 @@ import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTrigger,
-  DialogTitle,
+  DialogClose
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import IconCloud from "../ui/icon-cloud";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import PhoneInput from "react-phone-input-2"; // Librería para prefijos de país
-import "react-phone-input-2/lib/style.css"; // Estilos para PhoneInput
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 // Validación con Zod
 const schema = z.object({
@@ -93,7 +92,6 @@ export function DialogUser({ children }: { children: ReactNode }) {
   const onSubmit = () => {
     if (submitCount < maxSubmissions) {
       setSubmitCount(submitCount + 1);
-      // console.log("Datos enviados:", data);
     } else {
       alert("Has alcanzado el límite de envíos.");
     }
@@ -102,22 +100,34 @@ export function DialogUser({ children }: { children: ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[750px] text-gray-400 py-2">
-        <DialogHeader>
-          <DialogTitle className="py-2">Trabajemos Juntos</DialogTitle>
-        </DialogHeader>
-        <div className="relative flex flex-col items-center justify-center px-6 pb-8 space-y-5">
-          {/* Animación de nubes */}
-          <div className="max-w-[180px] mb-4">
+      <DialogContent
+        className="sm:max-w-[500px] bg-gray-800 text-white py-2 rounded-[30px] shadow-lg"
+        style={{
+          borderRadius: "30px", 
+          border: "3px solid rgb(156 240 255 / 42%)", 
+        }}
+      >
+        <div className="relative flex flex-col items-center justify-center px-4 pb-6 space-y-4">
+          <DialogClose
+            asChild
+            className="absolute top-3 right-3 p-2 rounded-full text-gray-300"
+            style={{
+              color: "rgb(156,240,255)",
+              backgroundColor: "transparent",
+              transition: "none",
+            }}
+          >
+            ✕
+          </DialogClose>
+          <div className="max-w-[150px] mb-3">
             <IconCloud iconSlugs={slugs} />
           </div>
-          <div className="w-full h-[400px] max-w-sm px-4 overflow-y-auto">
+          <div className="w-full h-[300px] max-w-sm px-3 overflow-y-auto">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col items-center w-full space-y-4"
+              className="flex flex-col items-center w-full space-y-3 bg-gray-800 p-3 rounded-md"
             >
-              {/* Selector de tipo de contacto */}
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <Label htmlFor="type" className="text-left">
                   Tipo de Contacto
                 </Label>
@@ -125,15 +135,14 @@ export function DialogUser({ children }: { children: ReactNode }) {
                   id="type"
                   {...register("type")}
                   onChange={(e) => setContactType(e.target.value)}
-                  className="w-full p-2 mt-1 border rounded"
+                  className="w-full p-2 mt-1 border rounded bg-white text-black"
                 >
                   <option value="Persona">Persona</option>
                   <option value="Empresa">Empresa/Entidad</option>
                 </select>
               </div>
 
-              {/* Inputs de Nombre y Apellido */}
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <Label htmlFor="name" className="text-left">
                   Nombre
                 </Label>
@@ -150,7 +159,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
                   </p>
                 )}
               </div>
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <Label htmlFor="lastName" className="text-left">
                   Apellido
                 </Label>
@@ -168,26 +177,27 @@ export function DialogUser({ children }: { children: ReactNode }) {
                 )}
               </div>
 
-              {/* Input de teléfono con prefijo */}
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <Label htmlFor="phone" className="text-left">
                   Teléfono
                 </Label>
                 <PhoneInput
-                  country={"us"}
+                  country={"py"}
                   value={""}
                   onChange={(phone) => setValue("phone", phone)}
                   inputStyle={{
                     width: "100%",
                     padding: "0.5rem",
-                    paddingLeft: "3.5rem", // Espacio extra para el prefijo y la bandera
+                    paddingLeft: "3.5rem",
+                    color: "black",
+                    backgroundColor: "white",
                   }}
                   containerStyle={{
                     width: "100%",
                   }}
                   buttonStyle={{
-                    borderRight: "1px solid #ccc", // Borde para separar el prefijo
-                    paddingRight: "1rem", // Espacio entre bandera y número
+                    borderRight: "1px solid #ccc",
+                    paddingRight: "1rem",
                   }}
                 />
                 {errors.phone && (
@@ -197,8 +207,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
                 )}
               </div>
 
-              {/* Input de correo electrónico */}
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <Label htmlFor="email" className="text-left">
                   Correo Electrónico
                 </Label>
@@ -216,8 +225,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
                 )}
               </div>
 
-              {/* Input de descripción del proyecto */}
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <Label htmlFor="description" className="text-left">
                   Descripción del Proyecto
                 </Label>
@@ -235,9 +243,8 @@ export function DialogUser({ children }: { children: ReactNode }) {
                 )}
               </div>
 
-              {/* Input específico para empresas */}
               {contactType === "Empresa" && (
-                <div className="w-full max-w-sm">
+                <div className="w-full max-w-xs">
                   <Label htmlFor="companyName" className="text-left">
                     Nombre de la Empresa
                   </Label>
@@ -251,16 +258,18 @@ export function DialogUser({ children }: { children: ReactNode }) {
                 </div>
               )}
 
-              {/* Botón de envío */}
               <Button
                 type="submit"
                 disabled={submitCount >= maxSubmissions}
-                className="w-full max-w-sm"
+                className="w-full max-w-xs"
+                style={{
+                  backgroundColor: "rgb(156,240,255)",
+                  color: "black", // Color del texto en el botón
+                }}
               >
                 Contáctanos
               </Button>
 
-              {/* Mensaje de límite de envíos */}
               {submitCount >= maxSubmissions && (
                 <p className="mt-2 text-sm text-red-500">
                   Has alcanzado el límite de envíos.
