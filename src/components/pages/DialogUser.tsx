@@ -100,8 +100,13 @@ export function DialogUser({ children }: { children: ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[500px] bg-gray-800 text-white py-2">
-        
+      <DialogContent
+        className="sm:max-w-[500px] bg-gray-800 text-white py-2 rounded-[30px] shadow-lg"
+        style={{
+          borderRadius: "30px", 
+          border: "3px solid rgb(156 240 255 / 42%)", 
+        }}
+      >
         <div className="relative flex flex-col items-center justify-center px-4 pb-6 space-y-4">
           <DialogClose
             asChild
@@ -177,7 +182,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
                   Teléfono
                 </Label>
                 <PhoneInput
-                  country={"py"}  
+                  country={"py"}
                   value={""}
                   onChange={(phone) => setValue("phone", phone)}
                   inputStyle={{
@@ -264,7 +269,6 @@ export function DialogUser({ children }: { children: ReactNode }) {
               >
                 Contáctanos
               </Button>
-
 
               {submitCount >= maxSubmissions && (
                 <p className="mt-2 text-sm text-red-500">
