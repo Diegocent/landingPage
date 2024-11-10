@@ -53,8 +53,9 @@ const slugs = [
 ];
 
 export function DialogUser({ children }: { children: ReactNode }) {
-  const [submitCount, setSubmitCount] = useState(0);
-  const maxSubmissions = 3;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const [contactType, setContactType] = useState("Persona");
   const { language } = useLanguage();
   const translations =
@@ -95,11 +96,45 @@ export function DialogUser({ children }: { children: ReactNode }) {
     },
   });
 
-  const onSubmit = () => {
-    if (submitCount < maxSubmissions) {
-      setSubmitCount(submitCount + 1);
-    } else {
-      alert("Has alcanzado el límite de envíos.");
+  interface FormData {
+    name: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    description: string;
+    companyName?: string;
+    type: string;
+  }
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true); // Inicia el estado de envío
+    const formData = new URLSearchParams();
+
+    formData.append("name", data.name);
+    formData.append("lastName", data.lastName);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("description", data.description);
+    formData.append("companyName", data.companyName || "");
+    formData.append("type", data.type);
+
+    const formUrl = "https://formsubmit.co/admin@yvagacore.tech";
+
+    try {
+      const response = await fetch(formUrl, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true); // Marca el formulario como enviado
+      } else {
+        alert("Error al enviar el formulario");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsSubmitting(false); // Finaliza el estado de envío
     }
   };
 
@@ -257,7 +292,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
                   <Input
                     id="companyName"
                     type="text"
-                    placeholder="Nombre de la empresa"
+                    placeholder={translations.placeHolderEnterprise}
                     {...register("companyName")}
                     className="mt-1"
                   />
@@ -266,21 +301,19 @@ export function DialogUser({ children }: { children: ReactNode }) {
 
               <Button
                 type="submit"
-                disabled={submitCount >= maxSubmissions}
+                disabled={isSubmitting || isSubmitted}
                 className="w-full max-w-xs"
                 style={{
                   backgroundColor: "rgb(156,240,255)",
-                  color: "black", // Color del texto en el botón
+                  color: "black",
                 }}
               >
-                {translations.buttonText}
+                {isSubmitting
+                  ? translations.sendingText
+                  : isSubmitted
+                  ? translations.sentText
+                  : translations.buttonText}
               </Button>
-
-              {submitCount >= maxSubmissions && (
-                <p className="mt-2 text-sm text-red-500">
-                  {translations.warningCount}
-                </p>
-              )}
             </form>
           </div>
         </div>

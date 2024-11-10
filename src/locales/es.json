@@ -142,7 +142,10 @@
     "description": "Descripción del Proyecto",
     "placeHolderDescription": "Describe brevemente tu proyecto o idea",
     "nameEnterprise": "Nombre de la Empresa",
+    "placeHolderEnterprise": "Nombre de la empresa",
     "buttonText": "Contáctanos",
+    "sendingText": "Enviando...",
+    "sentText": "Enviado Correctamente",
     "warningCount": "Has alcanzado el límite de envíos.",
     "error": {
       "email": "Por favor ingresa un correo válido",

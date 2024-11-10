@@ -141,7 +141,10 @@
     "description": "Project Description",
     "placeHolderDescription": "Briefly describe your project or idea",
     "nameEnterprise": "Company Name",
+    "placeHolderEnterprise": "Company Name",
     "buttonText": "Contact Us",
+    "sendingText": "Sending...",
+    "sentText": "Submitted successfully!",
     "warningCount": "You have reached the submission limit.",
     "error": {
       "email": "Please enter a valid email address",
