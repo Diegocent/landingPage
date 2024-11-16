@@ -108,22 +108,26 @@ export function DialogUser({ children }: { children: ReactNode }) {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true); // Inicia el estado de envío
-    const formData = new URLSearchParams();
+    const formData = {
+      name: data.name,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      description: data.description,
+      companyName: data.companyName || "",
+      type: data.type,
+    };
 
-    formData.append("name", data.name);
-    formData.append("lastName", data.lastName);
-    formData.append("email", data.email);
-    formData.append("phone", data.phone);
-    formData.append("description", data.description);
-    formData.append("companyName", data.companyName || "");
-    formData.append("type", data.type);
-
-    const formUrl = "https://formsubmit.co/admin@yvagacore.tech";
+    const formUrl =
+      "https://mail-service-express-dad5qry8u-sl281055-gmailcoms-projects.vercel.app/send-email";
 
     try {
       const response = await fetch(formUrl, {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
@@ -132,7 +136,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
         alert("Error al enviar el formulario");
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsSubmitting(false); // Finaliza el estado de envío
     }
