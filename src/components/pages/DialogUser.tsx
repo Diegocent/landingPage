@@ -128,7 +128,6 @@ export function DialogUser({ children }: { children: ReactNode }) {
         headers: {
           "Content-Type": "application/json",
         },
-        withCredentials: true, // Si necesitas enviar cookies o credenciales
       });
 
       if (response.status === 200) {
