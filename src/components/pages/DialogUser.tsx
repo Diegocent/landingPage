@@ -17,6 +17,7 @@ import "react-phone-input-2/lib/style.css";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
 import { useLanguage } from "@/context/LanguageContext";
+import axios from "axios";
 
 // Slugs para animación de IconCloud
 const slugs = [
@@ -122,21 +123,22 @@ export function DialogUser({ children }: { children: ReactNode }) {
       "https://mail-service-express-git-fea-449b0f-sl281055-gmailcoms-projects.vercel.app/api/send-email";
 
     try {
-      const response = await fetch(formUrl, {
-        method: "POST",
+      // Usamos axios para hacer la solicitud POST
+      const response = await axios.post(formUrl, formData, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        withCredentials: true, // Si necesitas enviar cookies o credenciales
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         setIsSubmitted(true); // Marca el formulario como enviado
       } else {
         alert("Error al enviar el formulario");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error enviando el formulario:", error);
+      alert("Hubo un error al enviar el formulario.");
     } finally {
       setIsSubmitting(false); // Finaliza el estado de envío
     }
