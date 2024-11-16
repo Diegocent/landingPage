@@ -119,7 +119,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
     };
 
     const formUrl =
-      "https://mail-service-express-git-fea-449b0f-sl281055-gmailcoms-projects.vercel.app/";
+      "https://mail-service-express-aud6dptg7-sl281055-gmailcoms-projects.vercel.app/send-email";
 
     try {
       const response = await fetch(formUrl, {
