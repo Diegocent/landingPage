@@ -1,10 +1,9 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./components/layout/Header";
-import { Footer } from "./components/layout/Footer";
 import TechStack from "./elements/TechStack";
 import { Procesos } from "./components/pages/Procesos/Procesos";
 import { Hero } from "./components/pages/Hero";
-import AboutUsSection from "./components/pages/About";
+import AboutUsSection from "./components/layout/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import "./i18n";
@@ -95,8 +94,6 @@ function App() {
             <section id="about">
               <AboutUsSection />
             </section>
-
-            <Footer />
           </div>
         </LanguageProvider>
       </div>

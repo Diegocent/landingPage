@@ -8,6 +8,8 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export const Hero = () => {
   const { language } = useLanguage();
+  
+  // Selecciona las traducciones basadas en el idioma actual
   const translations =
     language === "es" ? esTranslations.hero : enTranslations.hero;
 
@@ -66,12 +68,18 @@ export const Hero = () => {
             className="mb-6 text-3xl font-bold text-gray-300 md:text-5xl lg:text-5xl bg-clip-text"
             variants={fadeInUp}
           >
-            <span className="text-[rgb(123,210,225)] bg-clip-text bg-gradient-to-r from-[rgb(156,240,255)] to-[rgb(123,210,225)]">
-              {translations.title}
-            </span>
-            {/* <span className="text-[rgb(123,210,225)] bg-clip-text bg-gradient-to-r from-[rgb(156,240,255)] to-[rgb(123,210,225)]">
-              tus ideas digitales
-            </span> */}
+            {translations.title.map((segment, index) => (
+              <span
+                key={index}
+                className={
+                  segment.style === "highlight"
+                    ? "text-[rgb(123,210,225)] bg-clip-text bg-gradient-to-r from-[rgb(156,240,255)] to-[rgb(123,210,225)]"
+                    : "text-gray-300"
+                }
+              >
+                {segment.text}
+              </span>
+            ))}
           </motion.h2>
 
           <motion.p
@@ -80,10 +88,9 @@ export const Hero = () => {
           >
             {translations.description}
           </motion.p>
-
           <motion.div variants={fadeInUp}>
             <DialogUser>
-              <Button className="flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-full text-lg font-semibold z-10 hover:border-[#3B505A] hover:shadow-[0px_0px_5px_2px_rgba(59,80,90,0.5)] border-[#3B505A] focus:outline-none focus:border-none">
+              <Button className="relative flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-lg text-lg font-semibold z-10 border-none focus:outline-none focus:border-none shadow-[0_4px_8px_rgba(56,205,212,0.2)] transition-shadow duration-300 transform hover:scale-102 hover:border-[#8df4f6] hover:shadow-[0_4px_10px_rgba(56,205,212,0.25),0_0_15px_rgba(56,205,212,0.3)]">
                 {translations.buttonText}{" "}
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Button>

@@ -8,7 +8,7 @@ const FloatingButton = () => {
         href="https://wa.me/+595974853466"
         target="_blank"
         rel="noopener noreferrer"
-        className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#9cf0ff]"
+        className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#77b9c5]"
       >
         <FaWhatsapp size={30} color="white" />
       </a>
@@ -16,7 +16,7 @@ const FloatingButton = () => {
       {/* Botón de Mail */}
       <a
         href="mailto:admin@yvagacore.tech"
-        className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#9cf0ff]"
+        className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#77b9c5]"
       >
         <FaEnvelope size={30} color="white" />
       </a>

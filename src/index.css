@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Giane Gothic Sans";
-  src: url("../public/fonts/GianeGothicsans\ Regular.otf") format("opentype");
+  src: url("../public/fonts/GianeGothicsans-Regular.ttf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
@@ -174,3 +174,4 @@ button:focus-visible {
 .neon-gradient {
   animation: neonBackgroundPulse 4s ease-in-out infinite;
 }
+

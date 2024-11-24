@@ -1,6 +1,10 @@
 {
   "hero": {
-    "title": "Innovación que impulsa tu futuro",
+    "title": [
+      { "text": "Conectamos", "style": "highlight" },
+      { "text": " innovación con ", "style": "normal" },
+      { "text": "resultados", "style": "highlight" }
+    ],
     "description": "Ayudamos a tu empresa a adaptarse y crecer en un mundo cambiante, transformando las oportunidades digitales en resultados tangibles y sostenibles.",
     "buttonText": "Hablemos de tu proyecto"
   },
@@ -58,12 +62,12 @@
       }
     },
     "management": {
-      "title": "Sistemas de Gestión Personalizados",
-      "subtitle": "Optimiza procesos, maximiza resultados y adapta tu negocio a las demandas del mercado actual."
+      "title": "Sistema de Inventario para Negocios",
+      "subtitle": "Optimiza procesos, maximiza resultados y adapta tu negocio a las demandas del mercado actual, con soporte integrado para facturación electrónica."
     },
     "customApps": {
-      "title": "Desarrollo de Apps a Medida para Empresas Modernas",
-      "subtitle": "Aplicaciones móviles flexibles y escalables.",
+      "title": "Soluciones Móviles Personalizadas",
+      "subtitle": "Diseñamos apps móviles innovadoras, flexibles y escalables, hechas para impulsar el crecimiento y la eficiencia de tu negocio.",
       "card1": {
         "title": "Tecnología Avanzada",
         "description": "Construimos con Flutter y React Native, logrando aplicaciones rápidas, potentes y multiplataforma."
@@ -89,43 +93,16 @@
   },
 
   "protoring": {
-    "title": "Líderes en Proctoring y Seguridad Digital",
-    "description1": "Somos la primera empresa en Paraguay",
-    "description2": "especializada en proctoring y seguridad digital. Protege tus evaluaciones en línea con nuestra tecnología de vanguardia. Con nosotros, cada examen es totalmente seguro, confiable y 100% auténtico.",
-    "descriptionHeader": "Protege tus datos y asegura resultados de calidad con la tecnología más avanzada del mercado.",
-    "buttonText": "Solicitar una Demo"
+    "title": "¡La Revolución en Seguridad Digital para Exámenes Virtuales!",
+    "description1": "Somos pioneros en Sudamérica con una tecnología avanzada de proctoring, diseñada para garantizar la integridad de tus evaluaciones.",
+    "description2": "Nuestra IA monitorea de forma inteligente cada sesión, asegurando que cada examen se realice en un entorno controlado y auténtico, brindando confianza total en los resultados.",
+    "descriptionHeader": "Protege la calidad de tus evaluaciones y asegura resultados imparciales con nuestra tecnología de vanguardia.",
+    "buttonText": "Solicita tu Demo"
   },
 
   "exp": {
     "title": "Experiencias Digitales",
     "subtitle": "Experimeta algunas de nuestras creaciones"
-  },
-
-  "about": {
-    "title": "Sobre Nosotros",
-    "description": "Innovación y eficiencia para impulsar tu negocio",
-    "cardData": {
-      "cardYvaga": {
-        "title": "YvagaCore",
-        "content": "Yvaga proviene del guaraní y significa cielo o paraíso, mientras que Core representa el núcleo o corazón. En YvagaCore, somos el núcleo de innovación hacia el futuro, ayudando a las empresas a alcanzar su paraíso tecnológico con soluciones robustas y avanzadas."
-      },
-      "cardMision": {
-        "title": "Nuestra Misión",
-        "content": "Somos una microempresa de software dedicada a proporcionar soluciones innovadoras que mejoran la eficiencia operativa de nuestros clientes. Nos especializamos en crear herramientas tecnológicas a medida para resolver los desafíos de las empresas y fomentar su crecimiento."
-      },
-      "cardComp": {
-        "title": "Nuestro Compromiso",
-        "content": [
-          "Soluciones personalizadas",
-          "Innovación constante",
-          "Calidad y escalabilidad",
-          "Enfoque en el crecimiento del cliente"
-        ]
-      },
-      "cardTeam": {
-        "title": "Nuestro Equipo"
-      }
-    }
   },
 
   "dialog": {
