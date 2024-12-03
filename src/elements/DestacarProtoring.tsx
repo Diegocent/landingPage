@@ -27,7 +27,7 @@ export default function DestacarProtoring() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <img
-                src="/face.PNG"  
+                src="/face.JPG"  
                 alt="Proceso de examen"
                 className="w-[410px] h-[400px] object-cover" 
               />

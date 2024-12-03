@@ -108,7 +108,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
   }
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true); // Inicia el estado de envío
+    setIsSubmitting(true); 
     const formData = {
       name: data.name,
       lastName: data.lastName,
@@ -147,7 +147,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
-      className="sm:max-w-[500px] bg-gradient-to-r from-[#000000] to-[#1c7a8aa8] text-white py-2 rounded-[30px] shadow-lg"
+      className="sm:max-w-[500px] bg-gradient-to-r from-[#000000] bg-gray-600 text-white py-2 rounded-[30px] shadow-lg"
       style={{
         borderRadius: "30px",
         border: "3px solid rgb(43 43 43 / 78%)",

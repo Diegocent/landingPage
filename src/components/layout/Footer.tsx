@@ -20,45 +20,9 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* About */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">About</h3>
-            <ul className="space-y-2">
-              <li>
-                <a className="text-[#7bd2e1] hover:text-[rgb(93_175_191_/var(--tw-text-opacity))]">
-                  Our Mission
-                </a>
-              </li>
-              <li>
-                <a className="text-[#7bd2e1] hover:text-[rgb(93_175_191_/var(--tw-text-opacity))]">
-                  Our Vision
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Follow Us */}
-          <div>
-            <h3 className="font-semibold text-white mb-4">Our Commitment</h3>
-            <ul className="space-y-2">
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <a className="text-[#7bd2e1] hover:text-[rgb(93_175_191_/var(--tw-text-opacity))]">
-                  Focus on client growth
-                </a>
-              </li>
-              <li className="flex items-center">
-                <a className="text-[#7bd2e1] hover:text-[rgb(93_175_191_/var(--tw-text-opacity))]">
-                  Constant innovation
-                </a>
-              </li>
-            </ul>
-            </ul>
-          </div>
-
           {/* Nuestro Equipo */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Our Team</h3>
+            <h3 className="font-semibold text-white mb-4">Nuestro Equipo</h3>
             <div className="flex items-start space-x-0">
           {[
             {
