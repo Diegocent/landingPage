@@ -1,6 +1,10 @@
 {
   "hero": {
-    "title": "Innovation that drives your future",
+    "title": [
+      { "text": "We connect", "style": "highlight" },
+      { "text": " innovation with ", "style": "normal" },
+      { "text": "results", "style": "highlight" }
+    ],
     "description": "We help your business adapt and grow in a changing world, transforming digital opportunities into tangible and sustainable results.",
     "buttonText": "Let's talk about your project"
   },
@@ -58,15 +62,15 @@
       }
     },
     "management": {
-      "title": "Customized Management Systems",
-      "subtitle": "Optimize processes, maximize results, and adapt your business to current market demands."
+      "title": "Inventory System for Businesses",
+      "subtitle": "Optimize processes, maximize results, and adapt your business to the demands of the current market, with integrated support for electronic invoicing."
     },
     "customApps": {
       "title": "Custom App Development for Modern Enterprises",
       "subtitle": "Flexible and scalable mobile applications.",
       "card1": {
-        "title": "Advanced Technology",
-        "description": "We build with Flutter and React Native, achieving fast, powerful, and cross-platform applications."
+        "title": "Custom Mobile Solutions",
+        "description": "We design innovative, flexible, and scalable mobile applications tailored to boost your business growth and efficiency."
       },
       "card2": {
         "title": "Adaptability",
@@ -88,43 +92,16 @@
   },
 
   "proctoring": {
-    "title": "Leaders in Proctoring and Digital Security",
-    "description1": "We are the first company in Paraguay",
-    "description2": "specialized in proctoring and digital security. Protect your online assessments with our cutting-edge technology. With us, every exam is completely secure, reliable, and 100% authentic.",
-    "descriptionHeader": "Protect your data and ensure high-quality results with the most advanced technology on the market.",
-    "buttonText": "Request a Demo"
+    "title": "The Revolution in Digital Security!",
+    "description1": "We are pioneers in South America with advanced proctoring technology, designed to ensure the integrity of your assessments.",
+    "description2": "Our AI intelligently monitors each session, ensuring that every exam is conducted in a controlled and authentic environment.",
+    "descriptionHeader": "Protect the quality of your assessments and ensure impartial results with our cutting-edge technology.",
+    "buttonText": "Request Your Demo"
   },
 
   "exp": {
     "title": "Digital Experiences",
     "subtitle": "Experience some of our creations"
-  },
-
-  "about": {
-    "title": "About Us",
-    "description": "Innovation and efficiency to drive your business",
-    "cardData": {
-      "cardYvaga": {
-        "title": "YvagaCore",
-        "content": "Yvaga comes from the Guaraní language and means sky or paradise, while Core represents the core or heart. At YvagaCore, we are the core of innovation towards the future, helping businesses reach their technological paradise with robust and advanced solutions."
-      },
-      "cardMision": {
-        "title": "Our Mission",
-        "content": "We are a small software company dedicated to providing innovative solutions that improve the operational efficiency of our clients. We specialize in creating tailored technological tools to solve business challenges and foster growth."
-      },
-      "cardComp": {
-        "title": "Our Commitment",
-        "content": [
-          "Tailored solutions",
-          "Constant innovation",
-          "Quality and scalability",
-          "Focus on client growth"
-        ]
-      },
-      "cardTeam": {
-        "title": "Our Team"
-      }
-    }
   },
 
   "dialog": {
