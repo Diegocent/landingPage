@@ -81,8 +81,6 @@ export const Header = () => {
           />
         </motion.h2>
 
-
-
         {/* Menu */}
         <div className="hidden space-x-6 md:flex md:items-center md:space-x-8 lg:space-x-12">
           {sections.map((section) => (
@@ -111,20 +109,24 @@ export const Header = () => {
         </div>
 
         {/* Language Selector */}
-        <div className="flex items-center space-x-2"> 
+        <div className="flex items-center space-x-2">
           <button
             onClick={() => setLanguage("en")}
             className={`px-2 py-1 text-xs font-semibold ${
-              language === "en" ? "text-[rgb(106,181,194)]" : "text-white"
-            }`}
+              language === "en"
+                ? "bg-[#1c1c1c] text-[rgb(106,181,194)]"
+                : "bg-[#1c1c1c] text-white"
+            } rounded-lg`} 
           >
             EN
           </button>
           <button
             onClick={() => setLanguage("es")}
             className={`px-2 py-1 text-xs font-semibold ${
-              language === "es" ? "text-[rgb(106,181,194)]" : "text-white"
-            }`}
+              language === "es"
+                ? "bg-[#1c1c1c] text-[rgb(106,181,194)]"
+                : "bg-[#1c1c1c] text-white"
+            } rounded-lg`} 
           >
             ES
           </button>

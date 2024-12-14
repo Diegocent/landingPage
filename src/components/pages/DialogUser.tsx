@@ -172,7 +172,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
           <div className="w-full h-[300px] max-w-sm px-3 overflow-y-auto">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col items-center w-full p-3 space-y-3 bg-gray-800 rounded-md"
+              className="flex flex-col items-center w-full p-3 space-y-3 rounded-md"
             >
               <div className="w-full max-w-xs">
                 <Label htmlFor="type" className="text-left">
