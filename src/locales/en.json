@@ -10,7 +10,7 @@
   },
   "sections": [
     { "clave": "hero", "valor": "Home" },
-    { "clave": "videos", "valor": "Processes" },
+    { "clave": "videos", "valor": "Services" },
     { "clave": "techstack", "valor": "Technologies" },
     { "clave": "proyectos", "valor": "Projects" },
     { "clave": "about", "valor": "About Us" }

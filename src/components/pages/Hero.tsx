@@ -88,7 +88,7 @@ export const Hero = () => {
           >
             {translations.description}
           </motion.p>
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} className="flex justify-center sm:justify-start">
             <DialogUser>
               <Button className="relative flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-lg text-lg font-semibold z-10 border-none focus:outline-none focus:border-none shadow-[0_4px_8px_rgba(56,205,212,0.2)] transition-shadow duration-300 transform hover:scale-102 hover:border-[#8df4f6] hover:shadow-[0_4px_10px_rgba(56,205,212,0.25),0_0_15px_rgba(56,205,212,0.3)]">
                 {translations.buttonText}{" "}

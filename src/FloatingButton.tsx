@@ -15,7 +15,7 @@ const FloatingButton = () => {
 
       {/* Botón de Mail */}
       <a
-        href="mailto:team@yvagacore.tech"
+        href="mailto:business@yvagacore.tech"
         className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#77b9c5]"
       >
         <FaEnvelope size={30} color="white" />

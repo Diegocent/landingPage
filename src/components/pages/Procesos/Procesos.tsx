@@ -1,12 +1,8 @@
 import {
   Building,
   CreditCard,
-  EyeOff,
-  Lock,
   MonitorSmartphone,
-  ScanFace,
   Settings,
-  ShieldCheck,
   Smartphone,
   TrendingUp,
   User,
@@ -25,11 +21,10 @@ export const Procesos = () => {
   return (
     <>
       <SectionProcesos
-        //language === "es" ? esTranslations.hero : enTranslations.hero;
         title={translations.services.title}
         subtitle={translations.services.subtitle}
         urlVideo="https://www.youtube.com/embed/la2sSBrI4zo"
-        urlImagen="procesos/servicios.png"
+        urlImagen="procesos/IMG_1225.JPEG.jpg"
         nombreVideo="Hero Video"
         direccion="izquierda"
         features={[
@@ -59,37 +54,29 @@ export const Procesos = () => {
         title={translations.education.title}
         subtitle={translations.education.subtitle}
         urlVideo="https://www.youtube.com/embed/OfRJpfb5Wdg"
-        urlImagen="procesos/educa.png"
+        urlImagen="procesos/IMG_1226.JPEG.jpg"
         nombreVideo="Hero Video"
         direccion="derecha"
-      />
-      <SectionProcesos
-        title={translations.security.title}
-        subtitle={translations.security.subtitle}
-        urlVideo="https://www.youtube.com/embed/XE1nt_pokxs"
-        urlImagen="procesos/protoring.png"
-        nombreVideo="Hero Video"
-        direccion="izquierda"
         features={[
           {
-            icon: <ScanFace />,
-            title: `${translations.security.card1.title}`,
-            description: `${translations.security.card1.description}`,
+            icon: <Users />,
+            title: `${translations.services.card1.title}`,
+            description: `${translations.services.card1.description}`,
           },
           {
-            icon: <EyeOff />,
-            title: `${translations.security.card2.title}`,
-            description: `${translations.security.card2.description}`,
+            icon: <Settings />,
+            title: `${translations.services.card2.title}`,
+            description: `${translations.services.card2.description}`,
           },
           {
-            icon: <ShieldCheck />,
-            title: `${translations.security.card3.title}`,
-            description: `${translations.security.card3.description}`,
+            icon: <MonitorSmartphone />,
+            title: `${translations.services.card3.title}`,
+            description: `${translations.services.card3.description}`,
           },
           {
-            icon: <Lock />,
-            title: `${translations.security.card4.title}`,
-            description: `${translations.security.card4.description}`,
+            icon: <TrendingUp />,
+            title: `${translations.services.card4.title}`,
+            description: `${translations.services.card4.description}`,
           },
         ]}
       />
@@ -97,9 +84,31 @@ export const Procesos = () => {
         title={translations.management.title}
         subtitle={translations.management.subtitle}
         urlVideo="https://www.youtube.com/embed/6Q1b_2RWq6Q"
-        urlImagen="https://utfs.io/f/Nbwlwl0eTrfuX90QO1GCMJ27oKt5y9NivGzZ4mDHu1YnRjpb"
+        urlImagen="procesos/IMG_1227.JPEG.jpg"
         nombreVideo="Hero Video"
-        direccion="derecha"
+        direccion="izquierda"
+        features={[
+          {
+            icon: <Users />,
+            title: `${translations.services.card1.title}`,
+            description: `${translations.services.card1.description}`,
+          },
+          {
+            icon: <Settings />,
+            title: `${translations.services.card2.title}`,
+            description: `${translations.services.card2.description}`,
+          },
+          {
+            icon: <MonitorSmartphone />,
+            title: `${translations.services.card3.title}`,
+            description: `${translations.services.card3.description}`,
+          },
+          {
+            icon: <TrendingUp />,
+            title: `${translations.services.card4.title}`,
+            description: `${translations.services.card4.description}`,
+          },
+        ]}
       />
       <SectionProcesos
         title={translations.customApps.title}
@@ -107,7 +116,7 @@ export const Procesos = () => {
         urlVideo=""
         urlImagen=""
         nombreVideo="Hero Video"
-        direccion="izquierda"
+        direccion="derecha"
         esSoloImagenes={true}
         features={[
           {
