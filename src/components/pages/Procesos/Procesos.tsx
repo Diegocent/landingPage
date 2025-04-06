@@ -18,7 +18,7 @@ export const Procesos = () => {
   const translations =
     language === "es" ? esTranslations.process : enTranslations.process;
 
-  return (
+  return (  
     <>
       <SectionProcesos
         title={translations.services.title}

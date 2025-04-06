@@ -1,6 +1,5 @@
 import React from "react";
-import { BsFacebook, BsGithub, BsInstagram } from "react-icons/bs";
-import { FaXTwitter } from "react-icons/fa6";
+import { BsFacebook, BsGithub, BsInstagram, BsYoutube } from "react-icons/bs";
 
 const Footer: React.FC = () => {
   return (
@@ -28,29 +27,29 @@ const Footer: React.FC = () => {
             {
               linkedin: "https://www.linkedin.com/in/tobias-jara-65956a21a/",
               profileImage:
-                "https://media.licdn.com/dms/image/v2/D4D03AQEbwnnmDa4QTw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1707326645744?e=1743033600&v=beta&t=IkvuDLRYU_N17viKCriKGu2bJt-qcaYWrSH55P0UeP8",
+                "https://res.cloudinary.com/dply8oqep/image/upload/v1743971568/3ncbw8p7_eyu1ul.png",
             },
             {
               linkedin: "https://www.linkedin.com/in/diego-villalba-93579418b/",
               profileImage:
-                "https://media.licdn.com/dms/image/v2/C4E03AQH2KGwEKNeBYA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1565014889923?e=1743033600&v=beta&t=M3u80LBEWe1NUFMUYxBjPkBsV45UHjFB-WSoz6W-FW0",
+                "https://res.cloudinary.com/dply8oqep/image/upload/v1743971568/ukbtfkv9_bir43z.png",
             },
             {
               linkedin:
                 "https://www.linkedin.com/in/alejandro-prieto-990b8628b/",
               profileImage:
-                "https://media.licdn.com/dms/image/v2/D4D03AQEyDxSi9aNxBg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1727814495905?e=1743033600&v=beta&t=QjyVx8DZ5WrdJEklfcswXrWaf30sn7rKLOCYoeufhS4",
+                "https://res.cloudinary.com/dply8oqep/image/upload/v1743971568/mw4ye7c1_h5lgxl.png",
             },
             {
               linkedin: "https://www.linkedin.com/in/christian-parzajuk/",
               profileImage:
-                "https://utfs.io/f/Nbwlwl0eTrfufFCShffLDQN32OCnIoKEbxkyq4PvrZLfjTse",
+                "https://res.cloudinary.com/dply8oqep/image/upload/v1743971719/crm93d6j_qicyqe.png",
             },
             {
               linkedin:
                 "https://www.linkedin.com/in/micaelamaldonado?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
               profileImage:
-                "https://utfs.io/f/Nbwlwl0eTrfuOpzxWLyZGrR1q5SZcQ7e0EwTACjz6d32yLJn",
+                "https://res.cloudinary.com/dply8oqep/image/upload/v1743971719/8gtjk70j_itj2xk.png",
             },
             {
               linkedin: "https://www.linkedin.com/in/sam281055/",
@@ -91,8 +90,8 @@ const Footer: React.FC = () => {
               <a href="https://www.instagram.com/yvagacore.tech/" className="text-gray-400 hover:text-white">
                 <BsInstagram className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/yvagacore.tech/" className="text-gray-400 hover:text-white">
-                <FaXTwitter className="w-5 h-5" />
+              <a href="https://www.youtube.com/@Yvagacore" className="text-gray-400 hover:text-white">
+                <BsYoutube className="w-5 h-5" />
               </a>
               <a href="https://www.instagram.com/yvagacore.tech/" className="text-gray-400 hover:text-white">
                 <BsGithub className="w-5 h-5" />

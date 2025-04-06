@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { DialogUser } from "./DialogUser";
@@ -90,11 +90,15 @@ export const Hero = () => {
           </motion.p>
           <motion.div variants={fadeInUp} className="flex justify-center sm:justify-start">
             <DialogUser>
-              <Button className="relative flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-lg text-lg font-semibold z-10 border-none focus:outline-none focus:border-none shadow-[0_4px_8px_rgba(56,205,212,0.2)] transition-shadow duration-300 transform hover:scale-102 hover:border-[#8df4f6] hover:shadow-[0_4px_10px_rgba(56,205,212,0.25),0_0_15px_rgba(56,205,212,0.3)]">
-                {translations.buttonText}{" "}
-                <ChevronRight className="w-5 h-5 ml-2" />
+              <Button className="group relative flex items-center justify-center gap-3 overflow-hidden rounded-md bg-gradient-to-r from-cyan-900 to-teal-900 px-8 py-3 text-lg font-medium text-white shadow-[0_6px_12px_rgba(6,182,212,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_20px_rgba(6,182,212,0.6)] border-none outline-none focus:outline-none focus:ring-0 active:scale-95">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-cyan-800 to-teal-800 opacity-0 blur-md transition-all duration-300 group-hover:opacity-20"></span>
+
+                <span className="relative z-10 flex items-center gap-3">
+                  {translations.buttonText}
+                  <Lightbulb className="w-5 h-5 text-white transition-all duration-500 ease-in-out group-hover:rotate-12 group-hover:scale-110 animate-float" />
+                </span>
               </Button>
-            </DialogUser>
+           </DialogUser>
           </motion.div>
         </motion.div>
 

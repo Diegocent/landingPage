@@ -1,4 +1,5 @@
-import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 
 const FloatingButton = () => {
   return (
@@ -8,17 +9,17 @@ const FloatingButton = () => {
         href="https://wa.me/+595974853466"
         target="_blank"
         rel="noopener noreferrer"
-        className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#77b9c5]"
+        className="p-3 transition-all bg-[rgba(209,209,209,0.23)] rounded-full shadow-lg hover:bg-[#77b9c5]"
       >
-        <FaWhatsapp size={30} color="white" />
+        <FaWhatsapp size={30} color="#46e433" />
       </a>
 
-      {/* Botón de Mail */}
+      {/* Botón de Gmail con fondo blanco e ícono rojo */}
       <a
         href="mailto:business@yvagacore.tech"
-        className="p-3 transition-all bg-[#3B505A] rounded-full shadow-lg hover:bg-[#77b9c5]"
+        className="p-3 transition-all bg-[rgba(255,255,255,0.84)] rounded-full shadow-lg hover:bg-[#77b9c5]"
       >
-        <FaEnvelope size={30} color="white" />
+        <SiGmail size={30} color="#D14836" /> 
       </a>
     </div>
   );
