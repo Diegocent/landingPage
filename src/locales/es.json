@@ -1,11 +1,11 @@
 {
   "hero": {
     "title": [
-      { "text": "Conectamos", "style": "highlight" },
-      { "text": " innovación con ", "style": "normal" },
-      { "text": "resultados", "style": "highlight" }
+      { "text": "Impulsamos", "style": "highlight" },
+      { "text": " tu empresa con IA y tecnología a", "style": "normal" },
+      { "text": " medida", "style": "normal" }
     ],
-    "description": "Ayudamos a tu empresa a adaptarse y crecer en un mundo cambiante, transformando las oportunidades digitales en resultados tangibles.",
+    "description": "Conectamos inteligencia artificial y tecnología de vanguardia para automatizar procesos, optimizar tu operación y crear sistemas que llevan a tu empresa al siguiente nivel",
     "buttonText": "Hablemos de tu proyecto"
   },
   "sections": [

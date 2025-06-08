@@ -1,11 +1,11 @@
 {
   "hero": {
     "title": [
-      { "text": "We connect", "style": "highlight" },
-      { "text": " innovation with ", "style": "normal" },
-      { "text": "results", "style": "highlight" }
+      { "text": "We boost", "style": "highlight" },
+      { "text": " your business with AI and tailor-made ", "style": "normal" },
+      { "text": "technology", "style": "normal" }
     ],
-    "description": "We help your business adapt and grow in a changing world, transforming digital opportunities into tangible and sustainable results.",
+    "description": "We connect artificial intelligence and cutting-edge technology to automate processes, optimize your operations, and create systems that take your company to the next level",
     "buttonText": "Let's talk about your project"
   },
   "sections": [
