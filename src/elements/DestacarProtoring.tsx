@@ -1,69 +1,77 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import esTranslations from "@/locales/es.json";
-import enTranslations from "@/locales/en.json";
-import { useLanguage } from "@/context/LanguageContext";
-import { DialogUser } from "@/components/pages/DialogUser";
+import { useState } from 'react';
+import { FaWhatsapp, FaEnvelope, FaYoutube } from "react-icons/fa";
 
-export default function DestacarProtoring() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const { language } = useLanguage();
-  const translations =
-    language === "es" ? esTranslations.protoring : enTranslations.proctoring;
+export default function AgenciaDigital() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleVideoPlay = () => {
+    setIsPlaying(true);
+  };
 
   return (
-    <section
-      className="bg-gradient-to-t from-[#202b31] via-[#202b3135] to-[#202b31] py-20"
-      ref={ref}
-    >
-      <div className="container flex flex-col items-center max-w-6xl gap-12 px-6 mx-auto md:px-12 lg:flex-row">
-        {isInView && (
-          <>
-            {/* Imagen del proceso de examen */}           
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+    <section className="bg-[#0A1A2F] text-white py-20">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Encabezado */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <span className="text-white">Innovemos juntos la educación con </span>
+            <span className="text-[rgb(123,210,225)]">ProtorGuard</span>
+          </h1>
+          <p className="text-gray-300 mt-4">
+            La educación en Paraguay da un paso hacia el futuro. Nuestra IA avanzada con reconocimiento facial protege los exámenes virtuales, garantizando un proceso seguro y sin fraude. Integra fácilmente con las plataformas universitarias, transformando la manera en que se administran y evalúan los exámenes, todo en tiempo real.
+          </p>
+        </div>
+
+        {/* Contenido principal: Video */}
+        <div className="relative rounded-lg overflow-hidden shadow-lg aspect-video bg-gray-800">
+          <iframe
+            src={`https://www.youtube.com/embed/kAcCUgjizck${isPlaying ? '?autoplay=1' : ''}`}
+            title="ProtorGuard Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          />
+          {!isPlaying && (
+            <button 
+              onClick={handleVideoPlay} 
+              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
             >
-              <img
-                src="/face.JPG"  
-                alt="Proceso de examen"
-                className="w-[410px] h-[400px] object-cover" 
-              />
-            </motion.div>
-            {/* Texto y Botón */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="w-full text-center lg:text-left lg:w-1/2"
-            >
-              <h2 className="text-4xl font-bold text-[rgb(130,236,255)]">
-                {translations.title}
-              </h2>
-              <p className="text-lg text-[rgb(130,236,255)]">
-                <strong className="text-[#ffffff] mb-6">
-                  {translations.description1}{" "}
-                </strong>
-                {translations.description2}{" "}
-                <strong className="text-[#ffffff] mb-6">
-                  {translations.descriptionHeader}
-                </strong>
-              </p>
-              {/* Se agrega margen superior al botón para separarlo más del texto */}
-              <DialogUser>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative flex items-center bg-gradient-to-b from-[#3B505A] to-[#3b505a21] text-white px-8 py-3 rounded-lg text-lg font-semibold z-10 border-none focus:outline-none focus:border-none shadow-[0_4px_8px_rgba(56,205,212,0.2)] transition-shadow duration-300 transform hover:scale-102 hover:border-[#8df4f6] hover:shadow-[0_4px_10px_rgba(56,205,212,0.25),0_0_15px_rgba(56,205,212,0.3)] mt-8"
+              <div className="w-16 h-16 bg-[rgb(123,210,225)] rounded-full flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-8 w-8 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
                 >
-                  {translations.buttonText}
-                </motion.button>
-              </DialogUser>
-            </motion.div>
-          </>
-        )}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M14.752 11.168l-4.586-2.576A1 1 0 009 9.418v5.164a1 1 0 001.166.975l4.586-2.576a1 1 0 000-1.737z"
+                  />
+                </svg>
+              </div>
+            </button>
+          )}
+        </div>
+
+        {/* Información adicional */}
+        <div className="flex flex-col items-center mt-8 text-gray-400">
+          <p className="text-center mb-4">Más información</p>
+          {/* Logotipos de clientes */}
+          <div className="flex justify-center items-center gap-8 z-10"> {/* Asegúrate de que el z-index sea mayor aquí */}
+            <a href="https://wa.me/+595974853466" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp className="text-[#25D366] text-3xl hover:text-[rgb(123,210,225)]" />
+            </a>
+            <a href="mailto:business@yvagacore.tech" target="_blank" rel="noopener noreferrer">
+              <FaEnvelope className="text-gray-400 text-3xl hover:text-[rgb(123,210,225)]" />
+            </a>
+            <a href="https://www.youtube.com/watch?v=kAcCUgjizck&list=PLu9oYY-7cMe92yakuSor_4ae9AHuwZFM4&ab_channel=Yvagacore" target="_blank" rel="noopener noreferrer">
+              <FaYoutube className="text-gray-100 text-3xl hover:text-[rgb(123,210,225)]" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

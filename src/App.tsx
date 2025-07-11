@@ -54,7 +54,7 @@ function App() {
               initial={{ y: "-100%" }} // Comienza más arriba
               animate={{ y: "30%" }} // Termina más abajo para evitar un corte brusco
               transition={{
-                duration: 5, // Aumenta la duración para un movimiento más suave
+                duration: 4, // Aumenta la duración para un movimiento más suave
                 ease: "easeInOut", // Cambia a easeInOut para un efecto de desaceleración y aceleración
               }}
             />

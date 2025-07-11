@@ -1,16 +1,16 @@
 {
   "hero": {
     "title": [
-      { "text": "Conectamos", "style": "highlight" },
-      { "text": " innovación con ", "style": "normal" },
-      { "text": "resultados", "style": "highlight" }
+      { "text": "Impulsamos", "style": "highlight" },
+      { "text": " tu empresa con IA y tecnología a", "style": "normal" },
+      { "text": " medida", "style": "normal" }
     ],
-    "description": "Ayudamos a tu empresa a adaptarse y crecer en un mundo cambiante, transformando las oportunidades digitales en resultados tangibles y sostenibles.",
+    "description": "Conectamos inteligencia artificial y tecnología de vanguardia para automatizar procesos, optimizar tu operación y crear sistemas que llevan a tu empresa al siguiente nivel",
     "buttonText": "Hablemos de tu proyecto"
   },
   "sections": [
     { "clave": "hero", "valor": "Inicio" },
-    { "clave": "videos", "valor": "Procesos" },
+    { "clave": "videos", "valor": "Servicios" },
     { "clave": "techstack", "valor": "Tecnologías" },
     { "clave": "proyectos", "valor": "Proyectos" },
     { "clave": "about", "valor": "Nosotros" }
@@ -19,7 +19,7 @@
   "process": {
     "services": {
       "title": "Nuestros Servicios",
-      "subtitle": "Soluciones diseñadas para cada necesidad",
+      "subtitle": "son ofrecer soluciones diseñadas para maximizar la participación de las empresas en el mundo digital con innovación",
       "card1": {
         "title": "Acompañamiento Total",
         "description": "Te guiamos en cada fase de tu proyecto, desde la idea inicial hasta la producción final, asegurando un desarrollo exitoso y adaptado a tus necesidades."
@@ -63,7 +63,7 @@
     },
     "management": {
       "title": "Sistema de Inventario para Negocios",
-      "subtitle": "Optimiza procesos, maximiza resultados y adapta tu negocio a las demandas del mercado actual, con soporte integrado para facturación electrónica."
+      "subtitle": "Optimiza tu negocio, maximiza resultados y adapta a las demandas del mercado actual, con soporte integrado para facturación electrónica."
     },
     "customApps": {
       "title": "Soluciones Móviles Personalizadas",

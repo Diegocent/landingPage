@@ -147,11 +147,12 @@ export function DialogUser({ children }: { children: ReactNode }) {
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent
-      className="sm:max-w-[500px] bg-gradient-to-r from-[#000000] bg-gray-600 text-white py-2 rounded-[30px] shadow-lg"
+      className="sm:max-w-[500px] bg-gray-700 text-white py-2 rounded-[30px] shadow-lg"
       style={{
+        backgroundColor: "rgb(32 43 49 / var(--tw-bg-opacity))",
         borderRadius: "30px",
         border: "3px solid rgb(43 43 43 / 78%)",
-        boxShadow: "rgb(142 142 142 / 90%) 0px 0px 15px", 
+        boxShadow: "rgb(142 142 142 / 90%) 0px 0px 15px",
       }}
     >
         <div className="relative flex flex-col items-center justify-center px-4 pb-6 space-y-4">
@@ -172,7 +173,7 @@ export function DialogUser({ children }: { children: ReactNode }) {
           <div className="w-full h-[300px] max-w-sm px-3 overflow-y-auto">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col items-center w-full p-3 space-y-3 bg-gray-800 rounded-md"
+              className="flex flex-col items-center w-full p-3 space-y-3 rounded-md"
             >
               <div className="w-full max-w-xs">
                 <Label htmlFor="type" className="text-left">
