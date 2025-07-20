@@ -8,9 +8,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import "./i18n";
 import { LanguageProvider } from "./context/LanguageContext";
-import Demos from "./components/pages/Demos/Demos";
+// import Demos from "./components/pages/Demos/Demos";
 import DestacarProtoring from "./elements/DestacarProtoring";
 import FloatingButton from "./FloatingButton";
+import DestacarTekko from "./elements/DestacarTekko";
 
 function App() {
   const targetRef = useRef(null);
@@ -75,6 +76,11 @@ function App() {
               <Hero />
             </section>
 
+            <section id="proyectos">
+              <DestacarProtoring />
+              <DestacarTekko />
+            </section>
+
             <section id="videos">
               <Procesos />
             </section>
@@ -83,13 +89,9 @@ function App() {
               <TechStack />
             </section>
 
-            <section>
-              <DestacarProtoring />
-            </section>
-
-            <section id="proyectos">
+            {/* <section id="proyectos">
               <Demos />
-            </section>
+            </section> */}
 
             <section id="about">
               <AboutUsSection />

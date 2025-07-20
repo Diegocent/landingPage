@@ -10,9 +10,9 @@
   },
   "sections": [
     { "clave": "hero", "valor": "Inicio" },
+    { "clave": "proyectos", "valor": "Proyectos" },
     { "clave": "videos", "valor": "Servicios" },
     { "clave": "techstack", "valor": "Tecnologías" },
-    { "clave": "proyectos", "valor": "Proyectos" },
     { "clave": "about", "valor": "Nosotros" }
   ],
 
@@ -132,6 +132,88 @@
       "phone": "El teléfono es obligatorio",
       "minDescription": "La descripción debe tener al menos 10 caracteres",
       "maxDescription": "Máximo 200 caracteres"
+    }
+  },
+  "highlightProctor": {
+    "title": "Transformá tus evaluaciones con ProctorGuard",
+    "description": "Hacemos que las evaluaciones virtuales sean seguras, confiables y automatizadas desde el ingreso hasta el informe final.",
+    "functionProctor": "¿Cómo funciona?",
+    "features": [
+      {
+        "title": "Exámenes sin trampas",
+        "description": "Detectamos y prevenimos fraudes automáticamente durante evaluaciones virtuales."
+      },
+      {
+        "title": "Identidad validada",
+        "description": "Confirmamos quién rinde el examen mediante tecnología facial rápida y precisa."
+      },
+      {
+        "title": "Informes exportables",
+        "description": "Recibí reportes con detalles de comportamiento, puntuación y alertas, listos para descargar en PDF."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Registro facial único",
+        "description": "El estudiante se registra una única vez mediante reconocimiento facial para su validación."
+      },
+      {
+        "title": "Ingreso verificado al examen",
+        "description": "Antes de iniciar, se valida la identidad del estudiante comparando su rostro."
+      },
+      {
+        "title": "Monitoreo inteligente",
+        "description": "Durante el examen, el sistema captura imágenes cada 15 segundos y las analiza."
+      },
+      {
+        "title": "Análisis de incidencias",
+        "description": "Se detectan irregularidades y se descuenta puntaje automáticamente."
+      },
+      {
+        "title": "Reportes automáticos",
+        "description": "Finalizado el examen, el sistema genera un informe detallado para el docente."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Acceso controlado",
+        "description": "Solo ingresan usuarios autorizados. Validación facial cifrada y privada."
+      },
+      {
+        "title": "Supervisión en vivo",
+        "description": "Observación continua con alertas automáticas para comportamientos sospechosos."
+      },
+      {
+        "title": "Evaluación automática",
+        "description": "El sistema puntúa, detecta irregularidades y genera resultados sin intervención manual."
+      }
+    ],
+    "cta": {
+      "text": "¿Querés saber más o integrar ProctorGuard?",
+      "button": "Descargar presentación PDF"
+    }
+  },
+
+  "highlightTekko": {
+    "title": "Descubrí Tekko",
+    "description": "Una app pensada para acompañar de forma amable y práctica. Explorá cómo Tekko puede mejorar tu día a día con herramientas intuitivas y un diseño cálido.",
+    "features": [
+      {
+        "title": "Interfaz Amigable",
+        "description": "Diseñada para ser intuitiva y cálida, incluso para quienes no están familiarizados con la tecnología."
+      },
+      {
+        "title": "Soporte Cognitivo",
+        "description": "Facilita la organización diaria y estimula la autonomía con recordatorios y rutinas."
+      },
+      {
+        "title": "Pensada con Empatía",
+        "description": "Creada para acompañar con sensibilidad y respeto a cada usuario y su familia."
+      }
+    ],
+    "buttons": {
+      "instagram": "Instagram",
+      "visitSite": "Visitar sitio"
     }
   }
 }

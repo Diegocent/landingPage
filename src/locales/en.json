@@ -10,9 +10,9 @@
   },
   "sections": [
     { "clave": "hero", "valor": "Home" },
+    { "clave": "proyectos", "valor": "Projects" },
     { "clave": "videos", "valor": "Services" },
     { "clave": "techstack", "valor": "Technologies" },
-    { "clave": "proyectos", "valor": "Projects" },
     { "clave": "about", "valor": "About Us" }
   ],
 
@@ -131,6 +131,88 @@
       "phone": "Phone number is required",
       "minDescription": "Description must be at least 10 characters long",
       "maxDescription": "Maximum 200 characters"
+    }
+  },
+  "highlightProctor": {
+    "title": "Transform your assessments with ProctorGuard",
+    "description": "We make virtual assessments secure, reliable, and automated from login to final reporting.",
+    "functionProctor": "How does it work?",
+    "features": [
+      {
+        "title": "Cheating-free exams",
+        "description": "We automatically detect and prevent fraud during online assessments."
+      },
+      {
+        "title": "Validated identity",
+        "description": "We confirm who is taking the exam using fast and accurate facial recognition technology."
+      },
+      {
+        "title": "Exportable reports",
+        "description": "Receive reports with behavior details, scores, and alerts, ready to download in PDF format."
+      }
+    ],
+    "steps": [
+      {
+        "title": "Unique facial registration",
+        "description": "The student registers only once through facial recognition for validation."
+      },
+      {
+        "title": "Verified exam access",
+        "description": "Before starting, the student’s identity is validated by comparing their face."
+      },
+      {
+        "title": "Smart monitoring",
+        "description": "During the exam, the system captures images every 15 seconds and analyzes them."
+      },
+      {
+        "title": "Incident analysis",
+        "description": "Irregularities are detected and points are automatically deducted."
+      },
+      {
+        "title": "Automatic reports",
+        "description": "After the exam, the system generates a detailed report for the instructor."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Controlled access",
+        "description": "Only authorized users can enter. Facial validation is encrypted and private."
+      },
+      {
+        "title": "Live supervision",
+        "description": "Continuous observation with automatic alerts for suspicious behavior."
+      },
+      {
+        "title": "Automated evaluation",
+        "description": "The system scores, detects irregularities, and generates results without manual intervention."
+      }
+    ],
+    "cta": {
+      "text": "Want to learn more or integrate ProctorGuard?",
+      "button": "Download PDF presentation"
+    }
+  },
+
+  "highlightTekko": {
+    "title": "Discover Tekko",
+    "description": "An app designed to provide gentle and practical support. Explore how Tekko can improve your daily life with intuitive tools and a warm design.",
+    "features": [
+      {
+        "title": "User-Friendly Interface",
+        "description": "Designed to be intuitive and warm, even for those unfamiliar with technology."
+      },
+      {
+        "title": "Cognitive Support",
+        "description": "Helps organize daily life and fosters autonomy through reminders and routines."
+      },
+      {
+        "title": "Built with Empathy",
+        "description": "Created to support users and their families with sensitivity and respect."
+      }
+    ],
+    "buttons": {
+      "instagram": "Instagram",
+      "visitSite": "Visit Site"
     }
   }
 }

@@ -8,8 +8,8 @@ import { useLanguage } from "@/context/LanguageContext";
 export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const { language, setLanguage } = useLanguage();
-  const [isVisible, setIsVisible] = useState(true); 
-  const [lastScrollY, setLastScrollY] = useState(0); 
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const sections =
     language === "es" ? esTranslations.sections : enTranslations.sections;
@@ -66,7 +66,7 @@ export const Header = () => {
       className={`fixed z-10 flex justify-center w-full transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
-      style={{ top: "20px"}}
+      style={{ top: "20px" }}
       initial={{ opacity: 1 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
     >
