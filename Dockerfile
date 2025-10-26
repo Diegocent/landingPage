@@ -1,28 +1,27 @@
-# Etapa 1: Construcción
-FROM node:18 AS builder
-
+# Stage 1: Build
+FROM node:18-alpine AS builder
 WORKDIR /app
 
+# Copiar dependencias e instalar
 COPY package*.json ./
 RUN npm install
 
+# Copiar el código fuente y construir
 COPY . .
-
 RUN npm run build
 
-# Etapa 2: Producción
-FROM node:18-alpine AS runner
-
+# Stage 2: Producción
+FROM node:18-alpine
 WORKDIR /app
 
-ENV NODE_ENV production
+# Instalar servidor estático
+RUN npm install -g serve
 
-# Copiar solo lo necesario
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+# Copiar solo la carpeta del build
+COPY --from=builder /app/dist ./dist
 
+# Puerto que expondrá el contenedor
 EXPOSE 3007
 
-CMD ["npm", "start"]
+# Comando de inicio
+CMD ["serve", "-s", "dist", "-l", "3007"]
