@@ -1,38 +1,28 @@
-# ------------------------
-# Step 1: Build react app
-# ------------------------
+# Etapa 1: Construcción
+FROM node:18 AS builder
 
-# Usar una imagen base de Node.js
-FROM node:18-alpine AS builder
-
-# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar package.json e instalar dependencias
-COPY package.json package-lock.json* ./
+COPY package*.json ./
 RUN npm install
 
-# Copiar el resto de los archivos del proyecto
 COPY . .
 
-# Construir la aplicación
 RUN npm run build
 
-# ------------------------
-# Step 2: Serve the app
-# ------------------------
+# Etapa 2: Producción
+FROM node:18-alpine AS runner
 
-# Usar una imagen ligera de Nginx para servir la aplicación
-FROM nginx:alpine
+WORKDIR /app
 
-# Copiar los archivos construidos desde la etapa anterior
-COPY --from=builder /app/dist /usr/share/nginx/html
+ENV NODE_ENV production
 
-# Copiar la configuración de Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copiar solo lo necesario
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
 
-# Exponer el puerto 80 (puerto predeterminado de Nginx)
-EXPOSE 80
+EXPOSE 3007
 
-# Comando para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
