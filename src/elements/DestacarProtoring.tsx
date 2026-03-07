@@ -183,7 +183,7 @@ export default function DestacarProtoring() {
           <p className="mb-4 text-center">{cta.text}</p>
           <div className="flex items-center justify-center gap-8">
             <a
-              href="https://wa.me/+595974853466"
+              href="https://wa.me/+595992617942"
               target="_blank"
               rel="noopener noreferrer"
             >
