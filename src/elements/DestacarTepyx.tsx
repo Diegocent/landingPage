@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Bot, Blocks, Zap, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
@@ -13,7 +13,6 @@ export default function DestacarTepyx() {
     language === "es"
       ? esTranslations.highlightTepyx
       : enTranslations.highlightTepyx;
-  const featuresIcons = [Bot, Blocks, Zap];
   const sectionRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
