@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import TechStack from "./elements/TechStack";
-import { Procesos } from "./components/pages/Procesos/Procesos";
+import { Procesos }  from "./components/pages/Procesos/Procesos";
 import { Hero } from "./components/pages/Hero";
 import AboutUsSection from "./components/layout/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -12,6 +12,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import DestacarProtoring from "./elements/DestacarProtoring";
 import FloatingButton from "./FloatingButton";
 import DestacarTekko from "./elements/DestacarTekko";
+import DestacarTepyx from "./elements/DestacarTepyx";
 
 function App() {
   const targetRef = useRef(null);
@@ -77,8 +78,9 @@ function App() {
             </section>
 
             <section id="proyectos">
-              <DestacarProtoring />
+              <DestacarTepyx />
               <DestacarTekko />
+              <DestacarProtoring />
             </section>
 
             <section id="videos">

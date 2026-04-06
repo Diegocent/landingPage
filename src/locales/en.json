@@ -133,6 +133,52 @@
       "maxDescription": "Maximum 200 characters"
     }
   },
+
+   "highlightTepyx": {
+    "eyebrow": "New Project",
+    "title": "Autonomous AI Agents for Web3 Workflows",
+    "description": "Tepyx lets you create, deploy, and manage artificial intelligence agents that operate autonomously in Web3 environments, automating complex tasks without constant human intervention.",
+    "features": [
+      {
+        "title": "Fully autonomous agents",
+        "description": "Configure agents that reason, plan, and act on their own, executing tasks on blockchain and external services without manual supervision."
+      },
+      {
+        "title": "Native Web3 integration",
+        "description": "Connect securely to smart contracts, wallets, and DeFi protocols. Agents interact directly with the chain without complex configurations."
+      },
+      {
+        "title": "No-code visual workflows",
+        "description": "Design workflows with an intuitive visual builder. Automate on-chain and off-chain operations by combining modules with a single click."
+      }
+    ],
+    "buttons": {
+      "visitApp": "Explore Tepyx",
+      "learnMore": "View documentation"
+    },
+    "mockup": {
+      "title": "Agents Dashboard",
+      "badge": "Live",
+      "workflow": "Active workflow",
+      "floatLabel": "Tasks completed today",
+      "floatValue": "128 operations",
+      "agents": [
+        {
+          "name": "DeFi Monitor Agent",
+          "status": "Monitoring liquidity in real time"
+        },
+        {
+          "name": "Governance Agent",
+          "status": "Awaiting next voting round"
+        },
+        {
+          "name": "Wallet Manager Agent",
+          "status": "Rebalancing completed"
+        }
+      ]
+    }
+  },
+
   "highlightProctor": {
     "title": "Transform your assessments with ProctorGuard",
     "description": "We make virtual assessments secure, reliable, and automated from login to final reporting.",

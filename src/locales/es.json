@@ -134,6 +134,7 @@
       "maxDescription": "Máximo 200 caracteres"
     }
   },
+
   "highlightProctor": {
     "title": "Transformá tus evaluaciones con ProctorGuard",
     "description": "Hacemos que las evaluaciones virtuales sean seguras, confiables y automatizadas desde el ingreso hasta el informe final.",
@@ -191,6 +192,96 @@
     "cta": {
       "text": "¿Querés saber más o integrar ProctorGuard?",
       "button": "Descargar presentación PDF"
+    }
+  },
+
+  "highlightTepyx": {
+    "eyebrow": "New Project",
+    "title": "Autonomous AI Agents for Web3 Workflows",
+    "description": "Tepyx lets you create, deploy, and manage artificial intelligence agents that operate autonomously in Web3 environments, automating complex tasks without constant human intervention.",
+    "features": [
+      {
+        "title": "Fully autonomous agents",
+        "description": "Configure agents that reason, plan, and act on their own, executing tasks on blockchain and external services without manual supervision."
+      },
+      {
+        "title": "Native Web3 integration",
+        "description": "Connect securely to smart contracts, wallets, and DeFi protocols. Agents interact directly with the chain without complex configurations."
+      },
+      {
+        "title": "No-code visual workflows",
+        "description": "Design workflows with an intuitive visual builder. Automate on-chain and off-chain operations by combining modules with a single click."
+      }
+    ],
+    "buttons": {
+      "visitApp": "Explore Tepyx",
+      "learnMore": "View documentation"
+    },
+    "mockup": {
+      "title": "Agents Dashboard",
+      "badge": "Live",
+      "workflow": "Active workflow",
+      "floatLabel": "Tasks completed today",
+      "floatValue": "128 operations",
+      "agents": [
+        {
+          "name": "DeFi Monitor Agent",
+          "status": "Monitoring liquidity in real time"
+        },
+        {
+          "name": "Governance Agent",
+          "status": "Awaiting next voting round"
+        },
+        {
+          "name": "Wallet Manager Agent",
+          "status": "Rebalancing completed"
+        }
+      ]
+    }
+  },
+
+  "highlightTepyx": {
+    "eyebrow": "Nuevo Proyecto",
+    "title": "Agentes IA autónomos para flujos Web3",
+    "description": "Tepyx te permite crear, desplegar y gestionar agentes de inteligencia artificial que operan de forma autónoma en entornos Web3, automatizando tareas complejas sin intervención humana constante.",
+    "features": [
+      {
+        "title": "Agentes totalmente autónomos",
+        "description": "Configura agentes que razonan, planifican y actúan por sí solos, ejecutando tareas en blockchain y servicios externos sin supervisión manual."
+      },
+      {
+        "title": "Integración Web3 nativa",
+        "description": "Conéctate a smart contracts, wallets y protocolos DeFi de forma segura. Los agentes interactúan directamente con la cadena sin configuraciones complejas."
+      },
+      {
+        "title": "Workflows visuales sin código",
+        "description": "Diseña flujos de trabajo con un constructor visual intuitivo. Automatiza operaciones on-chain y off-chain combinando módulos con un solo clic."
+      }
+    ],
+    "buttons": {
+      "visitApp": "Explorar Tepyx",
+      "learnMore": "Ver documentación"
+    },
+    "mockup": {
+      "title": "Panel de Agentes",
+      "badge": "En vivo",
+      "workflow": "Flujo activo",
+      "floatLabel": "Tareas completadas hoy",
+      "floatValue": "128 operaciones",
+      "agents": [
+        {
+          "name": "Agente DeFi Monitor",
+          "status": "Monitoreando liquidez en tiempo real"
+        },
+        {
+          "name": "Agente Governance",
+          "status": "Esperando próxima votación"
+        },
+        {
+          "name": "Agente Wallet Manager",
+          "status": "Rebalanceo completado"
+        }
+      ]
     }
   },
 
