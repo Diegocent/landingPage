@@ -1,5 +1,5 @@
 import React from "react";
-import { BsFacebook, BsGithub, BsInstagram, BsYoutube, BsEnvelope, BsWhatsapp } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsYoutube, BsEnvelope, BsWhatsapp } from "react-icons/bs";
 import { useLanguage } from "@/context/LanguageContext";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
