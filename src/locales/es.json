@@ -1,12 +1,20 @@
 {
   "hero": {
     "title": [
-      { "text": "Impulsamos", "style": "highlight" },
-      { "text": " tu empresa con IA y tecnología a", "style": "normal" },
+      { "text": "Desarrollo de software", "style": "highlight" },
+      { "text": " y soluciones tecnológicas a", "style": "normal" },
       { "text": " medida", "style": "normal" }
     ],
-    "description": "Conectamos inteligencia artificial y tecnología de vanguardia para automatizar procesos, optimizar tu operación y crear sistemas que llevan a tu empresa al siguiente nivel",
+    "description": "Somos una Software Factory especializada en la creación de aplicaciones web, móviles y sistemas personalizados. Transformamos tus ideas en productos digitales escalables y de alto impacto.",
+    "descriptionMobile": "Software Factory experta en desarrollo web y móvil a medida. Creamos productos digitales escalables para tu negocio.",
     "buttonText": "Hablemos de tu proyecto"
+  },
+  "footer": {
+    "description": "YvagaCore combina yvaga, que significa cielo en guaraní, y core, que representa el núcleo, simbolizando nuestro compromiso de guiar a las empresas hacia su paraíso tecnológico.",
+    "contact": "CONTACTO",
+    "followUs": "SÍGUENOS",
+    "rights": "Todos los derechos reservados.",
+    "team": "Nuestro Equipo:"
   },
   "sections": [
     { "clave": "hero", "valor": "Inicio" },

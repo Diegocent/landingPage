@@ -86,7 +86,7 @@ function App() {
 
             <section id="videos">
               <Clientes />
-            </section> 
+            </section>
 
             <section id="techstack">
               <TechStack />

@@ -105,10 +105,18 @@ export const Hero = () => {
           </motion.h2>
 
           <motion.p
-            className="max-w-2xl mb-8 text-xl text-gray-300"
+            className="hidden md:block max-w-2xl mb-8 text-xl text-gray-300"
             variants={fadeInUp}
           >
             {translations.description}
+          </motion.p>
+          
+          <motion.p
+            className="block md:hidden max-w-2xl mb-8 text-base text-gray-300"
+            variants={fadeInUp}
+          >
+            {/* @ts-ignore */}
+            {translations.descriptionMobile || translations.description}
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex justify-center sm:justify-start">

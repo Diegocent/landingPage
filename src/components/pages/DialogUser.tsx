@@ -1,327 +1,135 @@
 import { useState, ReactNode } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
-  DialogClose,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import IconCloud from "../ui/icon-cloud";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import { motion } from "framer-motion";
+import { BsWhatsapp, BsEnvelope } from "react-icons/bs";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
 import { useLanguage } from "@/context/LanguageContext";
-import axios from "axios";
-
-// Slugs para animación de IconCloud
-const slugs = [
-  "typescript",
-  "javascript",
-  "dart",
-  "java",
-  "react",
-  "flutter",
-  "android",
-  "html5",
-  "css3",
-  "nodedotjs",
-  "express",
-  "nextdotjs",
-  "prisma",
-  "amazonaws",
-  "postgresql",
-  "firebase",
-  "nginx",
-  "vercel",
-  "testinglibrary",
-  "jest",
-  "cypress",
-  "docker",
-  "git",
-  "jira",
-  "github",
-  "gitlab",
-  "visualstudiocode",
-  "androidstudio",
-  "sonarqube",
-  "figma",
-];
+import { toast } from "sonner";
 
 export function DialogUser({ children }: { children: ReactNode }) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const [contactType, setContactType] = useState("Persona");
   const { language } = useLanguage();
   const translations =
     language === "es" ? esTranslations.dialog : enTranslations.dialog;
 
-  // Validación con Zod
-  const schema = z.object({
-    type: z.enum(["Persona", "Empresa"]).default("Persona"),
-    email: z
-      .string()
-      .email({ message: `${translations.error.email}` })
-      .min(1, { message: `${translations.error.minEmail}` }),
-    name: z.string().min(2, { message: `${translations.error.name}` }),
-    lastName: z.string().min(2, { message: `${translations.error.lastName}` }),
-    phone: z.string().min(7, { message: `${translations.error.phone}` }),
-    description: z
-      .string()
-      .min(10, { message: `${translations.error.minDescription}` })
-      .max(200, { message: `${translations.error.maxDescription}` }),
-    companyName: z.string().optional(),
-  });
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
 
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(schema),
-    defaultValues: {
-      type: "Persona",
-      email: "",
-      name: "",
-      lastName: "",
-      phone: "",
-      description: "",
-      companyName: "",
-    },
-  });
-
-  interface FormData {
-    name: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    description: string;
-    companyName?: string;
-    type: string;
-  }
-
-  const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true); 
-    const formData = {
-      name: data.name,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      description: data.description,
-      companyName: data.companyName || "",
-      type: data.type,
-    };
-
-    const formUrl =
-      "https://mail-service-express-git-fea-449b0f-sl281055-gmailcoms-projects.vercel.app/api/send-email";
-
-    try {
-      // Usamos axios para hacer la solicitud POST
-      const response = await axios.post(formUrl, formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.status === 200) {
-        setIsSubmitted(true); // Marca el formulario como enviado
-      } else {
-        alert("Error al enviar el formulario");
-      }
-    } catch (error) {
-      console.error("Error enviando el formulario:", error);
-      alert("Hubo un error al enviar el formulario.");
-    } finally {
-      setIsSubmitting(false); // Finaliza el estado de envío
+  const handleWhatsApp = () => {
+    if (!name.trim() || !description.trim()) {
+      toast.error(
+        language === "es"
+          ? "Por favor completa tu nombre y la descripción del proyecto."
+          : "Please fill in your name and project description."
+      );
+      return;
     }
+    const text = `Hola Yvagacore! Soy ${name.trim()}.\n\nTengo el siguiente proyecto en mente:\n${description.trim()}`;
+    const url = `https://wa.me/595992617942?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  };
+
+  const handleEmail = () => {
+    if (!name.trim() || !description.trim()) {
+      toast.error(
+        language === "es"
+          ? "Por favor completa tu nombre y la descripción del proyecto."
+          : "Please fill in your name and project description."
+      );
+      return;
+    }
+    const subject = `Nuevo Proyecto de ${name.trim()}`;
+    const body = `Hola Yvagacore,\n\nSoy ${name.trim()}.\n\nTengo el siguiente proyecto en mente:\n${description.trim()}`;
+    const url = `mailto:business@yvagacore.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = url;
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent
-      className="sm:max-w-[500px] bg-gray-700 text-white py-2 rounded-[30px] shadow-lg"
-      style={{
-        backgroundColor: "rgb(32 43 49 / var(--tw-bg-opacity))",
-        borderRadius: "30px",
-        border: "3px solid rgb(43 43 43 / 78%)",
-        boxShadow: "rgb(142 142 142 / 90%) 0px 0px 15px",
-      }}
-    >
-        <div className="relative flex flex-col items-center justify-center px-4 pb-6 space-y-4">
-          <DialogClose
-            asChild
-            className="absolute p-2 text-gray-300 rounded-full top-3 right-3"
-            style={{
-              color: "rgb(156,240,255)",
-              backgroundColor: "transparent",
-              transition: "none",
-            }}
-          >
-            ✕
-          </DialogClose>
-          <div className="max-w-[150px] mb-3">
-            <IconCloud iconSlugs={slugs} />
+      <DialogContent className="sm:max-w-[450px] w-[95vw] bg-[#1a2126] text-white py-8 px-6 md:px-8 rounded-[30px] border border-white/10 shadow-[0_0_30px_rgba(123,210,225,0.1)]">
+
+        <div className="flex flex-col items-center justify-center space-y-6">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-teal-300">
+              {translations.buttonText}
+            </h2>
+            <p className="mt-2 text-sm text-gray-400">
+              {language === "es"
+                ? "Cuéntanos sobre ti y tu idea para empezar a trabajar juntos."
+                : "Tell us about yourself and your idea to get started working together."}
+            </p>
           </div>
-          <div className="w-full h-[300px] max-w-sm px-3 overflow-y-auto">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col items-center w-full p-3 space-y-3 rounded-md"
-            >
-              <div className="w-full max-w-xs">
-                <Label htmlFor="type" className="text-left">
-                  {translations.type}
-                </Label>
-                <select
-                  id="type"
-                  {...register("type")}
-                  onChange={(e) => setContactType(e.target.value)}
-                  className="w-full p-2 mt-1 text-black bg-white border rounded"
-                >
-                  <option value="Persona">{translations.Individual}</option>
-                  <option value="Empresa">{translations.Enterprise}</option>
-                </select>
-              </div>
 
-              <div className="w-full max-w-xs">
-                <Label htmlFor="name" className="text-left">
-                  {translations.name}
-                </Label>
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder={translations.placeHolderName}
-                  {...register("name")}
-                  className="mt-1"
-                />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {errors.name.message}
-                  </p>
-                )}
-              </div>
-              <div className="w-full max-w-xs">
-                <Label htmlFor="lastName" className="text-left">
-                  {translations.lastname}
-                </Label>
-                <Input
-                  id="lastName"
-                  type="text"
-                  placeholder={translations.placeHolderLastname}
-                  {...register("lastName")}
-                  className="mt-1"
-                />
-                {errors.lastName && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {errors.lastName.message}
-                  </p>
-                )}
-              </div>
+          <div className="w-full space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-gray-300">
+                {translations.name}
+              </Label>
+              <Input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder={translations.placeHolderName}
+                className="bg-[#0f1418] border-white/10 text-white placeholder:text-gray-600 focus-visible:ring-cyan-500"
+              />
+            </div>
 
-              <div className="w-full max-w-xs">
-                <Label htmlFor="phone" className="text-left">
-                  {translations.phone}
-                </Label>
-                <PhoneInput
-                  country={"py"}
-                  value={""}
-                  onChange={(phone) => setValue("phone", phone)}
-                  inputStyle={{
-                    width: "100%",
-                    padding: "0.5rem",
-                    paddingLeft: "3.5rem",
-                    color: "black",
-                    backgroundColor: "white",
-                  }}
-                  containerStyle={{
-                    width: "100%",
-                  }}
-                  buttonStyle={{
-                    borderRight: "1px solid #ccc",
-                    paddingRight: "1rem",
-                  }}
-                />
-                {errors.phone && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {errors.phone.message}
-                  </p>
-                )}
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="description" className="text-gray-300">
+                {translations.description}
+              </Label>
+              <textarea
+                id="description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder={translations.placeHolderDescription}
+                rows={4}
+                className="w-full rounded-md bg-[#0f1418] border border-white/10 text-white placeholder:text-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 px-3 py-2 text-sm resize-none"
+              />
+            </div>
+          </div>
 
-              <div className="w-full max-w-xs">
-                <Label htmlFor="email" className="text-left">
-                  {translations.mail}
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={translations.placeHolderMail}
-                  {...register("email")}
-                  className="mt-1"
-                />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {errors.email.message}
-                  </p>
-                )}
-              </div>
+          <div className="w-full pt-6 border-t border-white/5">
+            <p className="mb-4 text-sm text-center text-gray-400">
+              {language === "es"
+                ? "¿Cómo prefieres enviarnos esta información?"
+                : "How would you prefer to send this information?"}
+            </p>
 
-              <div className="w-full max-w-xs">
-                <Label htmlFor="description" className="text-left">
-                  {translations.description}
-                </Label>
-                <Input
-                  id="description"
-                  type="text"
-                  placeholder={translations.placeHolderDescription}
-                  {...register("description")}
-                  className="mt-1"
-                />
-                {errors.description && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {errors.description.message}
-                  </p>
-                )}
-              </div>
-
-              {contactType === "Empresa" && (
-                <div className="w-full max-w-xs">
-                  <Label htmlFor="companyName" className="text-left">
-                    {translations.nameEnterprise}
-                  </Label>
-                  <Input
-                    id="companyName"
-                    type="text"
-                    placeholder={translations.placeHolderEnterprise}
-                    {...register("companyName")}
-                    className="mt-1"
-                  />
-                </div>
-              )}
-
-              <Button
-                type="submit"
-                disabled={isSubmitting || isSubmitted}
-                className="w-full max-w-xs"
-                style={{
-                  backgroundColor: "rgb(156,240,255)",
-                  color: "black",
-                }}
+            <div className="grid grid-cols-2 gap-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleWhatsApp}
+                className="flex flex-col items-center justify-center gap-2 p-4 transition-colors border rounded-2xl border-[#25D366]/20 bg-[#25D366]/5 hover:bg-[#25D366]/10 group"
               >
-                {isSubmitting
-                  ? translations.sendingText
-                  : isSubmitted
-                  ? translations.sentText
-                  : translations.buttonText}
-              </Button>
-            </form>
+                <BsWhatsapp className="w-8 h-8 text-[#25D366] transition-transform group-hover:-rotate-12 group-hover:scale-110" />
+                <span className="text-xs font-medium text-[#25D366] md:text-sm">
+                  WhatsApp
+                </span>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleEmail}
+                className="flex flex-col items-center justify-center gap-2 p-4 transition-colors border rounded-2xl border-cyan-500/20 bg-cyan-500/5 hover:bg-cyan-500/10 group"
+              >
+                <BsEnvelope className="w-8 h-8 text-cyan-400 transition-transform group-hover:rotate-12 group-hover:scale-110" />
+                <span className="text-xs font-medium text-cyan-400 md:text-sm">
+                  {language === "es" ? "Correo" : "Email"}
+                </span>
+              </motion.button>
+            </div>
           </div>
         </div>
       </DialogContent>

@@ -97,7 +97,7 @@ export default function DestacarProtoring() {
         </div>
 
         {/* ── STEPS ── */}
-        <div className="mb-20">
+        <div className="hidden sm:block mb-20">
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -217,7 +217,7 @@ export default function DestacarProtoring() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="https://wa.me/+595974853466"
+              href="https://wa.me/+595992617942"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-[#25D366] transition-colors duration-300"
@@ -225,7 +225,7 @@ export default function DestacarProtoring() {
               <FaWhatsapp className="text-2xl" />
             </a>
             <a
-              href="mailto:business@yvagacore.tech"
+              href="mailto:business@yvagacore.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-[#7bd2e1] transition-colors duration-300"

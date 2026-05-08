@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, } from "framer-motion";
 import { useRef, useState } from "react";
-import { Sparkles, BrainCircuit, HandHeart, ArrowUpRight, MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Sparkles, BrainCircuit, HandHeart, ArrowUpRight, MoveRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
@@ -22,7 +22,7 @@ export default function DestacarTekko() {
   const featuresIcons = [Sparkles, BrainCircuit, HandHeart];
   const sectionRef = useRef(null);
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [, setDirection] = useState(1);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -30,31 +30,6 @@ export default function DestacarTekko() {
   });
 
   const imagesY = useTransform(scrollYProgress, [0, 1], [30, -30]);
-
-  const paginate = (dir: number) => {
-    setDirection(dir);
-    setCurrent((prev) => (prev + dir + screenshots.length) % screenshots.length);
-  };
-
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 120 : -120,
-      opacity: 0,
-      scale: 0.95,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -120 : 120,
-      opacity: 0,
-      scale: 0.95,
-      transition: { duration: 0.3, ease: "easeIn" },
-    }),
-  };
 
   return (
     <section
@@ -87,7 +62,7 @@ export default function DestacarTekko() {
             className="flex flex-col items-center gap-6"
           >
             {/* Stacked screenshots */}
-            <div className="relative w-full max-w-[360px] h-[520px] flex items-center justify-center">
+            <div className="relative w-full max-w-[280px] h-[400px] sm:max-w-[360px] sm:h-[520px] flex items-center justify-center">
               {screenshots.map((src, i) => {
                 const offset = i - current;
                 const isActive = offset === 0;
@@ -101,7 +76,7 @@ export default function DestacarTekko() {
                       setDirection(i > current ? 1 : -1);
                       setCurrent(i);
                     }}
-                    className="absolute w-[260px] h-[480px] object-cover rounded-3xl cursor-pointer border border-[#7bd2e1]/20 shadow-[0_30px_80px_rgba(0,0,0,0.4)] bg-[#0a1520]"
+                    className="absolute w-[200px] h-[360px] sm:w-[260px] sm:h-[480px] object-cover rounded-3xl cursor-pointer border border-[#7bd2e1]/20 shadow-[0_30px_80px_rgba(0,0,0,0.4)] bg-[#0a1520]"
                     animate={{
                       x: offset * 40,
                       y: offset * 12,

@@ -1,31 +1,37 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
-const clients = [
-  {
-    name: "3D Mbarete",
-    url: "https://3dmbarete.com.py",
-    logo: "/MBARETE 3D.png",
-    description: "Impresión 3D profesional en Paraguay",
-  },
-  {
-    name: "Menfor Import",
-    url: "https://menforimport.com/",
-    logo: "/logoMenforlogo.png",
-    description: "Importación y distribución de productos",
-  },
-];
-
 export const Clientes = () => {
   const { language } = useLanguage();
 
   const sectionTitle = language === "es" ? "Nuestros Clientes" : "Our Clients";
   const sectionSubtitle =
     language === "es"
-      ? "Empresas que ya confían en nosotros"
-      : "Companies that already trust us";
+      ? "Empresas que ya confían en nosotros para potenciar su presencia digital."
+      : "Companies that already trust us to boost their digital presence.";
 
   const visitText = language === "es" ? "Visitar sitio" : "Visit site";
+
+  const clients = [
+    {
+      name: "3D Mbarete",
+      url: "https://3dmbarete.com.py",
+      image: "/3dMbarete.png",
+      description:
+        language === "es"
+          ? "Impresión 3D profesional en Paraguay. Plataforma industrial, limpia y moderna para servicios de prototipado."
+          : "Professional 3D printing in Paraguay. Industrial, clean and modern platform for prototyping services.",
+    },
+    {
+      name: "Menfor Import",
+      url: "https://menforimport.com/",
+      image: "/menforImport.png",
+      description:
+        language === "es"
+          ? "Importación y distribución de productos. Solución web confiable y profesional para gestión logística y comercio."
+          : "Product import and distribution. Reliable and professional web solution for logistics management and trade.",
+    },
+  ];
 
   const fadeInUp = {
     initial: { opacity: 0, y: 25 },
@@ -92,7 +98,7 @@ export const Clientes = () => {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 
           {clients.map((client, i) => (
             <motion.a
@@ -106,59 +112,43 @@ export const Clientes = () => {
               viewport={{ once: true }}
               variants={cardVariants}
               className="
-                group relative flex flex-col items-start gap-4
-                p-7 rounded-xl
+                group relative flex flex-col
+                rounded-2xl
                 border border-white/5
-                bg-white/[0.03]
-                backdrop-blur-md
+                bg-[#11161a]
+                overflow-hidden
                 transition-all duration-300
-                hover:scale-[1.02]
                 hover:border-[#7bd2e1]/30
-                hover:shadow-[0_12px_40px_rgba(123,210,225,0.12)]
+                hover:shadow-[0_12px_40px_rgba(123,210,225,0.08)]
+                hover:-translate-y-1
               "
             >
-              {/* Glow hover interno */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#7bd2e1]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Header card */}
-              <div className="relative z-10 flex items-center gap-4">
-
-                {/* Logo */}
-                <div className="w-14 h-14 rounded-lg bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#7bd2e1]/30 transition">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="w-10 h-10 object-contain"
-                    onError={(e) => {
-                      const el = e.currentTarget as HTMLImageElement;
-                      el.style.display = "none";
-                      const parent = el.parentElement;
-                      if (parent) {
-                        parent.innerHTML = `
-                          <span style="color:#7bd2e1;font-weight:600;font-size:1rem">
-                            ${client.name[0]}
-                          </span>
-                        `;
-                      }
-                    }}
-                  />
-                </div>
-
-                {/* Name */}
-                <h3 className="text-white font-semibold text-lg group-hover:text-[#7bd2e1] transition">
-                  {client.name}
-                </h3>
+              {/* Image Section */}
+              <div className="w-full aspect-video overflow-hidden bg-black/20">
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
 
-              {/* Description */}
-              <p className="relative z-10 text-gray-400 text-sm leading-relaxed">
-                {client.description}
-              </p>
+              {/* Content Section */}
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="text-white font-semibold text-2xl mb-3 transition-colors">
+                  {client.name}
+                </h3>
 
-              {/* Link */}
-              <span className="relative z-10 text-sm text-[#7bd2e1]/70 group-hover:text-[#7bd2e1] transition">
-                {visitText} →
-              </span>
+                <p className="text-gray-400 text-base leading-relaxed mb-8 flex-1">
+                  {client.description}
+                </p>
+
+                <div className="flex items-center gap-2 text-[#7bd2e1] font-medium transition-transform group-hover:translate-x-1">
+                  {visitText} 
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
             </motion.a>
           ))}
         </div>

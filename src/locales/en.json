@@ -1,12 +1,20 @@
 {
   "hero": {
     "title": [
-      { "text": "We boost", "style": "highlight" },
-      { "text": " your business with AI and tailor-made ", "style": "normal" },
-      { "text": "technology", "style": "normal" }
+      { "text": "Custom software", "style": "highlight" },
+      { "text": " and tailored technological", "style": "normal" },
+      { "text": " solutions", "style": "normal" }
     ],
-    "description": "We connect artificial intelligence and cutting-edge technology to automate processes, optimize your operations, and create systems that take your company to the next level",
+    "description": "We are a Software Factory specializing in web, mobile, and custom systems development. We transform your ideas into scalable, high-impact digital products.",
+    "descriptionMobile": "Software Factory specialized in custom web and mobile development. We build scalable digital products for your business.",
     "buttonText": "Let's talk about your project"
+  },
+  "footer": {
+    "description": "YvagaCore combines 'yvaga', meaning heaven in Guarani, and 'core', representing the nucleus, symbolizing our commitment to guide companies to their technological paradise.",
+    "contact": "CONTACT",
+    "followUs": "FOLLOW US",
+    "rights": "All rights reserved.",
+    "team": "Our Team:"
   },
   "sections": [
     { "clave": "hero", "valor": "Home" },

@@ -16,10 +16,10 @@ const FloatingButton = () => {
 
       {/* Botón de Gmail con fondo blanco e ícono rojo */}
       <a
-        href="mailto:business@yvagacore.tech"
+        href="mailto:business@yvagacore.com"
         className="p-3 transition-all bg-[rgba(255,255,255,0.84)] rounded-full shadow-lg hover:bg-[#77b9c5]"
       >
-        <SiGmail size={30} color="#D14836" /> 
+        <SiGmail size={30} color="#D14836" />
       </a>
     </div>
   );
