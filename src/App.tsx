@@ -1,8 +1,9 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import TechStack from "./elements/TechStack";
-import { Procesos }  from "./components/pages/Procesos/Procesos";
+// import { Procesos }  from "./components/pages/Procesos/Procesos";
 import { Hero } from "./components/pages/Hero";
+import { Clientes } from "./components/pages/Clientes";
 import AboutUsSection from "./components/layout/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
@@ -84,8 +85,8 @@ function App() {
             </section>
 
             <section id="videos">
-              <Procesos />
-            </section>
+              <Clientes />
+            </section> 
 
             <section id="techstack">
               <TechStack />

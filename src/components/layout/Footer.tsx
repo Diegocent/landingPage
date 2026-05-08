@@ -3,7 +3,7 @@ import { BsFacebook, BsGithub, BsInstagram, BsYoutube } from "react-icons/bs";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#202b31] text-gray-400">
+    <footer className="bg-zinc-950 text-gray-400">
       <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8">
         {/* Contenedor principal */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">

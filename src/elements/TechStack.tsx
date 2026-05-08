@@ -53,7 +53,7 @@ export default function TechStack() {
   }, [controls, width]);
 
   return (
-    <section className="py-16 overflow-hidden bg-transparent">
+    <section className="py-16 overflow-hidden bg-zinc-950">
       <motion.div
         className="relative max-w-4xl mx-auto mb-16 text-center"
         initial="hidden"

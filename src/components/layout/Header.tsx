@@ -63,7 +63,7 @@ export const Header = () => {
 
   return (
     <motion.header
-      className={`fixed z-10 flex justify-center w-full transition-transform duration-300 ${
+      className={`fixed z-50 flex justify-center w-full transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
       style={{ top: "20px" }}

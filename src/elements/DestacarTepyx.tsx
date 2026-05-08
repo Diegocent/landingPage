@@ -79,11 +79,6 @@ export default function DestacarTepyx() {
               {/* Shimmer top edge */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7bd2e1]/60 to-transparent" />
             </div>
-            {/* Live indicator */}
-            <div className="absolute top-4 right-4 flex items-center gap-2 bg-[#060d11]/80 backdrop-blur-sm border border-[#7bd2e1]/20 rounded-full px-3 py-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#7bd2e1] animate-pulse" />
-              <span className="text-[#7bd2e1] text-xs font-bold uppercase tracking-widest">Live</span>
-            </div>
           </motion.div>
         </div>
 

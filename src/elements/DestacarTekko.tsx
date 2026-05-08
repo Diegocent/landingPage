@@ -1,11 +1,17 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { Sparkles, BrainCircuit, HandHeart, ArrowUpRight, MoveRight } from "lucide-react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { Sparkles, BrainCircuit, HandHeart, ArrowUpRight, MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
+
+const screenshots = [
+  "/Screenshot 19.png",
+  "/Screenshot 15.png",
+  "/Screenshot 17.png",
+];
 
 export default function DestacarTekko() {
   const { language } = useLanguage();
@@ -15,13 +21,40 @@ export default function DestacarTekko() {
       : enTranslations.highlightTekko;
   const featuresIcons = [Sparkles, BrainCircuit, HandHeart];
   const sectionRef = useRef(null);
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  const videoY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const imagesY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
+  const paginate = (dir: number) => {
+    setDirection(dir);
+    setCurrent((prev) => (prev + dir + screenshots.length) % screenshots.length);
+  };
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 120 : -120,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -120 : 120,
+      opacity: 0,
+      scale: 0.95,
+      transition: { duration: 0.3, ease: "easeIn" },
+    }),
+  };
 
   return (
     <section
@@ -45,32 +78,51 @@ export default function DestacarTekko() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* ── LEFT: Video ── */}
+          {/* ── LEFT: Carrusel de screenshots ── */}
           <motion.div
-            style={{ y: videoY }}
+            style={{ y: imagesY }}
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
-            className="flex justify-center"
+            className="flex flex-col items-center gap-6"
           >
-            {/* Phone frame */}
-            <div className="relative w-full max-w-[300px]">
-              {/* Glow behind phone */}
-              <div className="absolute inset-0 rounded-[2.5rem] bg-[#7bd2e1]/10 pointer-events-none" />
+            {/* Stacked screenshots */}
+            <div className="relative w-full max-w-[360px] h-[520px] flex items-center justify-center">
+              {screenshots.map((src, i) => {
+                const offset = i - current;
+                const isActive = offset === 0;
 
-              <div className="relative rounded-[2.5rem] overflow-hidden border border-[#7bd2e1]/25 shadow-[0_0_80px_rgba(123,210,225,0.12)] aspect-[9/16]">
-                {/* Shimmer top */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7bd2e1]/60 to-transparent z-10" />
-
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/Ae_fKY1Fmt8"
-                  title="Tekko - Shorts"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
+                return (
+                  <motion.img
+                    key={src}
+                    src={src}
+                    alt={`Tekko screenshot ${i + 1}`}
+                    onClick={() => {
+                      setDirection(i > current ? 1 : -1);
+                      setCurrent(i);
+                    }}
+                    className="absolute w-[260px] h-[480px] object-cover rounded-3xl cursor-pointer border border-[#7bd2e1]/20 shadow-[0_30px_80px_rgba(0,0,0,0.4)] bg-[#0a1520]"
+                    animate={{
+                      x: offset * 40,
+                      y: offset * 12,
+                      scale: isActive ? 1 : 0.92,
+                      rotate: offset * 3,
+                      opacity: Math.abs(offset) > 2 ? 0 : 1,
+                      zIndex: 10 - Math.abs(offset),
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 25,
+                    }}
+                    whileHover={
+                      isActive
+                        ? { y: -8, scale: 1.02 }
+                        : {}
+                    }
+                  />
+                );
+              })}
             </div>
           </motion.div>
 
