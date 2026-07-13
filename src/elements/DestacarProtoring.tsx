@@ -42,20 +42,6 @@ export default function DestacarProtoring() {
       ref={sectionRef}
       className="relative bg-[#060d11] py-24 px-6 overflow-hidden"
     >
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(#7bd2e1 1px, transparent 1px), linear-gradient(90deg, #7bd2e1 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      {/* Ambient glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#7bd2e1]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#4bbecf]/4 blur-[120px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto">
 
         {/* ── HEADER ── */}
@@ -197,7 +183,7 @@ export default function DestacarProtoring() {
             <a
               href="/material/proctorGuard.pdf"
               download
-              className="group flex items-center justify-center gap-2 mt-2 px-7 py-3.5 rounded-xl font-bold text-sm text-[#060d11] bg-[#7bd2e1] hover:bg-[#9de0ec] transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2 mt-2 px-7 py-3.5 rounded-full bg-[#7bd2e1] text-[#060d11] text-sm font-semibold hover:bg-[#9de0ec] transition-colors duration-300 self-start"
             >
               <FaDownload className="text-sm" />
               {cta.button}

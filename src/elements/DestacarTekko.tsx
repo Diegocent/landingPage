@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform, } from "framer-motion";
 import { useRef, useState } from "react";
-import { Sparkles, BrainCircuit, HandHeart, ArrowUpRight, MoveRight } from "lucide-react";
+import { Sparkles, BrainCircuit, HandHeart, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
@@ -36,20 +36,6 @@ export default function DestacarTekko() {
       ref={sectionRef}
       className="relative bg-[#060d11] py-24 px-6 overflow-hidden"
     >
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(#7bd2e1 1px, transparent 1px), linear-gradient(90deg, #7bd2e1 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-
-      {/* Ambient glows */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-[#7bd2e1]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#4bbecf]/4 blur-[120px] pointer-events-none" />
-
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -156,19 +142,18 @@ export default function DestacarTekko() {
                 href="https://tekko.yvagacore.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-[#060d11] bg-[#7bd2e1] hover:bg-[#9de0ec] hover:text-black/80 transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#7bd2e1] text-[#060d11] text-sm font-semibold hover:bg-[#9de0ec] transition-colors duration-300"
               >
                 {t.buttons.visitSite}
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
                 href="https://www.instagram.com/tekko_app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-[#7bd2e1] border border-[#7bd2e1]/30 hover:border-white/80 hover:text-white/80 hover:bg-[#7bd2e1]/5 transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-1.5 text-sm font-semibold text-white hover:text-[#7bd2e1] transition-colors duration-300"
               >
                 {t.buttons.instagram}
-                <MoveRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </motion.div>
           </div>

@@ -19,9 +19,9 @@
   "sections": [
     { "clave": "hero", "valor": "Home" },
     { "clave": "proyectos", "valor": "Projects" },
-    { "clave": "videos", "valor": "Services" },
+    { "clave": "videos", "valor": "About Us" },
     { "clave": "techstack", "valor": "Technologies" },
-    { "clave": "about", "valor": "About Us" }
+    { "clave": "about", "valor": "Contact" }
   ],
 
   "process": {
@@ -144,46 +144,34 @@
 
    "highlightTepyx": {
     "eyebrow": "New Project",
-    "title": "Autonomous AI Agents for Web3 Workflows",
-    "description": "Tepyx lets you create, deploy, and manage artificial intelligence agents that operate autonomously in Web3 environments, automating complex tasks without constant human intervention.",
+    "title": "Turn your WhatsApp chats into automatic sales",
+    "description": "Deploy your AI sales agent in under 5 minutes. No technical setup, no code architectures. Just scan a QR code and let your conversational agent close sales 24/7.",
+    "bullets": [
+      "Instant_QR_Onboarding",
+      "Conversational_Inventory",
+      "24/7_Night_Shift_Sales",
+      "Local_QR_&_Card_Payments"
+    ],
     "features": [
       {
-        "title": "Fully autonomous agents",
-        "description": "Configure agents that reason, plan, and act on their own, executing tasks on blockchain and external services without manual supervision."
+        "tag": "DYNAMIC_AGENT_PERSONALIZATION",
+        "title": "Shape your agent's sales persona",
+        "description": "Adjust in real time how your AI greets customers, handles local slang, manages objections, and steers conversations to replicate your best real-world sales strategies."
       },
       {
-        "title": "Native Web3 integration",
-        "description": "Connect securely to smart contracts, wallets, and DeFi protocols. Agents interact directly with the chain without complex configurations."
+        "tag": "HYBRID_REAL_TIME_INVENTORY",
+        "title": "Absolute flexibility over your stock",
+        "description": "Change prices or add new items on the fly by talking to your WhatsApp sales agent, or manage your entire catalog instantly from the responsive web dashboard."
       },
       {
-        "title": "No-code visual workflows",
-        "description": "Design workflows with an intuitive visual builder. Automate on-chain and off-chain operations by combining modules with a single click."
+        "tag": "FLUID_CHAT_&_SALES_ALERTS",
+        "title": "Real-time sales alerts",
+        "description": "The AI orchestrates your customers' active chats and fires instant automatic notifications to your phone the second a sale is closed."
       }
     ],
     "buttons": {
-      "visitApp": "Explore Tepyx",
-      "learnMore": "View documentation"
-    },
-    "mockup": {
-      "title": "Agents Dashboard",
-      "badge": "Live",
-      "workflow": "Active workflow",
-      "floatLabel": "Tasks completed today",
-      "floatValue": "128 operations",
-      "agents": [
-        {
-          "name": "DeFi Monitor Agent",
-          "status": "Monitoring liquidity in real time"
-        },
-        {
-          "name": "Governance Agent",
-          "status": "Awaiting next voting round"
-        },
-        {
-          "name": "Wallet Manager Agent",
-          "status": "Rebalancing completed"
-        }
-      ]
+      "visitApp": "Go to the Business App",
+      "learnMore": "Connect via WhatsApp"
     }
   },
 
