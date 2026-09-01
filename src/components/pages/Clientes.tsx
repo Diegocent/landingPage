@@ -95,6 +95,13 @@ const copyEs = {
       image: "/menforImport.png",
       text: "Plataforma web para su operación de importación y comercio.",
     },
+    {
+      name: "SOME Paraguay",
+      url: "https://www.someparaguay.com",
+      image: "/SomeParaguay.png",
+      text: "Indumentaria deportiva y artículos de gimnasio seleccionados para entrenar con intención."
+
+    }
   ],
   ctaTitle: "¿Tenés una idea dando vueltas?",
   ctaButton: "Escribinos por WhatsApp",
