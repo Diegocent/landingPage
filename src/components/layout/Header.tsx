@@ -27,25 +27,32 @@ export const Header = () => {
       }
 
       setLastScrollY(currentScrollY);
-
-      // Actualizar la sección activa
-      sections.forEach((section) => {
-        const element = document.getElementById(section.clave);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const isVisible = rect.top >= 0 && rect.top <= window.innerHeight / 3;
-          if (isVisible) {
-            setActiveSection(section.clave);
-          }
-        }
-      });
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY, sections]);
+  }, [lastScrollY]);
+
+  // Sección activa: la última cuyo inicio ya pasó el primer tercio de la pantalla.
+  // Se calcula también al cargar, para que "Inicio" aparezca marcado desde el principio.
+  useEffect(() => {
+    const updateActive = () => {
+      let current = sections[0]?.clave ?? "";
+      sections.forEach((section) => {
+        const element = document.getElementById(section.clave);
+        if (element && element.getBoundingClientRect().top <= window.innerHeight / 3) {
+          current = section.clave;
+        }
+      });
+      setActiveSection(current);
+    };
+
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    return () => window.removeEventListener("scroll", updateActive);
+  }, [sections]);
 
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -71,8 +78,7 @@ export const Header = () => {
       animate={{ opacity: isVisible ? 1 : 0 }}
     >
       <nav
-        className="flex items-center justify-between w-full max-w-screen-lg px-4 py-2 mx-auto text-white bg-gray-800 rounded-lg bg-opacity-40 bg-opacity-30 md:px-8 md:py-3"
-        style={{ borderRadius: "12px" }}
+        className="flex items-center justify-between w-[calc(100%-32px)] max-w-6xl px-4 py-2 mx-auto text-white border rounded-2xl bg-black/55 backdrop-blur-xl border-white/10 md:px-6 md:py-3"
       >
         <motion.h2
           className="relative text-lg font-bold text-white font-[Promethean] cursor-pointer"
@@ -95,44 +101,34 @@ export const Header = () => {
                 e.preventDefault();
                 handleScrollTo(section.clave);
               }}
-              className={`relative transition-colors hover:text-[rgb(123,210,225)] ${
-                activeSection === section.clave
-                  ? "text-[rgb(123,210,225)]"
-                  : "text-white"
+              aria-current={activeSection === section.clave ? "true" : undefined}
+              className={`relative text-sm transition-colors duration-300 ease-brand hover:text-white ${
+                activeSection === section.clave ? "text-white" : "text-white/60"
               }`}
             >
-              {activeSection === section.clave && (
-                <span
-                  className="absolute -top-3 left-0 right-0 h-1 bg-[rgb(123,210,225)] rounded-b-md"
-                  style={{ transform: "translateY(-50%)" }}
-                />
-              )}
               {section.valor}
+              {activeSection === section.clave && (
+                <span className="absolute left-0 right-0 h-px bg-white -bottom-1" />
+              )}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={() => setLanguage("en")}
-            className={`px-2 py-1 text-xs font-semibold ${
-              language === "en"
-                ? "bg-[#1c1c1c] text-[rgb(106,181,194)]"
-                : "bg-[#1c1c1c] text-white"
-            } rounded-lg`}
-          >
-            EN
-          </button>
-          <button
-            onClick={() => setLanguage("es")}
-            className={`px-2 py-1 text-xs font-semibold ${
-              language === "es"
-                ? "bg-[#1c1c1c] text-[rgb(106,181,194)]"
-                : "bg-[#1c1c1c] text-white"
-            } rounded-lg`}
-          >
-            ES
-          </button>
+        <div className="flex items-center gap-1 p-0.5 border rounded-lg border-white/10">
+          {(["en", "es"] as const).map((lang) => (
+            <button
+              key={lang}
+              onClick={() => setLanguage(lang)}
+              aria-pressed={language === lang}
+              className={`px-2 py-1 text-xs uppercase rounded-md border-0 transition-colors duration-300 ease-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 ${
+                language === lang
+                  ? "bg-white text-black hover:bg-white"
+                  : "bg-transparent text-white/60 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              {lang}
+            </button>
+          ))}
         </div>
 
         <MobileMenu

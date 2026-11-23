@@ -22,7 +22,8 @@ export const MobileMenu = ({
     <div className="md:hidden">
       {/* Botón para abrir/cerrar el menú */}
       <button
-        className="p-2 text-white bg-gray-800 border-none focus:outline-none"
+        className="p-2 text-white bg-transparent border-none rounded-lg hover:bg-white/10"
+        aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
         {/* Cambiar entre iconos según el estado del menú */}
@@ -44,7 +45,7 @@ export const MobileMenu = ({
             stiffness: 100,
             damping: 15, // Efecto de rebote
           }}
-          className="absolute w-48 text-white bg-gray-800 rounded-lg shadow-lg right-4 top-16"
+          className="absolute w-48 text-white border shadow-lg bg-black/90 backdrop-blur-xl border-white/10 rounded-2xl right-4 top-16"
         >
           <ul className="flex flex-col p-4 space-y-4">
             {sections.map((section, index) => (
@@ -66,9 +67,9 @@ export const MobileMenu = ({
                   }}
                   className={`block text-lg hover:text-white ${
                     activeSection === section.clave
-                      ? "text-[#3B505A]"
-                      : "text-white"
-                  }`} // Mantén el color blanco
+                      ? "text-white"
+                      : "text-white/60"
+                  }`}
                   whileTap={{
                     y: -5, // Elevar ligeramente el texto al hacer clic
                     scale: 0.95, // Efecto de escala al hacer clic

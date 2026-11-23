@@ -1,235 +1,144 @@
-"use client";
-
-import { useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  FaDownload,
-  FaUserShield,
-  FaEye,
-  FaRobot,
-  FaWhatsapp,
-  FaEnvelope,
-  FaYoutube,
-  FaArrowRight,
-} from "react-icons/fa";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ShieldCheck, ScanFace, FileDown, Lock, Eye, Bot, Play } from "lucide-react";
+import { FaWhatsapp, FaEnvelope, FaYoutube } from "react-icons/fa";
 import esTranslations from "@/locales/es.json";
 import enTranslations from "@/locales/en.json";
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  Card,
+  IconTile,
+  PillButton,
+  Section,
+  SectionHeader,
+  SubHeading,
+  TextLink,
+  muted,
+  reveal,
+  subtle,
+} from "@/components/ui/section";
+
+const FEATURE_ICONS = [ShieldCheck, ScanFace, FileDown];
+const BENEFIT_ICONS = [Lock, Eye, Bot];
+const VIDEO_ID = "RWi01tPrOrc";
 
 export default function DestacarProtoring() {
   const [isPlaying, setIsPlaying] = useState(false);
   const { language } = useLanguage();
-  const sectionRef = useRef(null);
-
-  const translations =
-    language === "es"
-      ? esTranslations.highlightProctor
-      : enTranslations.highlightProctor;
-
-  const { features, steps: pasos, benefits: beneficios, cta } = translations;
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const videoY = useTransform(scrollYProgress, [0, 1], [30, -30]);
-
-  const featureIcons = [FaUserShield, FaEye, FaDownload];
-  const benefitIcons = [FaUserShield, FaEye, FaRobot];
+  const t = language === "es" ? esTranslations.highlightProctor : enTranslations.highlightProctor;
+  const videoLabel = language === "es" ? "Ver la demo en YouTube" : "Watch the demo on YouTube";
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[#060d11] py-24 px-6 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
+    <Section tone="white">
+      <SectionHeader tone="white" eyebrow="ProctorGuard" title={t.title} description={t.description}>
+        <PillButton href="/material/proctorGuard.pdf" download icon={<FileDown className="w-4 h-4" />}>
+          {t.cta.button}
+        </PillButton>
+        <TextLink href={`https://youtu.be/${VIDEO_ID}`} external>
+          {videoLabel}
+        </TextLink>
+      </SectionHeader>
 
-        {/* ── HEADER ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-black text-white leading-[1.05] tracking-tight mb-6">
-            {translations.title}
-          </h2>
-          <div className="w-20 h-1 bg-[#7bd2e1] rounded-full mb-8" />
-          <p className="text-gray-400 text-xl leading-relaxed max-w-2xl">
-            {translations.description}
-          </p>
+      {/* Features */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {t.features.map((feature, i) => {
+          const Icon = FEATURE_ICONS[i];
+          return (
+            <Card key={feature.title} tone="white" delay={i * 0.08}>
+              <IconTile>
+                <Icon className="w-5 h-5" />
+              </IconTile>
+              <h3 className="mb-2 text-xl text-balance">{feature.title}</h3>
+              <p className={`text-base leading-relaxed text-pretty ${muted("white")}`}>{feature.description}</p>
+            </Card>
+          );
+        })}
+      </div>
+
+      {/* How it works */}
+      <SubHeading>{t.functionProctor}</SubHeading>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {t.steps.map((step, i) => (
+          <Card key={step.title} tone="white" delay={i * 0.06} className="p-6">
+            <p className={`mb-4 text-sm ${subtle("white")}`}>{String(i + 1).padStart(2, "0")}</p>
+            <h4 className="mb-2 text-base text-balance">{step.title}</h4>
+            <p className={`text-sm leading-relaxed text-pretty ${muted("white")}`}>{step.description}</p>
+          </Card>
+        ))}
+      </div>
+
+      {/* Video + benefits */}
+      <div className="grid items-stretch grid-cols-1 gap-6 mt-24 lg:grid-cols-5">
+        <motion.div {...reveal()} className="relative overflow-hidden bg-black lg:col-span-3 rounded-3xl aspect-video lg:aspect-auto lg:min-h-[360px]">
+          {isPlaying ? (
+            <iframe
+              src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1`}
+              title="ProctorGuard demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setIsPlaying(true)}
+              aria-label={videoLabel}
+              className="absolute inset-0 flex items-center justify-center w-full h-full p-0 border-0 rounded-none group bg-black"
+            >
+              <img
+                src={`https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                className="absolute inset-0 object-cover w-full h-full transition-opacity duration-500 opacity-80 ease-brand group-hover:opacity-60"
+              />
+              <span className="relative flex items-center justify-center w-16 h-16 text-black transition-transform duration-300 bg-white rounded-full shadow-xl ease-brand group-hover:scale-105">
+                <Play className="w-6 h-6 ml-1 fill-black" />
+              </span>
+            </button>
+          )}
         </motion.div>
 
-        {/* ── FEATURE CARDS ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-20">
-          {features.map((feature, index) => {
-            const Icon = featureIcons[index];
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group p-6 rounded-2xl bg-[#0d1c24] border border-[#1d3040] hover:border-[#7bd2e1]/30 transition-colors duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#7bd2e1]/10 flex items-center justify-center mb-4 group-hover:bg-[#7bd2e1]/20 transition-colors">
-                  <Icon className="text-[#7bd2e1] text-lg" />
-                </div>
-                <h4 className="text-white font-semibold mb-2">{feature.title}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* ── STEPS ── */}
-        <div className="hidden sm:block mb-20">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-2xl font-black text-white mb-12"
-          >
-            {translations.functionProctor}
-          </motion.h3>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {pasos.map((paso, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="relative flex flex-col p-5 rounded-2xl bg-[#0d1c24] border border-[#1d3040] hover:border-[#7bd2e1]/30 transition-colors duration-300"
-              >
-                {/* Step number */}
-                <span className="text-[#7bd2e1]/40 text-xs font-black uppercase tracking-widest mb-3">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h4 className="text-white text-sm font-semibold mb-2 leading-snug">
-                  {paso.title}
-                </h4>
-                <p className="text-gray-500 text-xs leading-relaxed">{paso.description}</p>
-
-                {/* Arrow connector */}
-                {index < pasos.length - 1 && (
-                  <FaArrowRight className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-[#7bd2e1]/30 text-sm z-10" />
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── VIDEO + BENEFITS ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
-
-          {/* Video */}
-          <motion.div
-            style={{ y: videoY }}
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-            className="relative"
-          >
-            <div className="relative rounded-2xl overflow-hidden border border-[#7bd2e1]/25 shadow-[0_0_80px_rgba(123,210,225,0.12)] aspect-video">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7bd2e1]/60 to-transparent z-10" />
-              <iframe
-                src={`https://www.youtube.com/embed/RWi01tPrOrc${isPlaying ? "?autoplay=1" : ""}`}
-                title="ProctorGuard Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-              {!isPlaying && (
-                <button
-                  onClick={() => setIsPlaying(true)}
-                  className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm transition hover:bg-black/40"
-                >
-                  <div className="w-16 h-16 rounded-full bg-[#7bd2e1] flex items-center justify-center shadow-[0_0_30px_rgba(123,210,225,0.5)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-[#060d11]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-4.586-2.576A1 1 0 009 9.418v5.164a1 1 0 001.166.975l4.586-2.576a1 1 0 000-1.737z" />
-                    </svg>
-                  </div>
-                </button>
-              )}
-            </div>
-          </motion.div>
-
-          {/* Benefits + CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-            className="flex flex-col gap-5"
-          >
-            {beneficios.map((beneficio, index) => {
-              const Icon = benefitIcons[index];
+        <Card tone="white" className="flex flex-col lg:col-span-2">
+          <ul className="flex flex-col flex-1 gap-6">
+            {t.benefits.map((benefit, i) => {
+              const Icon = BENEFIT_ICONS[i];
               return (
-                <div
-                  key={index}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-[#0d1c24] border border-[#1d3040] hover:border-[#7bd2e1]/30 transition-colors duration-300"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-[#7bd2e1]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon className="text-[#7bd2e1] text-sm" />
+                <li key={benefit.title} className="flex gap-4">
+                  <div className="flex items-center justify-center w-10 h-10 text-white bg-black rounded-xl shrink-0">
+                    <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-white text-sm font-semibold mb-0.5">{beneficio.title}</p>
-                    <p className="text-gray-500 text-xs leading-relaxed">{beneficio.description}</p>
+                    <h4 className="mb-1 text-base">{benefit.title}</h4>
+                    <p className={`text-sm leading-relaxed text-pretty ${muted("white")}`}>{benefit.description}</p>
                   </div>
-                </div>
+                </li>
               );
             })}
+          </ul>
 
-            {/* Download button */}
-            <a
-              href="/material/proctorGuard.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 mt-2 px-7 py-3.5 rounded-full bg-[#7bd2e1] text-[#060d11] text-sm font-semibold hover:bg-[#9de0ec] transition-colors duration-300 self-start"
-            >
-              <FaDownload className="text-sm" />
-              {cta.button}
-            </a>
-          </motion.div>
-        </div>
-
-        {/* ── CONTACT ROW ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-10 border-t border-[#1d3040]"
-        >
-          <p className="text-gray-500 text-sm text-center sm:text-left max-w-sm">
-            {cta.text}
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href="https://wa.me/+595992617942"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-[#25D366] transition-colors duration-300"
-            >
-              <FaWhatsapp className="text-2xl" />
-            </a>
-            <a
-              href="mailto:business@yvagacore.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-[#7bd2e1] transition-colors duration-300"
-            >
-              <FaEnvelope className="text-2xl" />
-            </a>
-            <a
-              href="https://youtu.be/RWi01tPrOrc?si=6iFlFiGApfqMu7T0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-[#FF0000] transition-colors duration-300"
-            >
-              <FaYoutube className="text-2xl" />
-            </a>
+          <div className="pt-6 mt-8 border-t border-black/10">
+            <p className={`mb-4 text-sm ${muted("white")}`}>{t.cta.text}</p>
+            <div className="flex items-center gap-2">
+              {[
+                { href: "https://wa.me/+595992617942", label: "WhatsApp", Icon: FaWhatsapp },
+                { href: "mailto:business@yvagacore.com", label: "Email", Icon: FaEnvelope },
+                { href: `https://youtu.be/${VIDEO_ID}`, label: "YouTube", Icon: FaYoutube },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex items-center justify-center w-10 h-10 transition-colors duration-300 bg-white rounded-full text-neutral-700 ease-brand hover:bg-black hover:text-white"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
           </div>
-        </motion.div>
-
+        </Card>
       </div>
-    </section>
+    </Section>
   );
 }

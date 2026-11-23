@@ -9,6 +9,33 @@
     "descriptionMobile": "Software Factory experta en desarrollo web y móvil a medida. Creamos productos digitales escalables para tu negocio.",
     "buttonText": "Hablemos de tu proyecto"
   },
+  "journey": {
+    "hint": "Desliza para recorrer",
+    "cta": "Hablemos de tu proyecto",
+    "scenes": [
+      {
+        "label": "Equipo",
+        "alt": "Equipo de desarrolladores programando en una oficina moderna",
+        "eyebrow": "Software factory en Paraguay",
+        "title": "Desarrollo de software a medida para tu empresa",
+        "body": "Un equipo que escucha antes de programar y construye aplicaciones web, móviles y sistemas a tu medida."
+      },
+      {
+        "label": "Producto",
+        "alt": "El equipo presenta el panel de una aplicación a sus clientes",
+        "eyebrow": "Diseño junto a tu equipo",
+        "title": "Validamos cada avance contigo",
+        "body": "Presentamos entregas frecuentes para que veas crecer el producto y decidas en cada etapa."
+      },
+      {
+        "label": "Empresa",
+        "alt": "Dos ejecutivos revisan un panel de control en una laptop y una tablet",
+        "eyebrow": "Resultados",
+        "title": "Tu operación, más simple en cada área",
+        "body": "Ventas, stock, pedidos y reportes en un solo sistema, desde la computadora, la tablet o el celular."
+      }
+    ]
+  },
   "footer": {
     "description": "YvagaCore combina yvaga, que significa cielo en guaraní, y core, que representa el núcleo, simbolizando nuestro compromiso de guiar a las empresas hacia su paraíso tecnológico.",
     "contact": "CONTACTO",

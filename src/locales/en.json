@@ -9,6 +9,33 @@
     "descriptionMobile": "Software Factory specialized in custom web and mobile development. We build scalable digital products for your business.",
     "buttonText": "Let's talk about your project"
   },
+  "journey": {
+    "hint": "Scroll to explore",
+    "cta": "Let's talk about your project",
+    "scenes": [
+      {
+        "label": "Team",
+        "alt": "Team of developers coding in a modern office",
+        "eyebrow": "Software factory in Paraguay",
+        "title": "Custom software development for your company",
+        "body": "A team that listens before it codes and builds web apps, mobile apps and systems tailored to you."
+      },
+      {
+        "label": "Product",
+        "alt": "The team presents an application dashboard to their clients",
+        "eyebrow": "Designed with your team",
+        "title": "We validate every step with you",
+        "body": "We present frequent deliveries so you can watch the product grow and decide at every stage."
+      },
+      {
+        "label": "Business",
+        "alt": "Two executives review a dashboard on a laptop and a tablet",
+        "eyebrow": "Results",
+        "title": "Your operation, simpler in every area",
+        "body": "Sales, stock, orders and reports in a single system, from a computer, a tablet or a phone."
+      }
+    ]
+  },
   "footer": {
     "description": "YvagaCore combines 'yvaga', meaning heaven in Guarani, and 'core', representing the nucleus, symbolizing our commitment to guide companies to their technological paradise.",
     "contact": "CONTACT",

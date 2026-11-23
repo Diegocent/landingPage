@@ -1,30 +1,18 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import TechStack from "./elements/TechStack";
-// import { Procesos }  from "./components/pages/Procesos/Procesos";
-import { Hero } from "./components/pages/Hero";
+import { CodeJourney } from "./components/pages/CodeJourney";
 import { Clientes } from "./components/pages/Clientes";
 import AboutUsSection from "./components/layout/Footer";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 import "./i18n";
 import { LanguageProvider } from "./context/LanguageContext";
-// import Demos from "./components/pages/Demos/Demos";
 import DestacarProtoring from "./elements/DestacarProtoring";
 import FloatingButton from "./FloatingButton";
 import DestacarTekko from "./elements/DestacarTekko";
 import DestacarTepyx from "./elements/DestacarTepyx";
 
 function App() {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -38,44 +26,14 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen w-full bg-[#1a1a1a] text-white flex flex-col">
-        <div className="absolute inset-0 overflow-hidden">
-          <FloatingButton />
-
-          <div
-            className="absolute bg-gradient-to-t from-[#3b505a10] via-[#233036] to-[#095073] -right-48 rounded-br-[59px] rounded-bl-[100px] neon-container"
-            style={{
-              width: "830px",
-              height: "870px",
-              top: "-184.33px",
-              transform: "rotate(26.32deg)",
-              zIndex: 0,
-            }}
-          >
-            <motion.div
-              className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent via-[#097f93] to-transparent opacity-80 blur-md"
-              initial={{ y: "-100%" }} // Comienza más arriba
-              animate={{ y: "30%" }} // Termina más abajo para evitar un corte brusco
-              transition={{
-                duration: 4, // Aumenta la duración para un movimiento más suave
-                ease: "easeInOut", // Cambia a easeInOut para un efecto de desaceleración y aceleración
-              }}
-            />
-          </div>
-        </div>
+      <div className="flex flex-col w-full min-h-screen text-white bg-black">
+        <FloatingButton />
         <LanguageProvider>
           <div className="relative z-10">
             <Header />
-            <motion.div
-              ref={targetRef}
-              style={{ opacity, scale }}
-              className="fixed inset-0 pointer-events-none"
-            >
-              <div className="absolute inset-0 bg-[url('/path-to-your-background-image.jpg')] bg-cover bg-center" />
-            </motion.div>
 
             <section id="hero">
-              <Hero />
+              <CodeJourney />
             </section>
 
             <section id="proyectos">
@@ -91,10 +49,6 @@ function App() {
             <section id="techstack">
               <TechStack />
             </section>
-
-            {/* <section id="proyectos">
-              <Demos />
-            </section> */}
 
             <section id="about">
               <AboutUsSection />
